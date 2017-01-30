@@ -4,6 +4,9 @@ node_modules/
 _site/
 Fresh-code.github.io.iml
 
+_data/bd.json
+_posts/2016-12-07-how-to-ruin-first-impression.md
+
 img/blog/
 img/blog-post/
 img/job/
@@ -19,4 +22,5 @@ img/portfolio/
 img/tassta/
 img/flotron/
 img/wallbreaker/
+img/wall-breaker/
 img/twenty-one-learning/

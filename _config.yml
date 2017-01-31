@@ -26,24 +26,26 @@ include:
   - _pages
 exclude:
   - _assets-cache
-  - node_modules
   - build.sh
   - package.json
-  - server.js
   - run.sh
   - Dockerfile
   - docker-compose.yml
-  - node_server_index.html
   - CssMinify.yml
   - JsMinify.yml
   - Fresh-code.github.io.iml
   - _templates/
+  - _posts/
+  - server/
 
   - wp-data/_data/
   - wp-data/img/
   - wp-data/_pages/
-  - wp-data/_posts/
-  - server/
+  - wp-data/.gitignore
+  - wp-data/README.md
+
+  - project-data/
+
 markdown: kramdown
 permalink: pretty
 

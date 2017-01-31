@@ -1,5 +1,5 @@
 fc-site:
-  image: fc-site-main
+  image: fc-site
   #labels:
   #   io.rancher.scheduler.affinity:host_label: type=staging
   #image: registry.gitlab.com/freshcode-projects/freshcodeit.com

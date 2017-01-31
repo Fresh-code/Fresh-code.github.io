@@ -47,7 +47,7 @@
     {
       "title": "GommeHD",
       "description": "GommeHD is one of the leading Minecraft Servers with more than 1 million players throughout the world. The site delivers community news and statistics, as well as the latest updates and videos.",
-      "cover": "/img/portfolio/work_2p.jpg",
+      "cover": "/img/main/work_2.jpg",
       "alt": "GommeHD platform preview",
       "link": "/gommehd",
       "mainColor": "#775441"
@@ -55,7 +55,7 @@
     {
       "title": "TWENTY ONE LEARNING",
       "description": "Twenty One Learning is an interactive platform which main objective was to allow collaborative creation of lectures, presentations, slides and text with open access to all materials.",
-      "cover": "/img/portfolio/work_6p.jpg",
+      "cover": "/img/main/work_6.jpg",
       "alt": "Twenty One Learning platform preview",
       "link":  "/twenty-one-learning",
       "mainColor": "#576965"
@@ -71,7 +71,7 @@
     {
       "title": "Educadio",
       "description": "Educadio is a Digital Learning Tool that provides a real-time synchronization for instant user collaboration and a wide variety of collaborative work means, including video and text chats.",
-      "cover": "/img/portfolio/work_5p.jpg",
+      "cover": "/img/main/work_6.jpg",
       "alt": "Educadio platform preview",
       "link": "/educadio",
       "mainColor": "#354356"

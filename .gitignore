@@ -1,5 +1,3 @@
-# Created by .ignore support plugin (hsz.mobi)
-node_modules/
 .idea
 _site/
 Fresh-code.github.io.iml
@@ -7,20 +5,7 @@ Fresh-code.github.io.iml
 _data/bd.json
 _posts/2016-12-07-how-to-ruin-first-impression.md
 
-img/blog/
-img/blog-post/
-img/job/
-img/our_approach/
-img/testimonials/
-
-img/data-parser/
-img/educadio/
-img/gommehd/
-img/outdoor/
-img/playattention/
-img/portfolio/
-img/tassta/
-img/flotron/
-img/wallbreaker/
-img/wall-breaker/
-img/twenty-one-learning/
+_posts/
+_data/
+_pages/
+img/

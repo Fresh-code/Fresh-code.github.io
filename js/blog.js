@@ -50,6 +50,23 @@
         },
         
         {
+            posttitle: 'How to Ruin a First Impression. Things You Should Never Hear from a Software Company',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_321.png',
+            catauthor: 'Business | Alex Slobozhan',
+            position: 'Sales manager',
+            postcover: '/img/blog-post/post_321c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/post_321c-700.jpg 700w, /img/blog-post/post_321c-450.jpg 450w, /img/blog-post/post_321c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #48818c !important',
+            postbckg: 'background-color: #48818c !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2016/12/07/how/to/ruin/first/impression/'
+        },
+        
+        {
             posttitle: 'What Is MVP and Why Every Startup Needs It?',
             platformtag: 'JS',
             avatar: '/img/blog-post/author_4.png',

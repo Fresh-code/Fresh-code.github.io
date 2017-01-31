@@ -3028,6 +3028,7 @@ span.path {
 .post-titling .fresh-sub-block { width: 65%; }
 
 .post-body p { margin-bottom: 3rem; }
+.post-body strong { color: #333; }
 .post-body h2 { text-transform: uppercase; margin-bottom: 0; }
 .post-body pre.language-php {
 	border-radius: 0;

@@ -35,7 +35,7 @@ exclude:
   - JsMinify.yml
   - Fresh-code.github.io.iml
   - _templates/
-  - _posts/
+  - wp-data/_posts/
   - server/
 
   - wp-data/_data/

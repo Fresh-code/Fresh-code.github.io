@@ -3,6 +3,8 @@
  */
 (function(global) {
 
+
+
     var $conferences = $('.filter-conferences'),
         $development = $('.filter-development'),
         $management = $('.filter-management'),
@@ -30,23 +32,6 @@
             type: 'business',
             nondisplay: 'display: none',
             posturl: '/blog/2017/01/22/software/testing/'
-        },
-        
-        {
-            posttitle: 'How to Ruin a First Impression. Things You Should Never Hear from a Software Company',
-            platformtag: 'Java',
-            avatar: '/img/blog-post/author_1.png',
-            catauthor: 'business | Alex Slobozhan',
-            position: 'Sales manager',
-            postcover: '/img/blog-post/post_321c-350.jpg',
-            postalt: '',
-            postsrcset: '/img/blog-post/post_321c-700.jpg 700w, /img/blog-post/post_321c-450.jpg 450w, /img/blog-post/post_321c-350.jpg 350w',
-            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
-            postcoverbckg: 'background-color: #48818c !important',
-            postbckg: 'background-color: #48818c !important',
-            type: 'business',
-            nondisplay: 'display: none',
-            posturl: '/blog/2017/01/03/how/to/ruin/first/impression/'
         },
         
         {

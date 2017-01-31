@@ -56,10 +56,10 @@ img/portfolio/work_9p.jpg: 219ce5c84aa7da6ed6fa665489bee2b6
 "/img/twenty-one-learning/application1.jpg": 57aeb430e66f023cdbf6d800287c5505
 "/img/wallbreaker/Curves.jpg": 09fdeeac5590b3d02a7218dbd253ae64
 "/img/wallbreaker/macbook_left.png": db7d32cb0a5cf4b33d8e301a34602333
-js/portfolio.js: 913de1fab2dd9bdc6e12b33a8c0be8cc
-js/scripts.js: a6e6314a9df3344a327490757959945a
-js/blog.js: cbb96ebf7e641e2a3e64ecd814a996b0
-js/job.js: 8ba4a16840d4b681af8eda4142c5e0e2
+js/portfolio.js: 27bd1cd62fc0bef262df551d6b514671
+js/scripts.js: b1600133c35fc1ca2894bd09307b47f9
+js/blog.js: 63eda96ea8bbd540d1f2efdbbdc270c5
+js/job.js: 214a35a50b11f8fe2583346ee7662453
 css/bootstrap/bootstrap.min.css: 7027334fa6dd5f695f1b832cb3cd9319
 css/main.css: 389b2443eaa63ba95a14e2228a08720b
 css/font-awesome-4.6.3/css/font-awesome.min.css: 4083f5d376eb849a458cc790b53ba080
@@ -71,7 +71,6 @@ img/blog-post/post_4c.jpg: 57e872f6e7802f5a4f996c37d763e42f
 img/blog-post/post_6c.jpg: 2ba040b18e633eca05fd83b114a1d146
 img/blog-post/post_5c.jpg: bcc44aa4d7273cbcc4977a93bac70f2c
 img/blog-post/post_7c.jpg: fcac378076a7fae1b5881501aa776d69
-"/img/main/banner_main.jpg": e6d7551cc4172743b82448bf39317f9d
 "/img/job/banner_job.jpg": d5b850054deddb83462f8f1f61f496ff
 "/img/our_approach/banner_approach.jpg": 30616439b2d552cb025744db6d62314a
 "/img/portfolio/banner_portfolio.jpg": b62d7218da0e3e34c97c942261724551
@@ -165,3 +164,4 @@ img/portfolio/work_303p.jpg: e8ce4f2aeccc6a6ab6d312fd86941c46
 "/img/submodule-images/twenty-one-learning/work_third_img_291p.jpg": 57aeb430e66f023cdbf6d800287c5505
 "/img/submodule-images/wall-breaker/work_first_img_303p.jpg": 09fdeeac5590b3d02a7218dbd253ae64
 "/img/submodule-images/wall-breaker/work_third_img_303p.png": db7d32cb0a5cf4b33d8e301a34602333
+"/img/main/banner_main.jpg": 7b26483562565a06409ba9e8ef29e49c

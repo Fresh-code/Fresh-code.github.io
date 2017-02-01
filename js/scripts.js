@@ -7,6 +7,7 @@
  */
 (function(global) {
 
+
     $(window).on("load", function() {
 
         $.fn.randomize = function(selector){

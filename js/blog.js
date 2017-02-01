@@ -4,7 +4,6 @@
 (function(global) {
 
 
-
     var $conferences = $('.filter-conferences'),
         $development = $('.filter-development'),
         $management = $('.filter-management'),
@@ -20,7 +19,7 @@
         {
             posttitle: 'How Does Software Testing Ensure High-Quality Development?',
             platformtag: '',
-            avatar: '/img/blog-post/author_4.png',
+            avatar: '/img/blog-post/post_author_877.png',
             catauthor: 'Business | Elizabeth Troyanova',
             position: 'Project manager',
             postcover: '/img/blog-post/post_877c-350.jpg',
@@ -28,10 +27,10 @@
             postsrcset: '/img/blog-post/post_877c-700.jpg 700w, /img/blog-post/post_877c-450.jpg 450w, /img/blog-post/post_877c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             postcoverbckg: 'background-color: #616a9b !important',
-            postbckg: 'background-color: #55609b !important',
+            postbckg: 'background-color: #616a9b !important',
             type: 'business',
             nondisplay: 'display: none',
-            posturl: '/blog/2017/01/22/software/testing/'
+            posturl: '/blog/2017/01/22/software-testing/'
         },
         
         {
@@ -48,20 +47,20 @@
             postbckg: 'background-color: #48818c !important',
             type: 'business',
             nondisplay: 'display: none',
-            posturl: '/blog/2016/12/07/how/to/ruin/first/impression/'
+            posturl: '/blog/2016/12/07/how-to-ruin-first-impression/'
         },
         
         {
             posttitle: 'What Is MVP and Why Every Startup Needs It?',
-            platformtag: 'JS',
-            avatar: '/img/blog-post/author_4.png',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_257.png',
             catauthor: 'Business | Elizabeth Troyanova',
             position: 'Project manager',
-            postcover: '/img/blog-post/post_7c-350.jpg',
-            postalt: 'monitors',
-            postsrcset: '/img/blog-post/post_7c-700.jpg 700w, /img/blog-post/post_7c-450.jpg 450w, /img/blog-post/post_7c-350.jpg 350w',
+            postcover: '/img/blog-post/post_257c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/post_257c-700.jpg 700w, /img/blog-post/post_257c-450.jpg 450w, /img/blog-post/post_257c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
-            postcoverbckg: 'background-color: #7eb5b0 !important',
+            postcoverbckg: 'background-color: #679894 !important',
             postbckg: 'background-color: #679894 !important',
             type: 'business',
             nondisplay: 'display: none',
@@ -70,13 +69,13 @@
         
         {
             posttitle: 'Everything You Wanted to Know about the Time and Material Model',
-            platformtag: 'Apple',
-            avatar: '/img/blog-post/author_2.png',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_174.png',
             catauthor: 'Business | Marina Danilova',
             position: 'Sales manager',
-            postcover: '/img/blog-post/post_6c-350.jpg',
+            postcover: '/img/blog-post/post_174c-350.jpg',
             postalt: '',
-            postsrcset: '/img/blog-post/post_6c-700.jpg 700w, /img/blog-post/post_6c-450.jpg 450w, /img/blog-post/post_6c-350.jpg 350w',
+            postsrcset: '/img/blog-post/post_174c-700.jpg 700w, /img/blog-post/post_174c-450.jpg 450w, /img/blog-post/post_174c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             postcoverbckg: 'background-color: #4b4f67 !important',
             postbckg: 'background-color: #4b4f67 !important',
@@ -86,14 +85,14 @@
         },
         
         {
-            posttitle: 'Fixed Price Model: Everything You Need to Know',
-            platformtag: 'Apple',
-            avatar: '/img/blog-post/author_1.png',
+            posttitle: 'Fixed Price Model. Everything You Need to Know',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_168.png',
             catauthor: 'Business | Alex Slobozhan',
             position: 'Sales manager',
-            postcover: '/img/blog-post/post_5c-350.jpg',
+            postcover: '/img/blog-post/post_168c-350.jpg',
             postalt: '',
-            postsrcset: '/img/blog-post/post_5c-700.jpg 700w, /img/blog-post/post_5c-450.jpg 450w, /img/blog-post/post_5c-350.jpg 350w',
+            postsrcset: '/img/blog-post/post_168c-700.jpg 700w, /img/blog-post/post_168c-450.jpg 450w, /img/blog-post/post_168c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             postcoverbckg: 'background-color: #5f798b !important',
             postbckg: 'background-color: #5f798b !important',
@@ -104,30 +103,30 @@
         
         {
             posttitle: 'Engagement Models. Is Dedicated Team the Perfect One for You?',
-            platformtag: 'Apple',
-            avatar: '/img/blog-post/author_2.png',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_161.png',
             catauthor: 'Business | Marina Danilova',
             position: 'Sales manager',
-            postcover: '/img/blog-post/post_4c-350.jpg',
-            postalt: 'business session',
-            postsrcset: '/img/blog-post/post_4c-700.jpg 700w, /img/blog-post/post_4c-450.jpg 450w, /img/blog-post/post_4c-350.jpg 350w',
+            postcover: '/img/blog-post/post_161c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/post_161c-700.jpg 700w, /img/blog-post/post_161c-450.jpg 450w, /img/blog-post/post_161c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             postcoverbckg: 'background-color: #32576c !important',
             postbckg: 'background-color: #32576c !important',
             type: 'business',
             nondisplay: 'display: none',
-            posturl: '/blog/2016/10/17/is-dedicated-team-the-perfect-one-for-you/'
+            posturl: '/blog/2016/10/17/engagement-models/'
         },
         
         {
             posttitle: 'Do You Really Need Mobile App Post-Release Support or Is It an Exercise in Futility?',
-            platformtag: 'Java',
-            avatar: '/img/blog-post/author_1.png',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_155.png',
             catauthor: 'Business | Alex Slobozhan',
             position: 'Sales manager',
-            postcover: '/img/blog-post/post_3c-350.jpg',
-            postalt: 'Ipone with a launched application',
-            postsrcset: '/img/blog-post/post_3c-700.jpg 700w, /img/blog-post/post_3c-450.jpg 450w, /img/blog-post/post_3c-350.jpg 350w',
+            postcover: '/img/blog-post/post_155c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/post_155c-700.jpg 700w, /img/blog-post/post_155c-450.jpg 450w, /img/blog-post/post_155c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             postcoverbckg: 'background-color: #666973 !important',
             postbckg: 'background-color: #666973 !important',
@@ -138,30 +137,30 @@
         
         {
             posttitle: '7 Improvements to UX Design That Ensure Brand Trust',
-            platformtag: 'Java',
-            avatar: '/img/blog-post/author_3.png',
-            catauthor: 'Front end | Stanislav Tsaplinskiy',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_54.png',
+            catauthor: 'Front End | Stanislav Tsaplinskiy',
             position: 'UX/UI Designer',
-            postcover: '/img/blog-post/post_2c-350.jpg',
-            postalt: 'Graphic design mockups',
-            postsrcset: '/img/blog-post/post_2c-700.jpg 700w, /img/blog-post/post_2c-450.jpg 450w, /img/blog-post/post_2c-350.jpg 350w',
+            postcover: '/img/blog-post/post_54c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/post_54c-700.jpg 700w, /img/blog-post/post_54c-450.jpg 450w, /img/blog-post/post_54c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             postcoverbckg: 'background-color: #164a77 !important',
             postbckg: 'background-color: #164a77 !important',
             type: 'front',
             nondisplay: 'display: none',
-            posturl: '/blog/2016/09/14/7-improvements-to-ux-design-that-ensure-brand-trust/'
+            posturl: '/blog/2016/09/14/7/improvements-to-ux-design-that-ensure-brand-trust/'
         },
         
         {
             posttitle: 'What Is Freshcode?',
-            platformtag: 'Apple',
-            avatar: '/img/blog-post/author_2.png',
+            platformtag: '',
+            avatar: '/img/blog-post/post_author_46.png',
             catauthor: 'Business | Marina Danilova',
             position: 'Sales manager',
-            postcover: '/img/blog-post/post_1c-350.jpg',
-            postalt: 'Freshcode 3D logo',
-            postsrcset: '/img/blog-post/post_1c-700.jpg 700w, /img/blog-post/post_1c-450.jpg 450w, /img/blog-post/post_1c-350.jpg 350w',
+            postcover: '/img/blog-post/post_46c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/post_46c-700.jpg 700w, /img/blog-post/post_46c-450.jpg 450w, /img/blog-post/post_46c-350.jpg 350w',
             postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             postcoverbckg: 'background-color: #0582bb !important',
             postbckg: 'background-color: #0582bb !important',

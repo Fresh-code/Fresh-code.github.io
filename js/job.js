@@ -4,8 +4,6 @@
  */
 (function(global) {
 
-
-
     $('textarea.material-input').autogrow({ horizontal: false, flickering: false});
     $(document).ready(function(){
         $('.collapsible').collapsible({

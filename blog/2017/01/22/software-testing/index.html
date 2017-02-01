@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    
+    <meta property="og:url"           content="https://freshcodeit.com/blog/2017/01/22/software-testing/">
+    <meta property="og:type"          content="article">
+    <meta property="fb:app_id"        content="1077965352288016" />
+    <meta property="og:title"         content="Everything You Need to Know about Software Testing">
+    <meta property="og:description"   content="Let’s say you found an ideal development team that created a perfect app you ordered. How do you know it is not just a pretty picture, but a flawless piece of software engineering that will earn you a good profit? That is exactly why quality control practices, including software testing, were created.">
+    <meta property="og:image"         content="https://freshcodeit.com/img/blog-post/banner_post_877.jpg">
+    <meta property="og:image:width"   content="644">
+    <meta property="og:image:height"  content="428">
+    <meta name="twitter:card"         content="summary_large_image">
+    <meta name="twitter:site"         content="@FreshCode1">
+    <meta name="twitter:creator"      content="@FreshCode1">
+    <meta name="twitter:title"        content="Everything You Need to Know about Software Testing">
+    <meta name="twitter:description"  content="Let’s say you found an ideal development team that created a perfect app you ordered. How do you know it is not just a pretty picture, but a flawless piece of software engineering that will earn you a good profit? That is exactly why quality control practices, including software testing, were created.">
+    <meta name="description" content="Let’s say you found an ideal development team that created a perfect app you ordered. How do you know it is not just a pretty picture, but a flawless piece of software engineering that will earn you a good profit? That is exactly why quality control practices, including software testing, were created.">
+    <title>Everything You Need to Know about Software Testing</title>
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/201701311725.min.css">
+    <meta name="google-site-verification" content="Bo50iSYxf-Z02y9uxdaBhCDCqZtqd-eTcf6ZcmaImxM" />
+</head>
+
+
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=1077965352288016";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+<div class="site-header-slice__fixer">
+    <div class="site-header-slice__background-2"></div>
+    <div class="main-nav-block">
+        <nav>
+            <ul class="main-nav-menu">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/testimonials">Testimonials</a></li>
+                <li><a href="/job">Career</a></li>
+                <li><a href="/our-approach">Our approach</a></li>
+                <li class="description">
+                    <a class="link hire" href="">
+                        <div class="color-fill"></div>
+                        <span>Hire us</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="mail-popup-block">
+        <div id="one">
+            <div class="form-header">
+                <span class="fresh-h1 h1">WE OFFER A FREE CONSULTATION</span>
+            </div>
+            <form class="material-form hire-us-form" data-parsley-validate>
+                <div class="row material-box">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input class="material-input"
+                               name="name"
+                               type="text"
+                               placeholder="Your Name*"
+                               autocomplete="off"
+                               data-parsley-trigger="change"
+                               data-parsley-required-message="Enter your name"
+                               required>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input class="material-input"
+                               name="email"
+                               type="email"
+                               placeholder="Your Email*"
+                               pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"
+                               autocomplete="off"
+                               data-parsley-trigger="change"
+                               data-parsley-required-message="Enter your email"
+                               required>
+                    </div>
+                </div>
+                <div class="row material-box">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input class="material-input"
+                               name="subject"
+                               type="text"
+                               placeholder="Subject"
+                               autocomplete="off"
+                               data-parsley-trigger="change"
+                               data-parsley-required-message="Enter subject"
+                               required>
+                    </div>
+                </div>
+                <div class="row material-box">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input class="material-input"
+                               name="message"
+                               type="text"
+                               autocomplete="off"
+                               placeholder="Your Message*"
+                               data-parsley-required-message="Enter your message"
+                               data-parsley-trigger="change"
+                               required>
+                    </div>
+                </div>
+                <div class="description submit-block">
+                    <div class="hire-btn button">
+                        <button type="submit" onClick="_gaq.push(['_trackEvent','button', 'submit', 'hire us']);"
+                                class="free-cons-button"></button>
+                        <div class="color-fill"></div>
+                        <span>Submit</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="two" style="display: none">
+            <div class="thx-header">
+                <span class="fresh-h1 h1"></span>
+            </div>
+            <div class="thx-block">
+                <div class="row material-box">
+                    <span class="fresh-h3 h3"></span>
+                </div>
+            </div>
+            <div class="thx-block">
+                <div class="row">
+                    <div class="thx-l-b">
+                        <div class="thx-a-s w-50">
+                            <div class="thx-a-s-c">
+                                <div class="thx-box">
+                                    <img src="/img/thank_you/icon_portfolio.png" alt="suitcase">
+                                    <p>visit our portfolio</p>
+                                    <div class="description">
+                                        <a class="link" href="/portfolio">
+                                            <div class="color-fill"></div>
+                                            <span>portfolio</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="thx-a-s-c">
+                                <div class="thx-box">
+                                    <img src="/img/thank_you/icon_blog.png" alt="comic cloud">
+                                    <p>visit our blog</p>
+                                    <div class="description">
+                                        <a class="link" href="/blog">
+                                            <div class="color-fill"></div>
+                                            <span>blog</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="thx-a-s w-50">
+                            <div class="v-line"></div>
+                            <div class="row">
+                                <div class="thx-box social">
+                                    <p>follow us on social networks</p>
+                                    <div class="row thx-a-c">
+                                        <div class="s-i-top">
+                                            <a href="https://www.linkedin.com/company/freshcode-it?trk=biz-companies-cym" target="_blank"><img
+                                                    src="/img/thank_you/icon_linkedin.png" alt="linked in"></a>
+                                            <a href="https://www.facebook.com/FreshCode-1569539716705171/" target="_blank"><img
+                                                    src="/img/thank_you/icon_facebook.png" alt="facebook"></a>
+                                            <a href="https://twitter.com/FreshCode1" target="_blank"><img
+                                                    src="/img/thank_you/icon_twitter.png" alt="twitter"></a>
+                                        </div>
+                                        <div class="s-i-bot">
+                                            <a href="https://plus.google.com/109449845191701968335" target="_blank"><img
+                                                    src="/img/thank_you/icon_g_pus.png" alt="google plus"></a>
+                                            <a href="https://github.com/fresh-code" target="_blank"><img
+                                                    src="/img/thank_you/icon_github.png" alt="github"></a>
+                                            <a href="https://bitbucket.org/fresh_code/" target="_blank"><img
+                                                    src="/img/thank_you/icon_bit_bucket.png" alt="bitbucket"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fresh-header is-scrolled">
+    <a class="logo-wrapper" href="/">
+        <div class="logo-sign">
+            <img draggable="false" class="logo logo-l" src="/img/logo_light.svg" alt="Freshcode Logo">
+            <img draggable="false" class="logo logo-d" src="/img/logo_dark.svg" alt="Freshcode Logo">
+        </div>
+    </a>
+    <div class="icon-wrapper show-on-tablet hide-on-pc">
+        <div class="hamburger">
+            <span class="stripes"></span>
+        </div>
+        <div class="icon-sign">
+            <img class="mail-icon-b mail-activator" src="/img/fresh-mail-ico-black.svg" alt="Contact Us">
+            <img class="mail-icon-w mail-activator" src="/img/fresh-mail-ico-white.svg" alt="Contact Us">
+        </div>
+    </div>
+    <div class="fresh-menu hide-on-tablet">
+        <nav>
+            <ul class="main-nav-menu">
+                
+                <li class="nav-link "><a href="/services"><span>Services</span></a></li>
+                <li class="nav-link "><a href="/portfolio"><span>Portfolio</span></a></li>
+                <li class="nav-link "><a href="/blog"><span>Blog</span></a></li>
+                <li class="nav-link "><a href="/testimonials"><span>Testimonials</span></a></li>
+                <li class="nav-link "><a href="/job"><span>Career</span></a></li>
+                <li class="nav-link "><a href="/our-approach"><span>Our approach</span></a></li>
+                <li class="mail-icon">
+                    <div class="icon-sign">
+                        <img class="mail-icon-b mail-activator" src="/img/email_icon.svg" alt="Contact Us">
+                        <img class="mail-icon-w mail-activator" src="/img/fresh-mail-ico-white.svg" alt="Contact Us">
+                    </div>
+                    <div class="hamburger">
+                        <span class="stripes"></span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<main>
+    <div id="main-section">
+        <div class="section height-fixed height-100 padding-top padding-bottom blog-post">
+            
+            <div class="image-background bleed parallax-section">
+                <img draggable="false" class="image" alt="Blog post background" title="Blog post background"  src="/img/blog-post/banner_post_877-768.jpg" srcset="/img/blog-post/banner_post_877-1920.jpg 1920w,/img/blog-post/banner_post_877-1024.jpg 1024w,/img/blog-post/banner_post_877-768.jpg 768w" sizes="(min-width: 1000px) 1920px, (min-width: 600px) 1024px, (max-width: 599px) 768px, 100vw">
+            </div>
+            
+            <div class="post-titling paralax-text">
+                <div class="fresh-sub-block">
+                    <div class="row post-shorted padding-bottom width-fixed">
+                        <div class="category-tag">Business</div>
+                        <h1 class="post-name">How Does Software Testing Ensure High-Quality Development?</h1>
+                        <div class="meta">January 22, 2017</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-post-body">
+            <div class="fresh-sub-block">
+                <div class="row post-shorted width-fixed">
+                    <div class="row p-t-6rem author-block">
+                        <div class="col-md-12">
+                            <div class="avatar-wrapper">
+                                <img class="avatar" src="/img/blog-post/post_author_877.png" alt="Elizabeth Troyanova">
+                            </div>
+                            <div class="post-author">
+                                <div class="author-name">Elizabeth Troyanova</div>
+                                <div class="author-position">Project manager</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-body p-t-6rem"><p>Let’s say you found an ideal development team that created a perfect app you ordered. How do you know it is not just a pretty picture, but a flawless piece of software engineering that will earn you a good profit? That is exactly why quality control practices, including software testing, were created.</p>
+<p>Quality control is an integral part of software development process, focused on fulfilling quality requirements. The purpose of quality control is to find any flaws and defects within the software product and to eliminate them before the final release. Testing is one of the most important steps of the software quality control process. And as a customer, you should understand, how testing ensures the impeccable quality of your products.</p>
+<p>Nowadays most software development companies employ Agile development to produce new applications quickly and cost-effectively. Within the Agile method, software testing is integrated into the development process, with developers and testers frequently comparing notes and thinking outside of their designated roles to ensure the product’s high quality.</p>
+<p>So how exactly does software testing work? Let’s take a peek behind the scenes of testing procedures of the Agile development process.</p>
+<br />
+<h2>The Four Steps of Testing</h2>
+<br />
+<p>Though testing is a continuous practice throughout the development process, it can be divided into four important steps. We will go through them one by one for you to understand, how software testing works.</p>
+<h3>Initial Analysis of Quality Requirements</h3>
+<p>Before the development starts, you will have a very important meeting with your project manager and Quality Assurance (QA) specialists. Every concerned party must be 100% aware of the product’s requirements so that no issues will arise after the development is complete. Initial requirements’ analysis will allow QA specialists to form a preliminary testing plan, including test specifications.</p>
+<p>ISO 9126 divides software quality characteristics into six categories. To meet all of the standard requirements, the developed software should be functional, reliable, usable, efficient, maintainable and portable. Each of these requirements must be tested. You should be able to check the testing results via a clear and concise documentation.</p>
+<h3>Testing within the Iterations</h3>
+<p>Agile development divides the desired product into a number of iterations. The intermediate result of every iteration is a version of the product with reduced functionality. This approach allows you to introduce changes to the product requirements and receive quick transitional results every step of the way. As we mentioned before, Agile development implements parallel development and testing processes. Therefore, testing is conducted within each iteration to fix every problem and to not transfer it into the next iteration.</p>
+<p>First of all, the QA specialists plan the whole testing process and determine its specifics: types of testing, required environment and software, features to be tested and testing criteria for every feature. Next, the test documentation is created. It can take a form of checklists or test cases, depending on the project’s scope and your requirements.</p>
+<p>After the preliminary stages are complete, the actual testing can begin. According to the iteration plan, testers conduct the checks to locate any defects or issues. When the bugs are fixed, it’s time for regression testing. It checks the quality of the implemented corrections and determines the negative effect they had on the application’s other components. The iteration is complete after the test results are analyzed, and the testing report is compiled.</p>
+<h3>Final Testing and Verification Before the Release</h3>
+<p>When the developers are done, it is time for testers to roll up their sleeves and get down to work. At these final stages, you will not be able to change your requirements much. All you have to do is wait for the testing to be complete before the final release of your software.</p>
+<p>Testers work full-time on checking and re-checking the code, locating and fixing any bugs, and polishing the finished product. This step is extremely important and is never skipped since only now testers get their hands on the whole functionality of the product and can test the final version. Do not try to hurry the testing along, as sloppy quality control might lead to a number of post-release problems.</p>
+<h3>Post-Release Maintenance and Support</h3>
+<p>In an ever-changing world, no app can last forever without an update. Every new version needs to be tested with the same attention to detail as the first release. And even if you don’t plan on launching upgraded versions anytime soon, it’s a good idea to invest in some post-release maintenance. There are bound to be some unforeseen issues requiring instant fixing. Quality control and quality assurance measures are as paramount post-release, as they are before the final launch.</p>
+<p>READ ALSO:   <a href="https://freshcodeit.com/blog/2016/09/21/do-you-really-need-mobile-app/">Do you really need mobile app post-release support or is it an exercise in futility?</a></p>
+<br />
+<h2>The People behind the Testing</h2>
+<br />
+<p>Testing is usually assigned to a separate part of the team to ensure that every test is complete with the adherence to quality assurance standards, strategies, and guidelines. Dedicated professionals possess experience and methodological expertise required to plan, analyze and perform all the necessary types of testing. Testers are continuously improving their methodology and tools in order to meet the varied demands of the market and to optimize existing techniques.</p>
+<p>Most of the tests (about 80%) are automated. They require regular results with numerous repetitions within one or several iterations. Load tests and other test types that are difficult to perform manually are also automated. These tests require specific testing environment and software tools to guarantee solid results. The remaining 20% of tests are performed manually to assess the product’s usability, accessibility, and other characteristics.</p>
+<p>Now you know how testing helps ensure the high quality of your software. But remember that testing is only one reactive part of the quality control management and the quality assurance systems. There are numerous proactive measures focused on ensuring confidence that your quality expectations will be met. But that is a story for another time.</p>
+
+</div>
+
+
+                    <div class="social-btns">
+                        <a target="_blank"
+                           href="https://twitter.com/intent/tweet?text=Everything You Need to Know about Software Testing&url=https://freshcodeit.com/blog/2017/01/22/software-testing/"
+                           data-via="FreshCode1" data-related="FreshCode1">
+                            <div class="social-btn twitter-btn">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                        <a target="_blank" data-mobile-iframe="true"
+                           href="http://www.facebook.com/share.php?u=https://freshcodeit.com/blog/2017/01/22/software-testing/">
+                            <div class="social-btn facebook-btn">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                        <a target="_blank" data-mobile-iframe="true"
+                           href="https://www.linkedin.com/shareArticle?mini=true&url=https://freshcodeit.com/blog/2017/01/22/software-testing/">
+                            <div class="social-btn linkedin-btn">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fresh-sub-block">
+    <h2 class="h2-outer c-h2-link">More recent posts</h2>
+</div>
+<div class="fresh-sub-block no-padding">
+    <div class="container-fluid" style="padding: 0">
+        <div class="row">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2017/01/22/software-testing/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_877.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2017/01/22/software-testing/">
+                        <div class="recent-post-name">How Does Software Testing Ensure High-Quality Development?</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Elizabeth Troyanova</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2017/01/22/software-testing/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/12/07/how-to-ruin-first-impression/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_321.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/12/07/how-to-ruin-first-impression/">
+                        <div class="recent-post-name">How to Ruin a First Impression. Things You Should Never Hear from a Software Company</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Alex Slobozhan</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/12/07/how-to-ruin-first-impression/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/11/30/what-is-mvp-and-why-every-startup-needs-it/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_257.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/11/30/what-is-mvp-and-why-every-startup-needs-it/">
+                        <div class="recent-post-name">What Is MVP and Why Every Startup Needs It?</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Elizabeth Troyanova</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/11/30/what-is-mvp-and-why-every-startup-needs-it/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/11/21/everything-you-wanted-to-know/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_174.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/11/21/everything-you-wanted-to-know/">
+                        <div class="recent-post-name">Everything You Wanted to Know about the Time and Material Model</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Marina Danilova</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/11/21/everything-you-wanted-to-know/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/11/08/fixed-price-model/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_168.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/11/08/fixed-price-model/">
+                        <div class="recent-post-name">Fixed Price Model. Everything You Need to Know</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Alex Slobozhan</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/11/08/fixed-price-model/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/10/17/engagement-models/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_161.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/10/17/engagement-models/">
+                        <div class="recent-post-name">Engagement Models. Is Dedicated Team the Perfect One for You?</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Marina Danilova</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/10/17/engagement-models/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/09/21/do-you-really-need-mobile-app/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_155.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/09/21/do-you-really-need-mobile-app/">
+                        <div class="recent-post-name">Do You Really Need Mobile App Post-Release Support or Is It an Exercise in Futility?</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Alex Slobozhan</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/09/21/do-you-really-need-mobile-app/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/09/14/7/improvements-to-ux-design-that-ensure-brand-trust/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_54.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/09/14/7/improvements-to-ux-design-that-ensure-brand-trust/">
+                        <div class="recent-post-name">7 Improvements to UX Design That Ensure Brand Trust</div>
+                            </a>
+                        <div class="date ctg-auth">Front End  |  Stanislav Tsaplinskiy</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/09/14/7/improvements-to-ux-design-that-ensure-brand-trust/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 no-padding post-block recent-post">
+                <div class="recent-post-img">
+                    <a href="/blog/2016/09/07/what-is-freshcode/">
+                    <img class="img-responsive" src="/img/blog-post/recent_post_46.png" alt="">
+                        </a>
+                </div>
+                <div class="recent-post-text">
+                    <div class="description">
+                        <a  class="recent-post-title" href="/blog/2016/09/07/what-is-freshcode/">
+                        <div class="recent-post-name">What Is Freshcode?</div>
+                            </a>
+                        <div class="date ctg-auth">Business  |  Marina Danilova</div>
+                        <div>
+                            <a class="link recent-read-more"  href="/blog/2016/09/07/what-is-freshcode/">
+                                <div class="color-fill"></div>
+                                <span>read more</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="fresh-main blog serv-tech">
+    <div class="fresh-sub-block shorted">
+        <div class="serv-button-zone">
+            <div class="hire-btn serv-request-btn" id="load-more">
+                <div class="color-fill"></div>
+                <span>Show more</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="fresh-footer dynamic">
+    <div class="row shorted footer-width-fixed">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 no-padding text-center copyright-block hide-on-mobile">
+            <ul class="footer-list">
+                <li class="logo-block-img"><img src="/img/logo_01.svg" alt="Freshcode Logo"></li>
+                <li class="footer-logo-text">FRESHCODE</li>
+                <li class="copyright">Copyright &#169; 2016.</li>
+                <li class="copyright">All Rights Reserved</li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 no-padding text-center hide-on-mobile">
+            <ul class="footer-list contacts links">
+                <li class="li-head">Menu</li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/testimonials">Testimonials</a></li>
+                <li><a href="/job">Career</a></li>
+                <li><a href="/our-approach">Our approach</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 no-padding text-center show-on-mobile">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-footer contacts links">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding li-head">Menu</div>
+                <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 no-padding"><a href="/services">Services</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 no-padding"><a href="/portfolio">Portfolio</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 no-padding"><a href="/blog">Blog</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 no-padding"><a href="/testimonials">Testimonials</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 no-padding"><a href="/job">Career</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 no-padding"><a href="/our-approach">Our approach</a></div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 no-padding text-center">
+            <ul class="footer-list contacts info links">
+                <li class="li-head">Contact us</li>
+                <li>4a Zaporizhya St.,</li>
+                <li>Zaporizhzhya, Ukraine</li>
+                <li><a href="tel:+38(063)4846336">Phone: +38 (063) 484 63 36</a></li>
+                <li><a href="skype:fresh.code">Skype: fresh.code</a></li>
+                <li><a href="mailto:consult@freshcode.org">E-mail: consult@freshcode.org</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 no-padding text-center hide-on-mobile">
+            <ul class="footer-list contacts social">
+                <li class="li-head">Follow us</li>
+                <li>
+                    <a href="https://www.linkedin.com/company/freshcode-it?trk=biz-companies-cym" target="_blank">
+                        <i><img class="social-icons" src="/img/social/in_icon.svg" alt="linked in"></i>
+                        <span class="social-text hidden-xs">LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/FreshCode-1569539716705171/" target="_blank">
+                        <i><img class="social-icons" src="/img/social/facebook_icon.svg" alt="facebook"></i>
+                        <span class="social-text hidden-xs">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/FreshCode1" target="_blank">
+                        <i><img class="social-icons" src="/img/social/twitter.svg" alt="twitter"></i>
+                        <span class="social-text hidden-xs">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://plus.google.com/109449845191701968335" target="_blank">
+                        <i><img class="social-icons" src="/img/social/google.svg" alt="google plus"></i>
+                        <span class="social-text hidden-xs">Google Plus</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/fresh-code" target="_blank">
+                        <i><img class="social-icons" src="/img/social/github_icon.svg" alt="github"></i>
+                        <span class="social-text hidden-xs">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bitbucket.org/fresh_code/" target="_blank">
+                        <i><img class="social-icons" src="/img/social/bitbucket_icon.svg" alt="bitbucket"></i>
+                        <span class="social-text hidden-xs">Bitbucket</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 no-padding show-on-mobile">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-footer contacts social">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding li-head">Follow us</div>
+                <div class="col-xs-2 col-sm-2 col-md-12 col-lg-12 no-padding">
+                    <a href="https://www.linkedin.com/company/freshcode-it?trk=biz-companies-cym" target="_blank">
+                        <i><img class="social-icons" src="/img/social/in_icon.svg" alt="linked in"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-12 col-lg-12 no-padding">
+                    <a href="https://www.facebook.com/FreshCode-1569539716705171/" target="_blank">
+                        <i><img class="social-icons" src="/img/social/facebook_icon.svg" alt="facebook"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-12 col-lg-12 no-padding">
+                    <a href="https://twitter.com/FreshCode1" target="_blank">
+                        <i><img class="social-icons" src="/img/social/twitter.svg" alt="twitter"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-12 col-lg-12 no-padding">
+                    <a href="https://plus.google.com/109449845191701968335" target="_blank">
+                        <i><img class="social-icons" src="/img/social/google.svg" alt="google plus"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-12 col-lg-12 no-padding">
+                    <a href="https://github.com/fresh-code" target="_blank">
+                        <i><img class="social-icons" src="/img/social/github_icon.svg" alt="github"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-12 col-lg-12 no-padding">
+                    <a href="https://bitbucket.org/fresh_code/" target="_blank">
+                        <i><img class="social-icons" src="/img/social/bitbucket_icon.svg" alt="bitbucket"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 no-padding text-center show-on-mobile">
+            <div class="col-xs-12 col-sm-12  list-footer contacts social">
+                <div class="col-xs-6 col-sm-6 no-padding logo-footer">
+                    <a href="/">
+                        <i><img class="social-icons footer" src="/img/logo_01.svg" alt="freshcode-logo"></i>
+                        <span class="social-text">FRESHCODE</span>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-6  no-padding">
+                    <div class="col-xs-12 col-sm-12 copyright margined no-padding">
+                        Copyright &#169; 2016.
+                    </div>
+                    <div class="col-xs-12 col-sm-12 copyright margined no-padding">
+                        All Rights Reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script type="text/javascript" src="/js/site.min.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

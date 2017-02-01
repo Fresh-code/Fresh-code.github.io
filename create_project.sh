@@ -11,7 +11,7 @@ cp -rf ./project-data/_data .
 cp -rf ./project-data/_pages .
 cp -rf ./project-data/img .
 
-cp -rf ./wp-data/_posts .
+#cp -rf ./wp-data/_posts .
 cp -rf ./wp-data/img .
 cp -rf ./wp-data/_data .
 cp -rf ./wp-data/_pages .

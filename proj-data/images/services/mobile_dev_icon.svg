@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 42.395 81.75" style="enable-background:new 0 0 42.395 81.75;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#XMLID_41_);}
+	.st1{fill:none;stroke:url(#XMLID_42_);stroke-width:2;stroke-miterlimit:10;}
+</style>
+<g id="XMLID_258_">
+	<linearGradient id="XMLID_41_" gradientUnits="userSpaceOnUse" x1="39.4766" y1="-6.7777" x2="3.2266" y2="87.7223">
+		<stop  offset="0" style="stop-color:#00CFFF"/>
+		<stop  offset="0.9019" style="stop-color:#3F72F5"/>
+	</linearGradient>
+	<path id="XMLID_260_" class="st0" d="M36.943,81.75H5.451C2.445,81.75,0,79.304,0,76.297V5.452C0,2.446,2.445,0,5.451,0h31.492
+		c3.006,0,5.451,2.446,5.451,5.452v70.845C42.395,79.304,39.949,81.75,36.943,81.75z M5.451,1.907c-1.954,0-3.544,1.59-3.544,3.545
+		v70.845c0,1.955,1.59,3.546,3.544,3.546h31.492c1.954,0,3.544-1.591,3.544-3.546V5.452c0-1.955-1.59-3.545-3.544-3.545H5.451z
+		 M21.197,77.376c-2.386,0-4.327-1.941-4.327-4.327c0-2.387,1.941-4.328,4.327-4.328s4.327,1.941,4.327,4.328
+		C25.524,75.435,23.583,77.376,21.197,77.376z M21.197,70.628c-1.334,0-2.42,1.086-2.42,2.421c0,1.334,1.086,2.42,2.42,2.42
+		s2.42-1.086,2.42-2.42C23.617,71.714,22.531,70.628,21.197,70.628z M24.571,7.53h-6.748c-1.146,0-2.079-0.933-2.079-2.078
+		s0.933-2.078,2.079-2.078h6.748c1.146,0,2.079,0.933,2.079,2.078S25.718,7.53,24.571,7.53z M17.598,5.048
+		c-0.099,0-0.182,0.185-0.182,0.404s0.083,0.404,0.182,0.404h7.198c0.099,0,0.182-0.185,0.182-0.404s-0.083-0.404-0.182-0.404
+		H17.598z"/>
+	<linearGradient id="XMLID_42_" gradientUnits="userSpaceOnUse" x1="32.0624" y1="10.8568" x2="10.3272" y2="67.5182">
+		<stop  offset="0" style="stop-color:#00CFFF"/>
+		<stop  offset="0.9019" style="stop-color:#3F72F5"/>
+	</linearGradient>
+	<rect id="XMLID_259_" x="5.968" y="13.912" class="st1" width="30.453" height="50.55"/>
+</g>
+</svg>

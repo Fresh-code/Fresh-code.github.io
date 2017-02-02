@@ -37,6 +37,7 @@ exclude:
   - _templates/
   - wp-data/_posts/
   - server/
+  - proj-data/
 
   - wp-data/_data/
   - wp-data/img/

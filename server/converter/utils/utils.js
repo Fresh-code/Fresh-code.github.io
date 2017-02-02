@@ -11,14 +11,14 @@ var request = require('request');
 var writeFile = function (path, fileName, data) {
     fs.writeFile(__dirname + '/../../../' + path + fileName, data, function (err) {
         if (err) {
-            console.log(err);
+            console.log("ERROR WHILE WRITING FILE: " + err);
         }
     });
 };
 var writeJsonFile = function (path, fileName, data, isTwoFolders) {
     jsonfile.writeFile(__dirname + '/../../../' + path + fileName, data, {spaces: 2}, function (err) {
         if (err) {
-            console.error(err);
+            console.error("ERROR WHILE WRITING JSON FILE: " + err);
         }
     });
     if(isTwoFolders === true){
@@ -27,9 +27,10 @@ var writeJsonFile = function (path, fileName, data, isTwoFolders) {
 };
 var removeDir = function (dirPath) {
     try {
-        var files = fs.readdirSync(dirPath);
+        var files = fs.readdirSync("/src" + dirPath);
     }
     catch (e) {
+        console.log("ERROR WHILE REMOVING FOLDER: " + e);
         return;
     }
     if (files.length > 0)
@@ -41,10 +42,12 @@ var removeDir = function (dirPath) {
                 removeDir(filePath);
         }
     fs.rmdirSync(dirPath);
+    exec("sed -i '/\b\(" + dirPath + "\)\b/d' /src/_assets-cache/cache.yml");
+
 };
 var removeFile = function (path, fileName, isTwoFolders) {
     glob(__dirname + '/../../../' + path + fileName, function (err, files) {
-        if (err) throw err;
+        if (err) console.log("ERROR WHILE REMOVING FILE: " + err);
         files.forEach(function (item) {
             console.log(item + " found");
         });
@@ -58,6 +61,7 @@ var removeFile = function (path, fileName, isTwoFolders) {
     if(isTwoFolders === true){
         removeFile('wp-data/' + path, fileName);
     }
+    exec("sed -i '/\b\(" + fileName + "\)\b/d' /src/_assets-cache/cache.yml");
 };
 var removePostImages = function (id) {
     removeFile('img/blog-post/', 'banner_post_' + id + '.*', true);
@@ -75,6 +79,9 @@ var getImageName = function(url) {
 var createPostName = function(date, name) {
     return date.split(' ')[0] + '-' + getClearName(name.toLowerCase().replace(/\W+/g, "-")) + '.md';
 };
+var createPostLink = function(date, name) {
+    return '/blog/' + (date.split(' ')[0]).replace(/\-/g, "/") + '/' + getClearName(name.toLowerCase().replace(/\W+/g, "-")) + '/';
+};
 
 exports.writeFile = writeFile;
 exports.writeJsonFile = writeJsonFile;
@@ -84,3 +91,4 @@ exports.removeFile = removeFile;
 exports.getClearName = getClearName;
 exports.getImageName = getImageName;
 exports.createPostName = createPostName;
+exports.createPostLink = createPostLink;

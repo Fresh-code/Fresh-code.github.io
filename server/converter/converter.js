@@ -58,9 +58,7 @@ function creatingSiteContent(response) {
                 break;
         }
     }
-    function createPostLink(name) {
-        return name.replace(/[\-]|.md/g, '/');
-    }
+
     function createPostContent(id, content) {
         return '<div class="post-body p-t-6rem">' +
             '' + content.replace(/<img.*align(.*)".*src="http(.*)\/(.*)".alt="(.*)".width.*>/g,
@@ -152,7 +150,7 @@ function creatingSiteContent(response) {
                     'title: ' + wpDoc.custom_fields.title[0] + '\n' +
                     'description: ' + wpDoc.custom_fields.description[0] + '\n' +
                     'date: ' + wpDoc.date + ' \n' +
-                    'permalink: /blog/' + createPostLink(postName) + '\n' +
+                    'permalink: ' + Utils.createPostLink(wpDoc.date, wpDocName) + '\n' +
                     'post-title: ' + wpDoc.custom_fields.title_post[0] + '\n' +
                     'categories-tag: ' + getCategory(wpDoc.custom_fields.tag_type[0]) + '\n' +
                     'background: /img/blog-post/banner_post_' + wpDoc.id + '.' + background + '\n' +
@@ -168,7 +166,7 @@ function creatingSiteContent(response) {
                     'position: ' + wpDoc.custom_fields.position[0] + '\n' +
                     'share-image: /img/blog-post/banner_post_' + wpDoc.id + '.' + background + '\n' +
                     'share-description: ' + wpDoc.custom_fields.description[0] + '\n' +
-                    'share-title: ' + wpDoc.custom_fields.title[0] + '\n' +
+                    'share-title: ' + wpDoc.custom_fields.title_post[0] + '\n' +
                     '---' + '\n' + createPostContent(wpDoc.id, wpDoc.content);
 
                 Utils.writeFile(ConfigJson.PATH_TO_POSTS, postName, json_blog_data);

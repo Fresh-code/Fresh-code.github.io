@@ -61,8 +61,8 @@ var deleteIds = function () {
                     case "product": {
                         Utils.removeFile(ConfigJson.PATH_TO_JSON_PROJECTS, state.fileName, true);
                         Utils.removeFile(ConfigJson.PATH_TO_HTML_PROJECTS, state.htmlFileName, true);
-                        Utils.removeDir(__dirname + '/../../../wp-data/img/' + state.fileName.replace(/\..*/, ''));
-                        Utils.removeDir(__dirname + '/../../../img/' + state.fileName.replace(/\..*/, ''));
+                        Utils.removeDir('/wp-data/img/' + state.fileName.replace(/\..*/, ''));
+                        Utils.removeDir('/img/' + state.fileName.replace(/\..*/, ''));
                         previousSiteState.splice(index, 1);
                     }
                         break;

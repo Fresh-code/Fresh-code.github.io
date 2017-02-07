@@ -1,15 +1,17 @@
 #!/bin/bash
 
-rm -rf ./_assets-cache
-rm -rf ./img
+#TODO: pull wp-data
+
+rm -rf ./img/*
 rm -rf ./_data
 rm -rf ./_pages
 
-cp -rf ./project-data/_assets-cache .
-cp -rf ./project-data/_data .
-cp -rf ./project-data/_pages .
-cp -rf ./project-data/img .
+#cp -rf ./proj-data/cache.yml ./_assets-cache
+cp -rf ./proj-data/_data .
+cp -rf ./proj-data/_pages .
+cp -rf ./proj-data/images/* ./img
 
+#cp -rf ./wp-data/_posts .
 cp -rf ./wp-data/img .
 cp -rf ./wp-data/_data .
 cp -rf ./wp-data/_pages .

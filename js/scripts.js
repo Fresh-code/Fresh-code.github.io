@@ -8,7 +8,6 @@
 (function(global) {
 
 
-
     $(window).on("load", function() {
 
         $.fn.randomize = function(selector){
@@ -165,7 +164,7 @@
                     subject: $subject.val(),
                     message: $message.val()
                 },
-                crossDomain: true
+                crossDomain: true,
             });
 
             thx();

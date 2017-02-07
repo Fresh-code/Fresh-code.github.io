@@ -2,9 +2,7 @@
  * @depends libraries/list.min.js
  */
 (function(global) {
-
-
-
+    
     var $conferences = $('.filter-conferences'),
         $development = $('.filter-development'),
         $management = $('.filter-management'),
@@ -150,7 +148,7 @@
             postbckg: 'background-color: #164a77 !important',
             type: 'front',
             nondisplay: 'display: none',
-            posturl: '/blog/2016/09/14/7/improvements-to-ux-design-that-ensure-brand-trust/'
+            posturl: '/blog/2016/09/14/7-improvements-to-ux-design-that-ensure-brand-trust/'
         },
         
         {

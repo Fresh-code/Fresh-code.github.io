@@ -166,10 +166,11 @@ function creatingSiteContent(response) {
                     'position: ' + wpDoc.custom_fields.position[0] + '\n' +
                     'share-image: /img/blog-post/banner_post_' + wpDoc.id + '.' + background + '\n' +
                     'share-description: ' + wpDoc.custom_fields.description[0] + '\n' +
-                    'share-title: ' + wpDoc.custom_fields.title_post[0] + '\n' +
+                    'share-title: ' + wpDoc.custom_fields.title_post[0].replace(/\s/g,"$20") + '\n' +
                     '---' + '\n' + createPostContent(wpDoc.id, wpDoc.content);
 
                 Utils.writeFile(ConfigJson.PATH_TO_POSTS, postName, json_blog_data);
+                Utils.writeFile(ConfigJson.PATH_TO_WP_POSTS, postName, json_blog_data);
             }
                 break;
             case "testimonial": {
@@ -312,6 +313,7 @@ function creatingSiteContent(response) {
     portfolioJson.works = [];
     testimonialsJson.short = [];
     testimonialsJson.icons = [];
+
 }
 
 exports.getPagesFromWP = getPagesFromWP;

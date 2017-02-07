@@ -9,6 +9,6 @@ job_build:
   stage: "build"
   script:
     - docker logout
-    - docker login -u blinkme1@ukr.net -p blink182 registry.gitlab.com
+    - docker login -u yevheniibilyk.freshcode@gmail.com -p blink182 registry.gitlab.com
     - docker build -t registry.gitlab.com/freshcode-projects/freshcodeit.com .
     - docker push registry.gitlab.com/freshcode-projects/freshcodeit.com

@@ -19,11 +19,6 @@ layout: default
                                     {% for icon in site.data.testimonials.icons %}
 
                                     <img src="{{ icon.img }}" alt="{{ icon.alt }}">
-
-<!--
-                                    <img id="outdoor-icon" src="/img/testimonials/outdoor.png" alt="Outdoor.rocks Logo">
-                                    <img id="pa-icon" src="/img/testimonials/pa.png" alt="Play Attention Logo">
-                                    <img id="educadio-icon" src="/img/testimonials/educadio.png" alt="Educadio Logo">-->
                                     {% endfor %}
                                 </div>
                             </header>
@@ -37,12 +32,12 @@ layout: default
 <div class="proj-body">
     <div class="testimonials-container width-fixed" id="testimonials">
         {% for testimonial in site.data.testimonials.short %}
-        <section class="fresh-main testimonial-block">
+        <div class="fresh-main testimonial-block">
             <div class="fresh-sub-block no-padding">
                 <div class="row  flex-box shorted">
                     <div class="testimonial">
                         <div class="col-xs-12 col-md-6 col-lg-6 testimonial-img testimonial-writtings  flex-item">
-                            {% adaptive_image {{ testimonial.photo }} size="350 250" sizes="min 1000 350, max 999 250" draggable="false" class="img-responsive img-circle" alt="{{ testimonial.author }} photo" title="{{ testimonial.author }} photo" %}
+                            {% adaptive_image {{ testimonial.photo }} size="350 250" sizes="min 1000 350;max 999 250" draggable="false" class="img-responsive img-circle" alt="{{ testimonial.author }} photo" title="{{ testimonial.author }} photo" %}
                             <div class="testi-credit">
                                 <span class="testi-name">{{ testimonial.author }}</span>
                                 <span class="testi-company">{{ testimonial.company }}</span>
@@ -60,7 +55,7 @@ layout: default
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         {% endfor %}
     </div>
 </div>

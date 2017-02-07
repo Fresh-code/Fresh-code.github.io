@@ -35,17 +35,10 @@ exclude:
   - JsMinify.yml
   - Fresh-code.github.io.iml
   - _templates/
-  - wp-data/_posts/
   - server/
   - proj-data/
 
-  - wp-data/_data/
-  - wp-data/img/
-  - wp-data/_pages/
-  - wp-data/.gitignore
-  - wp-data/README.md
-
-  - project-data/
+  - wp-data/
 
 markdown: kramdown
 permalink: pretty

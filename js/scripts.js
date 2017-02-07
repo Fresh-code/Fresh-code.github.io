@@ -164,7 +164,7 @@
                     subject: $subject.val(),
                     message: $message.val()
                 },
-                crossDomain: true
+                crossDomain: true,
             });
 
             thx();

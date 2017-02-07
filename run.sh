@@ -13,15 +13,24 @@ cd wp-data
 git checkout master
 cd ..
 
-cd project-data
-git checkout master
-cd ..
-
 git submodule init
 git submodule update
 
-sh ./create_project.sh
+
+rm -rf ./img/*
+rm -rf ./_data
+rm -rf ./_pages
+
+cp -rf ./proj-data/cache.yml ./_assets-cache
+cp -rf ./proj-data/_data .
+cp -rf ./proj-data/_pages .
+cp -rf ./proj-data/images/* ./img
+
+cp -rf ./wp-data/_posts .
+cp -rf ./wp-data/img .
+cp -rf ./wp-data/_data .
+cp -rf ./wp-data/_pages .
+
 
 jekyll build
-
 jekyll serve -H 0.0.0.0 & node server/app.js

@@ -5,7 +5,8 @@
 
   "PATH_TO_JSON_PROJECTS": "_data/center-layout/",
   "PATH_TO_HTML_PROJECTS": "_pages/",
-  "PATH_TO_POSTS": "wp-data/_posts/",
+  "PATH_TO_POSTS": "_posts/",
+  "PATH_TO_WP_POSTS": "wp-data/_posts/",
   "PATH_TO_DRAFTS": "wp-data/_drafts/",
   "PATH_TO_WP_JSON_DATA": "wp-data/_data/",
   "PATH_TO_JSON_DATA": "_data/"

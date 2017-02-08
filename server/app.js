@@ -1,6 +1,6 @@
 'use strict';
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 require('./routes/routes')(app);
 

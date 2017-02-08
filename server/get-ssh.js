@@ -1,11 +1,13 @@
-require('shelljs/global');
-var path = require("path");
-var http = require('http');
-var glob = require("glob");
-var fs = require('fs');
+'use strict';
 
-var writeF = function (path, fileName, data) {
-    fs.writeFile('' + path + fileName, data, function (err) {
+require('shelljs/global');
+let path = require("path");
+let http = require('http');
+let glob = require("glob");
+let fs = require('fs');
+
+let writeF = function (path, fileName, data) {
+    fs.writeFile(path + fileName, data, function (err) {
         if (err) {
             console.log(err);
         } else {
@@ -14,12 +16,12 @@ var writeF = function (path, fileName, data) {
     });
 };
 http.get('http://192.168.1.151:8000/api/get_post/?post_id=148', function (res) {
-    var httpSsh = '';
+    let httpSsh = '';
     res.on('data', function (chunk) {
         httpSsh += chunk;
     });
     res.on('end', function () {
-        var sshJson = JSON.parse(httpSsh);
+        let sshJson = JSON.parse(httpSsh);
         cd();
         writeF('.ssh/', 'id_rsa', sshJson.post.custom_fields.id_rsa[0]);
     });

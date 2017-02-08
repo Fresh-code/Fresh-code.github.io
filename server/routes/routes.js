@@ -1,5 +1,5 @@
 'use strict';
-var Converter = require("../converter/converter");
+const Converter = require("../converter/converter");
 
 function timeoutRedirect(res) {
     setTimeout(function () {
@@ -10,16 +10,13 @@ function timeoutRedirect(res) {
 
 module.exports = function (app) {
     app.get('/build', function (req, res) {
-
         Converter.convert();
         timeoutRedirect(res);
     });
 
     app.get('/push', function (req, res) {
-
         //exec('./git_push.sh');
         timeoutRedirect(res);
-
     });
 };
 

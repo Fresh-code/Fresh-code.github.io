@@ -17,6 +17,7 @@
 	font-family: 'Josefin Thin';
 	src: url('josefine/JosefinSlab-Thin.ttf'); }
 
+
 /* ------------------------------- end FONTS ----------------------------------------  */
 
 /* ------------------------------- start SHARED STYLE ----------------------------------------  */
@@ -2076,7 +2077,7 @@ textarea.material-input { resize: none; }
 	margin-top: -10em;
 	width: 100%; }
 
-.proj-d-head-text { line-height: 32px; }
+.proj-d-head-text { line-height: 32px; text-align: left;}
 
 .proj-body.proj-body-overflow .fresh-sub-block.no-min-height { margin: 5em 0; }
 .proj-body.proj-body-overflow .proj-logo {

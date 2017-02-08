@@ -1,52 +1,59 @@
 'use strict';
 var exports = module.exports = {};
 
-var path = require("path");
-var fs = require('fs');
-var jsonfile = require('jsonfile');
-var glob = require("glob");
-var request = require('request');
+const path = require("path");
+const fs = require('fs');
+const jsonfile = require('jsonfile');
+const glob = require("glob");
+const request = require('request');
 
+function deleteCacheString(fileName) {
+    exec("sed -i '/\b\(" + fileName + "\)\b/d' /src/_assets-cache/cache.yml");
+}
 
-var writeFile = function (path, fileName, data) {
-    fs.writeFile(__dirname + '/../../../' + path + fileName, data, function (err) {
+let writeFile = function (path, fileName, data, isTwoFolders) {
+    fs.writeFile('/src/' + path + fileName, data, function (err) {
         if (err) {
             console.log("ERROR WHILE WRITING FILE: " + err);
         }
     });
+    if (isTwoFolders === true) {
+        writeFile('wp-data/' + path, fileName, data);
+    }
 };
-var writeJsonFile = function (path, fileName, data, isTwoFolders) {
-    jsonfile.writeFile(__dirname + '/../../../' + path + fileName, data, {spaces: 2}, function (err) {
+let writeJsonFile = function (path, fileName, data, isTwoFolders) {
+    jsonfile.writeFile('/src/' + path + fileName, data, {spaces: 2}, function (err) {
         if (err) {
             console.error("ERROR WHILE WRITING JSON FILE: " + err);
         }
     });
-    if(isTwoFolders === true){
+    if (isTwoFolders === true) {
         writeJsonFile('wp-data/' + path, fileName, data);
     }
 };
-var removeDir = function (dirPath) {
+let removeDir = function (dirPath) {
+    let files = null;
     try {
-        var files = fs.readdirSync("/src" + dirPath);
+        files = fs.readdirSync('/src/' + dirPath);
     }
     catch (e) {
         console.log("ERROR WHILE REMOVING FOLDER: " + e);
         return;
     }
     if (files.length > 0)
-        for (var i = 0; i < files.length; i++) {
-            var filePath = dirPath + '/' + files[i];
+        for (let i = 0; i < files.length; i++) {
+            let filePath = dirPath + '/' + files[i];
             if (fs.statSync(filePath).isFile())
                 fs.unlinkSync(filePath);
             else
                 removeDir(filePath);
         }
     fs.rmdirSync(dirPath);
-    exec("sed -i '/\b\(" + dirPath + "\)\b/d' /src/_assets-cache/cache.yml");
+    deleteCacheString(dirPath);
 
 };
-var removeFile = function (path, fileName, isTwoFolders) {
-    glob(__dirname + '/../../../' + path + fileName, function (err, files) {
+let removeFile = function (path, fileName, isTwoFolders) {
+    glob('/src/' + path + fileName, function (err, files) {
         if (err) console.log("ERROR WHILE REMOVING FILE: " + err);
         files.forEach(function (item) {
             console.log(item + " found");
@@ -58,28 +65,28 @@ var removeFile = function (path, fileName, isTwoFolders) {
             });
         });
     });
-    if(isTwoFolders === true){
+    if (isTwoFolders === true) {
         removeFile('wp-data/' + path, fileName);
     }
-    exec("sed -i '/\b\(" + fileName + "\)\b/d' /src/_assets-cache/cache.yml");
+    deleteCacheString(fileName);
 };
-var removePostImages = function (id) {
+let removePostImages = function (id) {
     removeFile('img/blog-post/', 'banner_post_' + id + '.*', true);
     removeFile('img/blog-post/', 'post_author_' + id + '.*', true);
     removeFile('img/blog-post/', 'recent_post_' + id + '.*', true);
     removeFile('img/blog-post/', 'post_' + id + 'c.*', true);
     removeFile('img/blog-post/', 'included_' + id + '*', true);
 };
-var getClearName = function(str) {
+let getClearName = function (str) {
     return str.replace(/\s/g, "-").replace(/[^a-zA-Z0-9\-\_]/g, "");
 };
-var getImageName = function(url) {
+let getImageName = function (url) {
     return url.replace(/(.*)\/(.*)/g, '$2');
 };
-var createPostName = function(date, name) {
+let createPostName = function (date, name) {
     return date.split(' ')[0] + '-' + getClearName(name.toLowerCase().replace(/\W+/g, "-")) + '.md';
 };
-var createPostLink = function(date, name) {
+let createPostLink = function (date, name) {
     return '/blog/' + (date.split(' ')[0]).replace(/\-/g, "/") + '/' + getClearName(name.toLowerCase().replace(/\W+/g, "-")) + '/';
 };
 

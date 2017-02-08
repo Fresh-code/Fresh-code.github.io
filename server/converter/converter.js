@@ -1,26 +1,27 @@
+'use strict';
 var exports = module.exports = {};
 
 require('shelljs/global');
-var path = require("path");
-var http = require('http');
-var fs = require('fs');
-var jsonfile = require('jsonfile');
+const path = require("path");
+const http = require('http');
+const fs = require('fs');
+const jsonfile = require('jsonfile');
 
-var ConfigJson = require('./dataModels/config.json');
-var Templates = require('./dataModels/templates.json');
-var Utils = require('./utils/utils');
-var State = require('./stateController/stateController');
-var Images = require('./imageWorker/imageWorker');
-var LinksMap = require('./utils/linksMapController');
-var Update = require('./updateController/updateController');
+const ConfigJson = require('./dataModels/config.json');
+const Templates = require('./dataModels/templates.json');
+const Utils = require('./utils/utils');
+const State = require('./stateController/stateController');
+const Images = require('./imageWorker/imageWorker');
+const LinksMap = require('./utils/linksMapController');
+const Update = require('./updateController/updateController');
 
 
-var convert = function () {
+let convert = function () {
     Images.getMediaFromWP(1);
 };
-var getPagesFromWP = function () {
+let getPagesFromWP = function () {
     http.get(ConfigJson.URL_FOR_PAGES, function (res) {
-        var body = "";
+        let body = "";
         res.on('data', function (chunk) {
             body += chunk;
         });
@@ -58,7 +59,6 @@ function creatingSiteContent(response) {
                 break;
         }
     }
-
     function createPostContent(id, content) {
         return '<div class="post-body p-t-6rem">' +
             '' + content.replace(/<img.*align(.*)".*src="http(.*)\/(.*)".alt="(.*)".width.*>/g,
@@ -66,17 +66,17 @@ function creatingSiteContent(response) {
             '</div>';
     }
 
-    var portfolioJson = Templates.PORTFOLIO_PAGE;
-    var testimonialsJson = Templates.TESTIMONIAL_PAGE;
+    let portfolioJson = Templates.PORTFOLIO_PAGE;
+    let testimonialsJson = Templates.TESTIMONIAL_PAGE;
 
     State.stateInit();
     LinksMap.createProjectsLinksMap(response);
 
     response.posts.forEach(function (wpDoc) {
-        var modified = false;
-        var wpDocSlug = Utils.getClearName(wpDoc.slug);
-        var wpDocName = Utils.getClearName(wpDoc.title);
-        var state = State.getState(wpDoc.id);
+        let modified = false;
+        let wpDocSlug = Utils.getClearName(wpDoc.slug);
+        let wpDocName = Utils.getClearName(wpDoc.title);
+        let state = State.getState(wpDoc.id);
 
         if (state) {
             if (state.modified != wpDoc.modified) modified = true;
@@ -91,8 +91,9 @@ function creatingSiteContent(response) {
         switch (wpDoc.categories[0].slug) {
             case "product": {
 
-                var cover_prod_img = 'work_' + wpDoc.id + 'p';
-                var product = Templates.PRODUCT;
+                let cover_prod_img = 'work_' + wpDoc.id + 'p';
+                let product = Templates.PRODUCT;
+                let links = LinksMap.getProjectLinks(wpDoc.id);
 
                 product.name = wpDocName;
                 product.client = wpDoc.custom_fields.client[0];
@@ -117,8 +118,8 @@ function creatingSiteContent(response) {
                 product.challenges = wpDoc.custom_fields.challenges[0];
                 product.buisValue = wpDoc.custom_fields.buisvalue[0];
                 product.solutions = wpDoc.custom_fields.solutions[0];
-                product.prev = LinksMap.getProjectPrevLink(wpDoc.id);
-                product.next = LinksMap.getProjectNextLink(wpDoc.id);
+                product.prev = links.prev;
+                product.next = links.next;
 
                 Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_PROJECTS, product.name + '.json', product, true);
 
@@ -136,15 +137,15 @@ function creatingSiteContent(response) {
             }
                 break;
             case "post": {
-                var postName = Utils.createPostName(wpDoc.date, wpDocName);
-                var background = Images.getImageFormatById(wpDoc.custom_fields.background[0]);
-                var cover = 'post_' + wpDoc.id + 'c';
-                var avatar = Images.getImageFormatById(wpDoc.custom_fields.author_image[0]);
-                var recent = Images.getImageFormatById(wpDoc.custom_fields.recent[0]);
+                let postName = Utils.createPostName(wpDoc.date, wpDocName);
+                let background = Images.getImageFormatById(wpDoc.custom_fields.background[0]);
+                let cover = 'post_' + wpDoc.id + 'c';
+                let avatar = Images.getImageFormatById(wpDoc.custom_fields.author_image[0]);
+                let recent = Images.getImageFormatById(wpDoc.custom_fields.recent[0]);
 
                 // Генерируем .md документ
-                var date = wpDoc.date.split(' ')[0];
-                var json_blog_data =
+                let date = wpDoc.date.split(' ')[0];
+                let json_blog_data =
                     '--- \n' +
                     'layout: post\n' +
                     'title: ' + wpDoc.custom_fields.title[0] + '\n' +
@@ -169,12 +170,11 @@ function creatingSiteContent(response) {
                     'share-title: ' + wpDoc.custom_fields.title_post[0].replace(/\s/g,"$20") + '\n' +
                     '---' + '\n' + createPostContent(wpDoc.id, wpDoc.content);
 
-                Utils.writeFile(ConfigJson.PATH_TO_POSTS, postName, json_blog_data);
-                Utils.writeFile(ConfigJson.PATH_TO_WP_POSTS, postName, json_blog_data);
+                Utils.writeFile(ConfigJson.PATH_TO_POSTS, postName, json_blog_data, true);
             }
                 break;
             case "testimonial": {
-                var link = wpDoc.custom_fields.link[0].match(/\:\"(\d*)\"/);
+                let link = wpDoc.custom_fields.link[0].match(/\:\"(\d*)\"/);
                 testimonialsJson.short[testimonialsJson.short.length] = {
                     //alt текст берертся как имя автора
                     "author": wpDoc.custom_fields.author[0],
@@ -204,7 +204,7 @@ function creatingSiteContent(response) {
         switch (wpDoc.id) {
             //our-approach
             case 733: {
-                var ourApproach = {
+                let ourApproach = {
                     "name": wpDoc.custom_fields.name[0],
                     "title": wpDoc.custom_fields.title[0],
                     "keywords": wpDoc.custom_fields.keywords[0],
@@ -214,8 +214,8 @@ function creatingSiteContent(response) {
                     "alt": Images.getImageAltById(wpDoc.custom_fields.background[0]),
                     "short": []
                 };
-                for (var x = 1; x <= wpDoc.custom_fields.nums[0]; x++) {
-                    var approach = getApproachByNum(x);
+                for (let x = 1; x <= wpDoc.custom_fields.nums[0]; x++) {
+                    let approach = getApproachByNum(x);
                     if (modified) {
                         Images.loadImgById(approach.image, "img/our_approach/icon_" + x, true);
                     }
@@ -266,7 +266,7 @@ function creatingSiteContent(response) {
                 break;
             //vacancies-page
             case 763: {
-                var vacancies = {
+                let vacancies = {
                     "title": wpDoc.custom_fields.title[0],
                     "keywords": wpDoc.custom_fields.keywords[0],
                     "description": wpDoc.custom_fields.description[0],
@@ -277,8 +277,8 @@ function creatingSiteContent(response) {
                     "jobs": []
                 };
 
-                for (var k = 1; k <= wpDoc.custom_fields.nums[0]; k++) {
-                    var vacancy = getVacancyByNum(k);
+                for (let i = 1; i <= wpDoc.custom_fields.nums[0]; i++) {
+                    let vacancy = getVacancyByNum(i);
                     vacancies.jobs.push({
                         "title": vacancy.title,
                         "skills": vacancy.skills
@@ -289,7 +289,7 @@ function creatingSiteContent(response) {
                 break;
             //blog-page
             case 73: {
-                var json = Templates.BLOG_PAGE;
+                let json = Templates.BLOG_PAGE;
 
                 json.name = wpDoc.slug;
                 json.title = wpDoc.custom_fields.title[0];

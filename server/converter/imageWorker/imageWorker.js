@@ -1,24 +1,36 @@
+'use strict';
 var exports = module.exports = {};
 
-var http = require('http');
-var request = require('request');
-var fs = require('fs');
+const http = require('http');
+const request = require('request');
+const fs = require('fs');
 
-var Converter = require('../converter');
-var ConfigJson = require('../dataModels/config.json');
+const Converter = require('../converter');
+const ConfigJson = require('../dataModels/config.json');
 
 
-var mediaPagesNumber;
-var allImagesInfo = [];
+let mediaPagesNumber;
+let allImagesInfo = [];
 
-var getMediaFromWP = function (page) {
+function getImagePropertyById(id) {
+    for (let x in allImagesInfo) {
+        if (allImagesInfo[x].id == id) {
+            return allImagesInfo[x];
+        }
+    }
+}
+function getImageUrlById(id) {
+    return getImagePropertyById(id).source_url;
+}
+
+let getMediaFromWP = function (page) {
     //Получать картники можно порциями максимум по 100 штук, поэтому, возможно, нужно записывать информацию о них в несколько подходов
     http.get(ConfigJson.URL_FOR_IMAGES + '&page=' + page, function (res) {
         if (page === 1) {
             //получаем количество страниц с картинками
             mediaPagesNumber = JSON.stringify(res.headers).replace(/.*x-wp-totalpages":"(\d).*/g, '$1');
         }
-        var body = '';
+        let body = '';
         res.on('data', function (chunk) {
             body += chunk;
         });
@@ -39,48 +51,27 @@ var getMediaFromWP = function (page) {
         console.log(err);
     });
 };
-
-var getImageUrlById = function(id) {
-    for (var x in allImagesInfo) {
-        if (allImagesInfo[x].id == id) {
-            return allImagesInfo[x].source_url;
-        }
-    }
+let getImageAltById = function (id) {
+    return getImagePropertyById(id).alt_text;
 };
-var getImageAltById = function(id) {
-    for (var x in allImagesInfo) {
-        if (allImagesInfo[x].id == id) {
-            return allImagesInfo[x].alt_text;
-        }
-    }
+let getImageFormatById = function (id) {
+    return getImagePropertyById(id).source_url.split('.').pop();
 };
-var getImageFormatById = function(id) {
-    for (var x in allImagesInfo) {
-        if (allImagesInfo[x].id == id) {
-            return allImagesInfo[x].source_url.split('.').pop();
-        }
-    }
-};
-
-var loadImage = function (url, imageName, isTwoFolders) {
+let loadImage = function (url, imageName, isTwoFolders) {
     if (typeof url != 'undefined') {
         request(url).pipe(fs.createWriteStream(__dirname + '/../../../' + imageName)).on('error', function (err) {
             console.log("Loading image error: ", err);
         });
     } else {
-        console.log("ERROR: while loading image. Url is undefined.", imageName);
+        console.log("Can't load image. Url is undefined.", imageName);
     }
-    if(isTwoFolders === true){
+    if (isTwoFolders === true) {
         loadImage(url, 'wp-data/' + imageName);
     }
 };
-var loadImgById = function(imgId, imgPath, isTwoFolders) {
-    var imageURL = getImageUrlById(imgId);
-    if(typeof imageURL != 'undefined'){
-        loadImage(imageURL, imgPath + '.' + getImageFormatById(imgId), isTwoFolders === true ? true : false);
-    } else {
-        console.log("ERROR: image url is undefined for image id ", imgId)
-    }
+let loadImgById = function (imgId, imgPath, isTwoFolders) {
+    let imageURL = getImageUrlById(imgId);
+        loadImage(imageURL, imgPath + '.' + getImageFormatById(imgId), isTwoFolders === true);
 };
 
 

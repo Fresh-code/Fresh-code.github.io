@@ -2,33 +2,32 @@
 var exports = module.exports = {};
 
 require('shelljs/global');
-var path = require("path");
-var http = require('http');
-var fs = require('fs');
-var jsonfile = require('jsonfile');
+const path = require("path");
+const http = require('http');
+const fs = require('fs');
+const jsonfile = require('jsonfile');
 
-var ConfigJson = require('../dataModels/config.json');
-var Images = require('../imageWorker/imageWorker');
-var Utils = require('../utils/utils');
-var State = require('../stateController/stateController');
+const ConfigJson = require('../dataModels/config.json');
+const Images = require('../imageWorker/imageWorker');
+const Utils = require('../utils/utils');
+const State = require('../stateController/stateController');
 
 
 function createHtmlTemplateIfNotExist(templateType, slug) {
-    fs.exists(__dirname + '/../../../wp-data/_pages/' + slug + '.html', function (exists) {
+    fs.exists('/src/wp-data/_pages/' + slug + '.html', function (exists) {
         if (exists != true) {
-            var htmlTemplate = fs.readFileSync(__dirname + '/../../../_templates/template' + templateType + '.html', {
+            let htmlTemplate = fs.readFileSync('/src/_templates/template' + templateType + '.html', {
                 encoding: "UTF-8",
                 flag: "r"
             });
             htmlTemplate = htmlTemplate.replace(/template/g, slug);
-            Utils.writeFile('wp-data/_pages/', slug + '.html', htmlTemplate);
-            Utils.writeFile('_pages/', slug + '.html', htmlTemplate);
+            Utils.writeFile(ConfigJson.PATH_TO_HTML_PROJECTS, slug + '.html', htmlTemplate, true);
         }
     });
 }
 function loadPostIncludedImages(id, content) {
-    var regexp = /<img.*src="(.*)".alt="/g;
-    var matches, output = [];
+    let regexp = /<img.*src="(.*)".alt="/g;
+    let matches, output = [];
     while (matches = regexp.exec(content)) {
         output.push(matches[1]);
     }
@@ -62,7 +61,7 @@ function loadPostImages(productId, background, author, cover, recent) {
     Images.loadImgById(cover, 'img/blog-post/post_' + productId + 'c', true);
 }
 
-var updatePageData = function (wpDoc, state, wpDocSlug, wpDocName) {
+let updatePageData = function (wpDoc, state, wpDocSlug, wpDocName) {
     switch (wpDoc.categories[0].slug) {
         case "product": {
             loadProductImages(wpDoc.id, wpDocSlug, wpDoc.custom_fields.first[0], wpDoc.custom_fields.second[0], wpDoc.custom_fields.third[0], wpDoc.custom_fields.cover[0]);
@@ -75,7 +74,7 @@ var updatePageData = function (wpDoc, state, wpDocSlug, wpDocName) {
         }
             break;
         case "post": {
-            var postName = Utils.createPostName(wpDoc.date, wpDocName);
+            let postName = Utils.createPostName(wpDoc.date, wpDocName);
 
             if (state.fileName != postName) {
                 Utils.removeFile(ConfigJson.PATH_TO_POSTS, state.fileName);

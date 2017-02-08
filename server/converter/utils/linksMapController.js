@@ -1,27 +1,34 @@
+'use strict';
 var exports = module.exports = {};
 
-var Utils = require('./utils');
+const Utils = require('./utils');
 
 
-var projectsLinksMap = [];
+let projectsLinksMap = [];
 
-var createProjectsLinksMap = function (response) {
+function getProjectLinksById(id) {
+    for (let x = 0; x < projectsLinksMap.length; x++) {
+        if (projectsLinksMap[x].id == id) {
+            return projectsLinksMap[x];
+        }
+    }
+}
+
+let createProjectsLinksMap = function (response) {
     projectsLinksMap = [];
 
     response.posts.forEach(function (wpDoc) {
         if (wpDoc.categories[0].slug == 'product') {
-            if (wpDoc.custom_fields.preview_show[0] == 'yes') {
-                projectsLinksMap[projectsLinksMap.length] = {
-                    "id": wpDoc.id,
-                    "link": '/' + Utils.getClearName(wpDoc.title),
-                    "prev": "",
-                    "next": ""
-                };
-            }
+            projectsLinksMap[projectsLinksMap.length] = {
+                "id": wpDoc.id,
+                "link": '/' + Utils.getClearName(wpDoc.title),
+                "prev": "",
+                "next": ""
+            };
         }
     });
 
-    for (var x = 0; x < projectsLinksMap.length; x++) {
+    for (let x = 0; x < projectsLinksMap.length; x++) {
         if (x == 0) {
             projectsLinksMap[x].prev = projectsLinksMap[projectsLinksMap.length - 1].link;
         } else {
@@ -34,29 +41,15 @@ var createProjectsLinksMap = function (response) {
         }
     }
 };
-var getProjectLinkById = function(id) {
-    for (var x = 0; x < projectsLinksMap.length; x++) {
-        if (projectsLinksMap[x].id == id) {
-            return projectsLinksMap[x].link;
-        }
-    }
+let getProjectLinkById = function (id) {
+    return getProjectLinksById(id).link;
 };
-var getProjectPrevLink = function (id) {
-    for (var x in projectsLinksMap) {
-        if (projectsLinksMap[x].id == id) {
-            return projectsLinksMap[x].prev;
-        }
-    }
-};
-var getProjectNextLink = function (id) {
-    for (var x in projectsLinksMap) {
-        if (projectsLinksMap[x].id == id) {
-            return projectsLinksMap[x].next;
-        }
-    }
+let getProjectLinks = function (id) {
+    let links = getProjectLinksById(id);
+    return {prev: links.prev, next: links.next};
 };
 
+
 exports.createProjectsLinksMap = createProjectsLinksMap;
-exports.getProjectPrevLink = getProjectPrevLink;
-exports.getProjectNextLink = getProjectNextLink;
+exports.getProjectLinks = getProjectLinks;
 exports.getProjectLinkById = getProjectLinkById;

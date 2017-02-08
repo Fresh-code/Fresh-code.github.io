@@ -1,13 +1,14 @@
 {
   "URL_FOR_PAGES": "http://192.168.1.151:8000/?json=get_posts",
   "URL_FOR_IMAGES": "http://192.168.1.151:8000/wp-json/wp/v2/media/?per_page=100",
-  "PATH_TO_PREV_STATE": "/../../../wp-data/_data/bd.json",
+  "PATH_TO_PREV_STATE": "/src/wp-data/_data/bd.json",
 
   "PATH_TO_JSON_PROJECTS": "_data/center-layout/",
   "PATH_TO_HTML_PROJECTS": "_pages/",
   "PATH_TO_POSTS": "_posts/",
-  "PATH_TO_WP_POSTS": "wp-data/_posts/",
-  "PATH_TO_DRAFTS": "wp-data/_drafts/",
-  "PATH_TO_WP_JSON_DATA": "wp-data/_data/",
-  "PATH_TO_JSON_DATA": "_data/"
+  "PATH_TO_DB": "wp-data/_data/",
+  "PATH_TO_JSON_DATA": "_data/",
+  "WP_IMAGES": "wp-data/img/",
+  "IMAGES": "img/",
+  "WP": "wp-data/"
 }

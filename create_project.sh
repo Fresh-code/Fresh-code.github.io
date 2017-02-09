@@ -9,7 +9,7 @@ rm -rf ./_pages
 #cp -rf ./proj-data/cache.yml ./_assets-cache
 cp -rf ./proj-data/_data .
 cp -rf ./proj-data/_pages .
-cp -rf ./proj-data/images/* ./img
+cp -rf ./proj-data/images/* ./img/
 
 #cp -rf ./wp-data/_posts .
 cp -rf ./wp-data/img .

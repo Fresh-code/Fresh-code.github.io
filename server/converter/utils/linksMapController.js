@@ -7,11 +7,12 @@ const Utils = require('./utils');
 let projectsLinksMap = [];
 
 function getProjectLinksById(id) {
-    for (let x = 0; x < projectsLinksMap.length; x++) {
-        if (projectsLinksMap[x].id == id) {
-            return projectsLinksMap[x];
+    for (let i = 0; i < projectsLinksMap.length; i++) {
+        if (projectsLinksMap[i].id == id) {
+            return projectsLinksMap[i];
         }
     }
+    return {link: "/testimonials"};
 }
 
 let createProjectsLinksMap = function (response) {
@@ -42,6 +43,7 @@ let createProjectsLinksMap = function (response) {
     }
 };
 let getProjectLinkById = function (id) {
+    console.log("getProjectLinkById (return .link):" + id, projectsLinksMap);
     return getProjectLinksById(id).link;
 };
 let getProjectLinks = function (id) {

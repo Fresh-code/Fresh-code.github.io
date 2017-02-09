@@ -7,10 +7,6 @@ const jsonfile = require('jsonfile');
 const glob = require("glob");
 const request = require('request');
 
-function deleteCacheString(fileName) {
-    exec("sed -i '/\b\(" + fileName + "\)\b/d' /src/_assets-cache/cache.yml");
-}
-
 let writeFile = function (path, fileName, data, isTwoFolders) {
     fs.writeFile('/src/' + path + fileName, data, function (err) {
         if (err) {
@@ -31,7 +27,7 @@ let writeJsonFile = function (path, fileName, data, isTwoFolders) {
         writeJsonFile('wp-data/' + path, fileName, data);
     }
 };
-let removeDir = function (dirPath) {
+/*let removeDir = function (dirPath) {
     let files = null;
     try {
         files = fs.readdirSync('/src/' + dirPath);
@@ -49,9 +45,7 @@ let removeDir = function (dirPath) {
                 removeDir(filePath);
         }
     fs.rmdirSync(dirPath);
-    deleteCacheString(dirPath);
-
-};
+};*/
 let removeFile = function (path, fileName, isTwoFolders) {
     glob('/src/' + path + fileName, function (err, files) {
         if (err) console.log("ERROR WHILE REMOVING FILE: " + err);
@@ -68,7 +62,6 @@ let removeFile = function (path, fileName, isTwoFolders) {
     if (isTwoFolders === true) {
         removeFile('wp-data/' + path, fileName);
     }
-    deleteCacheString(fileName);
 };
 let removePostImages = function (id) {
     removeFile('img/blog-post/', 'banner_post_' + id + '.*', true);
@@ -93,7 +86,7 @@ let createPostLink = function (date, name) {
 exports.writeFile = writeFile;
 exports.writeJsonFile = writeJsonFile;
 exports.removePostImages = removePostImages;
-exports.removeDir = removeDir;
+//exports.removeDir = removeDir;
 exports.removeFile = removeFile;
 exports.getClearName = getClearName;
 exports.getImageName = getImageName;

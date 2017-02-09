@@ -3,7 +3,7 @@
 # Commit and push to dev branch in gitlab
 cd wp-data
 git checkout master
-git config user.name "yvhenii bilyk"
+git config user.name "Yevhenii Bilyk"
 git config user.email blinkme1@ukr.net
 
 git add .

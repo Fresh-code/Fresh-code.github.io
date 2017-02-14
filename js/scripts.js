@@ -1,3 +1,4 @@
+'use strict';
 /**
  * @depends libraries/jquery-2.2.1.min.js
  * @depends libraries/bootstrap.min.js
@@ -199,6 +200,7 @@
             $('.parallax-section').css({
                 "transform" : "translate3d(0px, " + st/6 + "px, 0px)"
             });
+
         }
 
 
@@ -240,4 +242,3 @@
 
 
 })(this);
-

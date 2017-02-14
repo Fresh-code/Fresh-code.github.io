@@ -3,6 +3,7 @@
  */
 (function(global) {
 
+
     var $monitoring = $('.filter-monitoring'),
         $navigation = $('.filter-navigation'),
         $education = $('.filter-education'),
@@ -28,7 +29,7 @@
             workcoverbckg: 'background-color: #5d738f !important',
             workbckg: 'background-color: #5d738f !important',
             type: 'education',
-            workurl: '/playattention'
+            workurl: '/playattention/'
         },
         
         {
@@ -41,7 +42,7 @@
             workcoverbckg: 'background-color: #775441 !important',
             workbckg: 'background-color: #775441 !important',
             type: 'ecommerce',
-            workurl: '/gommehd'
+            workurl: '/gommehd/'
         },
         
         {
@@ -54,7 +55,7 @@
             workcoverbckg: 'background-color: #747474 !important',
             workbckg: 'background-color: #747474 !important',
             type: 'media',
-            workurl: '/wall-breaker'
+            workurl: '/wall-breaker/'
         },
         
         {
@@ -67,20 +68,20 @@
             workcoverbckg: 'background-color: #a5a5a5 !important',
             workbckg: 'background-color: #a5a5a5 !important',
             type: 'monitoring',
-            workurl: '/flotron'
+            workurl: '/flotron/'
         },
         
         {
             title: 'Educadio',
             description: 'Educadio is a Digital Learning Tool that provides a real-time synchronization for instant user collaboration and a wide variety of collaborative work means, including video and text chats.',
             workcover: '/img/portfolio/work_36p-350.jpg',
-            workalt: '',
+            workalt: 'Educadio platform preview',
             worksrcset: '/img/portfolio/work_36p-700.jpg 700w, /img/portfolio/work_36p-450.jpg 450w, /img/portfolio/work_36p-350.jpg 350w',
             worksizes: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             workcoverbckg: 'background-color: #354356 !important',
             workbckg: 'background-color: #354356 !important',
             type: 'education',
-            workurl: '/educadio'
+            workurl: '/educadio/'
         },
         
         {
@@ -93,7 +94,7 @@
             workcoverbckg: 'background-color: #576965 !important',
             workbckg: 'background-color: #576965 !important',
             type: 'education',
-            workurl: '/twenty-one-learning'
+            workurl: '/twenty-one-learning/'
         },
         
         {
@@ -106,7 +107,7 @@
             workcoverbckg: 'background-color: #6e8a6d !important',
             workbckg: 'background-color: #6e8a6d !important',
             type: 'navigation',
-            workurl: '/tassta'
+            workurl: '/tassta/'
         },
         
         {
@@ -119,7 +120,7 @@
             workcoverbckg: 'background-color: #65753b !important',
             workbckg: 'background-color: #65753b !important',
             type: 'navigation',
-            workurl: '/outdoor'
+            workurl: '/outdoor/'
         },
         
         {
@@ -132,7 +133,7 @@
             workcoverbckg: 'background-color: #8e9bbb !important',
             workbckg: 'background-color: #8e9bbb !important',
             type: 'data',
-            workurl: '/data-parser'
+            workurl: '/data-parser/'
         }
         
     ];

@@ -1,22 +1,23 @@
 'use strict';
-const Converter = require("../converter/converter");
+const Wp = require("../wpWorker/wpWorker");
 
 function timeoutRedirect(res) {
     setTimeout(function () {
-        res.redirect('http://192.168.1.151:8000/wp-admin/edit.php');
         res.end();
     }, 5000);
+}
+function pushCurrentChanges() {
+    require('child_process').spawn('sh', ['server/git-push.sh'], {stdio: 'inherit'});
 }
 
 module.exports = function (app) {
     app.get('/build', function (req, res) {
-        Converter.convert();
+        Wp.getMediaFromWP();
         timeoutRedirect(res);
     });
 
     app.get('/push', function (req, res) {
-        //exec('./git_push.sh');
+        pushCurrentChanges();
         timeoutRedirect(res);
     });
 };
-

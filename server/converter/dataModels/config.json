@@ -3,6 +3,7 @@
   "URL_FOR_IMAGES": "http://192.168.1.151:8000/wp-json/wp/v2/media/?per_page=100",
   "PATH_TO_PREV_STATE": "/src/wp-data/_data/bd.json",
 
+  "PATH_TO_TEMPLATES": "/src/server/converter/dataModels/html-templates/template",
   "PATH_TO_JSON_PROJECTS": "_data/center-layout/",
   "PATH_TO_HTML_PROJECTS": "_pages/",
   "PATH_TO_POSTS": "_posts/",

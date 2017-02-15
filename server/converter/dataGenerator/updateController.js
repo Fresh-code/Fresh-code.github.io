@@ -3,12 +3,10 @@ var exports = module.exports = {};
 
 require('shelljs/global');
 const path = require("path");
-const http = require('http');
 const fs = require('fs');
-const jsonfile = require('jsonfile');
 
 const ConfigJson = require('../dataModels/config.json');
-const Images = require('../imageWorker/imageWorker');
+const Images = require('./imageWorker');
 const Utils = require('../utils/utils');
 const State = require('../stateController/stateController');
 
@@ -16,7 +14,7 @@ const State = require('../stateController/stateController');
 function createHtmlTemplateIfNotExist(templateType, slug) {
     fs.exists('/src/wp-data/_pages/' + slug + '.html', function (exists) {
         if (exists != true) {
-            let htmlTemplate = fs.readFileSync('/src/_templates/template' + templateType + '.html', {
+            let htmlTemplate = fs.readFileSync(ConfigJson.PATH_TO_TEMPLATES + templateType + '.html', {
                 encoding: "UTF-8",
                 flag: "r"
             });

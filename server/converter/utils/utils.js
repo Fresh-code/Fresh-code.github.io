@@ -27,25 +27,7 @@ let writeJsonFile = function (path, fileName, data, isTwoFolders) {
         writeJsonFile('wp-data/' + path, fileName, data);
     }
 };
-/*let removeDir = function (dirPath) {
-    let files = null;
-    try {
-        files = fs.readdirSync('/src/' + dirPath);
-    }
-    catch (e) {
-        console.log("ERROR WHILE REMOVING FOLDER: " + e);
-        return;
-    }
-    if (files.length > 0)
-        for (let i = 0; i < files.length; i++) {
-            let filePath = dirPath + '/' + files[i];
-            if (fs.statSync(filePath).isFile())
-                fs.unlinkSync(filePath);
-            else
-                removeDir(filePath);
-        }
-    fs.rmdirSync(dirPath);
-};*/
+
 let removeFile = function (path, fileName, isTwoFolders) {
     glob('/src/' + path + fileName, function (err, files) {
         if (err) console.log("ERROR WHILE REMOVING FILE: " + err);
@@ -86,7 +68,6 @@ let createPostLink = function (date, name) {
 exports.writeFile = writeFile;
 exports.writeJsonFile = writeJsonFile;
 exports.removePostImages = removePostImages;
-//exports.removeDir = removeDir;
 exports.removeFile = removeFile;
 exports.getClearName = getClearName;
 exports.getImageName = getImageName;

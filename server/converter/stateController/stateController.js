@@ -63,19 +63,15 @@ let deleteIds = function () {
                     case "product": {
                         Utils.removeFile(ConfigJson.PATH_TO_HTML_PROJECTS, state.htmlFileName, true);
                         Utils.removeFile(ConfigJson.PATH_TO_JSON_PROJECTS, state.fileName, true);
-                        //Utils.removeDir(ConfigJson.WP_IMAGES + state.fileName.replace(/\..*/, ''));
-                        //Utils.removeDir(ConfigJson.IMAGES + state.fileName.replace(/\..*/, ''));
                         previousSiteState.splice(index, 1);
                     }
                         break;
                     case "post": {
                         Utils.removeFile(ConfigJson.PATH_TO_POSTS, state.fileName, true);
-                        //Utils.removePostImages(id);
                         previousSiteState.splice(index, 1);
                     }
                         break;
                     case "testimonial": {
-                        //Utils.removeFile(ConfigJson.WP_IMAGES + 'testimonials/', 'testimonial_author_' + id + '*');
                         previousSiteState.splice(index, 1);
                     }
                         break;

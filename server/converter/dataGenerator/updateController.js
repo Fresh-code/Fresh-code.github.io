@@ -106,12 +106,12 @@ let updatePageData = function (wpDoc, state, wpDocSlug, wpDocName) {
         //testimonials-page
         case 121: {
             state.modified = wpDoc.modified;
-            wpDoc.attachments.forEach(function (item) {
-                if (item.title == 'icon') {
-                    Images.loadImage(item.url, 'img/testimonials/' + Utils.getImageName(item.url), true);
-                }
-            });
-
+            if(wpDoc.custom_fields.proj_images[0] != undefined) {
+                let projectIcons = wpDoc.custom_fields.proj_images[0].split(",");
+                projectIcons.forEach(function (id) {
+                    Images.loadImgById(id, 'img/testimonials/icon_' + id, true);
+                });
+            }
             Images.loadImgById(wpDoc.custom_fields.photo[0], 'img/testimonials/banner_testimonials', true);
         }
             break;

@@ -1,7 +1,7 @@
-FROM blinkme1/jekyll-java-node
+FROM blinkme1/jekyll-java-node:latest
 
-COPY . /src
 RUN mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
+COPY . /src
 WORKDIR /src/server
 RUN npm install
 WORKDIR /src

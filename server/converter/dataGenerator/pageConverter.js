@@ -37,11 +37,14 @@ function getCategory(tag) {
 function createPostContent(id, content) {
     return '<div class="post-body p-t-6rem">' +
         '' + content.replace(/<img.*align(.*)".*src="http(.*)\/(.*)".alt="(.*)".width.*>/g,
-            '<div style="width:100%;text-align:' + '$1' + ';">' + '<img src="/img/blog-post/included_' + id + '_' + '$3' + '" alt="' + '$4' + '" />').replace(/<p>&nbsp;<\/p>/g, '<br>') + '\n' +
+            '<div style="text-align:' + '$1' + ';">' +
+            '<img src="/img/blog-post/included_' + id + '_' + '$3' + '" alt="' + '$4' + '" style="max-width: 100%" />').replace(/<p>&nbsp;<\/p>/g, '<br>') + '\n' +
         '</div>';
 }
-
-let saveAllFiles = function() {
+function fixColon(str) {
+    return str.replace(/\:/g, "&#58;");
+}
+let saveAllFiles = function () {
     Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'portfolio.json', portfolioJson, true);
     Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'testimonials.json', testimonialsJson, true);
 
@@ -50,7 +53,7 @@ let saveAllFiles = function() {
     testimonialsJson.icons = [];
 };
 
-let formPage =  function(wpDoc, wpDocSlug, wpDocName) {
+let formPage = function (wpDoc, wpDocSlug, wpDocName) {
     switch (wpDoc.categories[0].slug) {
         case "product": {
 
@@ -111,11 +114,11 @@ let formPage =  function(wpDoc, wpDocSlug, wpDocName) {
             let json_blog_data =
                 '--- \n' +
                 'layout: post\n' +
-                'title: ' + wpDoc.custom_fields.title[0] + '\n' +
-                'description: ' + wpDoc.custom_fields.description[0] + '\n' +
+                'title: ' + fixColon(wpDoc.custom_fields.title[0]) + '\n' +
+                'description: ' + fixColon(wpDoc.custom_fields.description[0]) + '\n' +
                 'date: ' + wpDoc.date + ' \n' +
                 'permalink: ' + Utils.createPostLink(wpDoc.date, wpDocName) + '\n' +
-                'post-title: ' + wpDoc.custom_fields.title_post[0] + '\n' +
+                'post-title: ' + fixColon(wpDoc.custom_fields.title_post[0]) + '\n' +
                 'categories-tag: ' + getCategory(wpDoc.custom_fields.tag_type[0]) + '\n' +
                 'background: /img/blog-post/banner_post_' + wpDoc.id + '.' + background + '\n' +
                 'recent-cover: /img/blog-post/recent_post_' + wpDoc.id + '.' + recent + '\n' +
@@ -126,11 +129,11 @@ let formPage =  function(wpDoc, wpDocSlug, wpDocName) {
                 'sizeattr: "(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px"' + '\n' +
                 'background-cover: "' + wpDoc.custom_fields.background_color[0] + '"\n' +
                 'avatar: /img/blog-post/post_author_' + wpDoc.id + '.' + avatar + '\n' +
-                'author: ' + wpDoc.custom_fields.author[0] + '\n' +
-                'position: ' + wpDoc.custom_fields.position[0] + '\n' +
+                'author: ' + fixColon(wpDoc.custom_fields.author[0]) + '\n' +
+                'position: ' + fixColon(wpDoc.custom_fields.position[0]) + '\n' +
                 'share-image: /img/blog-post/banner_post_' + wpDoc.id + '.' + background + '\n' +
-                'share-description: ' + wpDoc.custom_fields.description[0] + '\n' +
-                'share-title: ' + wpDoc.custom_fields.title_post[0].replace(/\s/g, "$20") + '\n' +
+                'share-description: ' + fixColon(wpDoc.custom_fields.description[0]) + '\n' +
+                'share-title: ' + fixColon(wpDoc.custom_fields.title_post[0].replace(/\s/g, "$20")) + '\n' +
                 '---' + '\n' + createPostContent(wpDoc.id, wpDoc.content);
 
             Utils.writeFile(ConfigJson.PATH_TO_POSTS, postName, json_blog_data, true);
@@ -150,20 +153,6 @@ let formPage =  function(wpDoc, wpDocSlug, wpDocName) {
             break;
     }
 
-    function getApproachByNum(num) {
-        return {
-            "name": eval('wpDoc.custom_fields.approach_title_' + num + '[0]'),
-            "text": eval('wpDoc.custom_fields.approach_' + num + '[0]'),
-            "image": eval('wpDoc.custom_fields.approach_image_' + num + '[0]')
-        };
-    }
-    function getVacancyByNum(num) {
-        return {
-            "title": eval('wpDoc.custom_fields.vacancy_name_' + num + '[0]'),
-            "skills": eval('wpDoc.custom_fields.vacancy_skills_' + num + '[0]').split('\r\n')
-        };
-    }
-
     switch (wpDoc.id) {
         //our-approach
         case 733: {
@@ -177,18 +166,32 @@ let formPage =  function(wpDoc, wpDocSlug, wpDocName) {
                 "alt": Images.getImageAltById(wpDoc.custom_fields.background[0]),
                 "short": []
             };
-            for (let i = 1; i <= wpDoc.custom_fields.nums[0]; i++) {
-                let approach = getApproachByNum(i);
-                Images.loadImgById(approach.image, "img/our_approach/icon_" + i, true);
-                ourApproach.short.push(
-                    {
-                        "name": approach.name,
-                        "text": approach.text,
-                        "icon": "our_approach/" + "icon_" + i + "." + Images.getImageFormatById(approach.image),
-                        "alt": Images.getImageAltById(approach.image)
-                    }
-                )
+
+            let arr = [];
+            for (let i = 0; i < wpDoc.custom_fields.approach[0]; i++) {
+                arr[i] = {};
             }
+            let regex = /approach\_(\d)\_.*/;
+            let regex_title = /approach\_(\d)\_title/;
+            let regex_text = /approach\_(\d)\_text/;
+            let regex_image = /approach\_(\d)\_image/;
+            for (let key in wpDoc.custom_fields) {
+                if (wpDoc.custom_fields.hasOwnProperty(key)) {
+                    if (regex.test(key)) {
+                        let index = key.replace(/approach\_(\d)\_.*/, "$1");
+                        if (regex_title.test(key)) {
+                            arr[index].name = wpDoc.custom_fields[key][0];
+                        } else if (regex_text.test(key)) {
+                            arr[index].text = wpDoc.custom_fields[key][0];
+                        } else if (regex_image.test(key)) {
+                            Images.loadImgById(wpDoc.custom_fields[key][0], "img/our_approach/icon_" + index, true);
+                            arr[index].icon = "our_approach/" + "icon_" + index + "." + Images.getImageFormatById(wpDoc.custom_fields[key][0]);
+                            arr[index].alt = Images.getImageAltById(wpDoc.custom_fields[key][0]);
+                        }
+                    }
+                }
+            }
+            ourApproach.short = arr;
             Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'our-approach.json', ourApproach, true);
         }
             break;
@@ -206,13 +209,17 @@ let formPage =  function(wpDoc, wpDocSlug, wpDocName) {
             break;
         //testimonials-page
         case 121: {
-            wpDoc.attachments.forEach(function (item) {
-                testimonialsJson.icons[testimonialsJson.icons.length] =
-                    {
-                        "img": "/img/testimonials/" + Utils.getImageName(item.url),
-                        "alt": item.description
-                    };
-            });
+
+            if (wpDoc.custom_fields.proj_images[0] != undefined) {
+                let projectIcons = wpDoc.custom_fields.proj_images[0].split(",");
+                projectIcons.forEach(function (id) {
+                    testimonialsJson.icons[testimonialsJson.icons.length] =
+                        {
+                            "img": "/img/testimonials/icon_" + id + '.' + Images.getImageFormatById(id),
+                            "alt": Images.getImageAltById(id)
+                        };
+                });
+            }
 
             testimonialsJson.title = wpDoc.custom_fields.title[0];
             testimonialsJson.keywords = wpDoc.custom_fields.keywords[0];
@@ -236,13 +243,26 @@ let formPage =  function(wpDoc, wpDocSlug, wpDocName) {
                 "jobs": []
             };
 
-            for (let i = 1; i <= wpDoc.custom_fields.nums[0]; i++) {
-                let vacancy = getVacancyByNum(i);
-                vacancies.jobs.push({
-                    "title": vacancy.title,
-                    "skills": vacancy.skills
-                });
+            let arr = [];
+            for (let i = 0; i < wpDoc.custom_fields.vacansies[0]; i++) {
+                arr[i] = {};
             }
+            let regex = /vacansies\_(\d)\_.*/;
+            let regex_title = /vacansies\_(\d)\_title/;
+            let regex_skills = /vacansies\_(\d)\_skills/;
+            for (let key in wpDoc.custom_fields) {
+                if (wpDoc.custom_fields.hasOwnProperty(key)) {
+                    if (regex.test(key)) {
+                        let index = key.replace(/vacansies\_(\d)\_.*/, "$1");
+                        if (regex_title.test(key)) {
+                            arr[index].title = wpDoc.custom_fields[key][0];
+                        } else if (regex_skills.test(key)) {
+                            arr[index].skills = wpDoc.custom_fields[key][0].split('\r\n');
+                        }
+                    }
+                }
+            }
+            vacancies.jobs = arr;
             Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'job.json', vacancies, true);
         }
             break;

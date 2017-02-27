@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd wp-data
-git pull
-cd ..
+#cd wp-data
+#git pull
+#cd ..
 
 rm -rf ./img/*
 rm -rf ./_data

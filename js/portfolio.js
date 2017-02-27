@@ -3,7 +3,6 @@
  */
 (function(global) {
 
-
     var $monitoring = $('.filter-monitoring'),
         $navigation = $('.filter-navigation'),
         $education = $('.filter-education'),
@@ -29,7 +28,7 @@
             workcoverbckg: 'background-color: #5d738f !important',
             workbckg: 'background-color: #5d738f !important',
             type: 'education',
-            workurl: '/playattention/'
+            workurl: '/playattention'
         },
         
         {
@@ -42,7 +41,7 @@
             workcoverbckg: 'background-color: #775441 !important',
             workbckg: 'background-color: #775441 !important',
             type: 'ecommerce',
-            workurl: '/gommehd/'
+            workurl: '/gommehd'
         },
         
         {
@@ -55,7 +54,7 @@
             workcoverbckg: 'background-color: #747474 !important',
             workbckg: 'background-color: #747474 !important',
             type: 'media',
-            workurl: '/wall-breaker/'
+            workurl: '/wall-breaker'
         },
         
         {
@@ -68,7 +67,7 @@
             workcoverbckg: 'background-color: #a5a5a5 !important',
             workbckg: 'background-color: #a5a5a5 !important',
             type: 'monitoring',
-            workurl: '/flotron/'
+            workurl: '/flotron'
         },
         
         {
@@ -81,20 +80,7 @@
             workcoverbckg: 'background-color: #354356 !important',
             workbckg: 'background-color: #354356 !important',
             type: 'education',
-            workurl: '/educadio/'
-        },
-        
-        {
-            title: 'Twenty One Learning',
-            description: 'Twenty One Learning is an interactive platform which main objective was to allow collaborative creation of lectures, presentations, slides and text with open access to all materials.',
-            workcover: '/img/portfolio/work_291p-350.jpg',
-            workalt: 'Twenty One Learning platform preview',
-            worksrcset: '/img/portfolio/work_291p-700.jpg 700w, /img/portfolio/work_291p-450.jpg 450w, /img/portfolio/work_291p-350.jpg 350w',
-            worksizes: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
-            workcoverbckg: 'background-color: #576965 !important',
-            workbckg: 'background-color: #576965 !important',
-            type: 'education',
-            workurl: '/twenty-one-learning/'
+            workurl: '/educadio'
         },
         
         {
@@ -107,7 +93,7 @@
             workcoverbckg: 'background-color: #6e8a6d !important',
             workbckg: 'background-color: #6e8a6d !important',
             type: 'navigation',
-            workurl: '/tassta/'
+            workurl: '/tassta'
         },
         
         {
@@ -120,7 +106,7 @@
             workcoverbckg: 'background-color: #65753b !important',
             workbckg: 'background-color: #65753b !important',
             type: 'navigation',
-            workurl: '/outdoor/'
+            workurl: '/outdoor'
         },
         
         {
@@ -133,7 +119,7 @@
             workcoverbckg: 'background-color: #8e9bbb !important',
             workbckg: 'background-color: #8e9bbb !important',
             type: 'data',
-            workurl: '/data-parser/'
+            workurl: '/data-parser'
         }
         
     ];

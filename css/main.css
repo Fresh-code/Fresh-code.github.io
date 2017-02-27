@@ -3031,7 +3031,7 @@ span.path {
 
 .post-body p { margin-bottom: 3rem; }
 .post-body strong { color: #333; }
-.post-body h2 { text-transform: uppercase; margin-bottom: 0; }
+.post-body h2 { text-transform: uppercase; margin: 70px 0 20px 0; }
 .post-body pre.language-php {
 	border-radius: 0;
 	font-size: 1em;
@@ -3508,7 +3508,7 @@ span.path {
 	.blog-post.padding-bottom {
 		min-height: 100vh;
 		padding-bottom: 40px; }
-	.post-body h2 { margin-bottom: 2rem; }
+	.post-body h2 { margin-bottom: 35px; }
 	.post-body li, .post-body p {
 		font-size: 17px;
 		line-height: 24px; }

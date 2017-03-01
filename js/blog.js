@@ -115,7 +115,7 @@
             postbckg: 'background-color: #32576c !important',
             type: 'business',
             nondisplay: 'display: none',
-            posturl: '/blog/2016/10/17/engagement-models/'
+            posturl: '/blog/2016/10/17/is-dedicated-team-the-perfect-one-for-you/'
         },
         
         {

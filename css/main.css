@@ -1057,6 +1057,9 @@ a.attach-link:hover { text-decoration: none; }
     font-size: 32px;
     position: relative;
     bottom: 10px; }
+.skype-align{
+	margin-left: 70px;
+}
 
 /*Footer animation*/
 .fresh-footer.dynamic {
@@ -1702,6 +1705,7 @@ textarea.material-input { resize: none; }
 @media screen and (max-width: 1085px) {
 	.li-head { font-size: 20px; }
 	.footer-list { font-size: 18px; }
+	.skype-align { margin-left: 58px;}
 }
 @media screen and (max-width: 1150px) {
 	.fresh-sub-block.no-padding .description h3 {
@@ -3672,6 +3676,7 @@ span.path {
 		width: 52px;
 		margin-right: 10px;
 	}
+	.skype-align { margin-left: 60px;}
 }
 @media screen and (min-width: 1001px) {
 	.proj-header { padding: 11% 0 0; }

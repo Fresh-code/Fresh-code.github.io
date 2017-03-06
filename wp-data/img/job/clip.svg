@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="38px" height="88px" viewBox="0 0 19 44">
+<filter filterUnits="objectBoundingBox" x="0.00" y="0.00" width="100.00" height="100.00" id="filter0">
+<feImage x="0" y="0" width="19" height="44" preserveApectRatio="none" xlink:href="#symbol0"/>
+<feComposite in="grImage1" in2="SourceAlpha" operator="in" result="grOverlay1"/>
+<feBlend in="grOverlay1" in2="SourceGraphic" mode="normal" result="gradientOverlay1"/>
+</filter>
+<linearGradient id="linear_PSgrad_0" x1="0%" y1="89.0643%" x2="100%" y2="10.9357%">
+    <stop offset="0%" stop-color="rgb(47,135,247)" stop-opacity="1" />
+    <stop offset="99.5361%" stop-color="rgb(3,201,253)" stop-opacity="1" />
+    <stop offset="100%" stop-color="rgb(3,201,253)" stop-opacity="1" />
+</linearGradient>
+
+<defs>
+<rect x="0" y="0" width="19" height="44" id="symbol0" fill="url(#linear_PSgrad_0)"/></defs>
+<path fillRule="evenodd" d="M 6.65 0C 5.04 0 3.42 0.44 2.15 1.4 0.88 2.35-0 3.86-0 5.73-0 5.73-0 36.89-0 36.89-0 46.36 18.99 46.36 18.99 36.89 18.99 36.89 18.99 7.56 18.99 7.56 19 7.06 18.58 6.64 18.06 6.63 17.53 6.62 17.1 7.03 17.09 7.54 17.09 7.54 17.09 7.55 17.09 7.56 17.09 7.56 17.09 36.89 17.09 36.89 17.09 43.91 1.9 43.91 1.9 36.89 1.9 36.89 1.9 5.73 1.9 5.73 1.9 4.39 2.45 3.5 3.31 2.85 4.18 2.2 5.41 1.83 6.65 1.83 7.89 1.83 9.12 2.2 9.98 2.85 10.85 3.5 11.4 4.39 11.4 5.73 11.4 5.73 11.4 31.39 11.4 31.39 11.4 33.31 10.39 33.91 9.5 33.91 8.6 33.91 7.6 33.31 7.6 31.39 7.6 31.39 7.6 13.06 7.6 13.06 7.6 12.55 7.18 12.14 6.66 12.13 6.14 12.12 5.7 12.53 5.7 13.03 5.7 13.04 5.7 13.05 5.7 13.06 5.7 13.06 5.7 31.39 5.7 31.39 5.7 34.05 7.54 35.74 9.5 35.74 11.45 35.74 13.29 34.05 13.29 31.39 13.29 31.39 13.29 5.73 13.29 5.73 13.29 3.86 12.42 2.35 11.15 1.4 9.88 0.44 8.26 0 6.65 0Z" fill="rgb(203,203,203)" filter="url(#filter0)"/></svg>

@@ -19,7 +19,7 @@ let createProjectsLinksMap = function (response) {
     projectsLinksMap = [];
 
     response.posts.forEach(function (wpDoc) {
-        if (wpDoc.categories[0].slug == 'product') {
+        if (wpDoc['categories'][0]['slug'] == 'product') {
             projectsLinksMap[projectsLinksMap.length] = {
                 "id": wpDoc.id,
                 "link": '/' + Utils.getClearName(wpDoc.title) + '/',

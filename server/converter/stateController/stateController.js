@@ -29,13 +29,20 @@ let getState = function (id) {
     }
     return false;
 };
-let createNewState = function (id, type, name, modified) {
+let createNewState = function (id, type, name, date, modified, slug) {
     if (type == "product") {
         previousSiteState[previousSiteState.length] = {
             id: id,
             type: type,
             fileName: name + '.json',
             htmlFileName: name + '.html',
+            modified: modified
+        };
+    } else if (type == "post") {
+        previousSiteState[previousSiteState.length] = {
+            id: id,
+            type: type,
+            fileName: Utils.createPostName(date, slug),
             modified: modified
         };
     } else {

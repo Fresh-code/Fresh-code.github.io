@@ -75,6 +75,14 @@
       "alt": "Educadio platform preview",
       "link": "/educadio",
       "mainColor": "#354356"
+    },
+    {
+      "title": "OUTDOOR.ROCKS",
+      "description": "Outdoor.rocks is a young, but rapidly developing project, designed for outdoor activity lovers around the world.",
+      "cover": "/img/main/work_10.jpg",
+      "alt": "Outdoor.rocks preview",
+      "link": "/outdoor/",
+      "mainColor": "#65753b"
     }
   ]
 }

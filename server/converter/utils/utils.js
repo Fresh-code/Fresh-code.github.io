@@ -17,6 +17,7 @@ let writeFile = function (path, fileName, data, isTwoFolders) {
         writeFile('wp-data/' + path, fileName, data);
     }
 };
+
 let writeJsonFile = function (path, fileName, data, isTwoFolders) {
     jsonfile.writeFile('/src/' + path + fileName, data, {spaces: 2}, function (err) {
         if (err) {
@@ -45,29 +46,25 @@ let removeFile = function (path, fileName, isTwoFolders) {
         removeFile('wp-data/' + path, fileName);
     }
 };
-let removePostImages = function (id) {
-    removeFile('img/blog-post/', 'banner_post_' + id + '.*', true);
-    removeFile('img/blog-post/', 'post_author_' + id + '.*', true);
-    removeFile('img/blog-post/', 'recent_post_' + id + '.*', true);
-    removeFile('img/blog-post/', 'post_' + id + 'c.*', true);
-    removeFile('img/blog-post/', 'included_' + id + '*', true);
-};
+
 let getClearName = function (str) {
-    return str.replace(/\s/g, "-").replace(/[^a-zA-Z0-9\-\_]/g, "");
+    return str.replace(/\s/g, "-").replace(/[^a-zA-Z0-9\-_]/g, "");
 };
+
 let getImageName = function (url) {
     return url.replace(/(.*)\/(.*)/g, '$2');
 };
-let createPostName = function (date, name) {
-    return date.split(' ')[0] + '-' + getClearName(name.toLowerCase().replace(/\W+/g, "-")) + '.md';
+
+let createPostName = function (date, slug) {
+    return date.split(' ')[0] + '-' + getClearName(slug.toLowerCase().replace(/\W+/g, "-")) + '.md';
 };
-let createPostLink = function (date, name) {
-    return '/blog/' + (date.split(' ')[0]).replace(/\-/g, "/") + '/' + getClearName(name.toLowerCase().replace(/\W+/g, "-")) + '/';
+
+let createPostLink = function (date, slug) {
+    return '/blog/' + (date.split(' ')[0]).replace(/-/g, "/") + '/' + getClearName(slug.toLowerCase()) + '/';
 };
 
 exports.writeFile = writeFile;
 exports.writeJsonFile = writeJsonFile;
-exports.removePostImages = removePostImages;
 exports.removeFile = removeFile;
 exports.getClearName = getClearName;
 exports.getImageName = getImageName;

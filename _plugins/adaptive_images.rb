@@ -12,12 +12,22 @@ module Jekyll
     end
 
     def resize_img(size, input, flag)
+=begin
       path = (input.split('/')).drop(1).reverse.drop(1).reverse.join('/')
       ext = input.split('.')[1]
       name = (input.split('/')[3]).split('.')[0]
       output = "#{path}/#{name}-#{size}.#{ext}"
+=end
+      path = (input.split('/')).drop(1).reverse.drop(1).reverse.join('/')
+      ext = input.split('.')[1]
+      if path.split('/').length == 3
+        name = (input.split('/')[4]).split('.')[0]
+      else
+        name = (input.split('/')[3]).split('.')[0]
+      end
+      output = "#{path}/#{name}-#{size}.#{ext}"
 
-      if flag #or true
+      if flag
         cmd = "convert -strip -interlace Plane -quality 95 -depth 8 -resize #{size} #{input[1..-1]} #{output}"
         system(cmd)
         # pid = spawn(cmd)
@@ -47,7 +57,7 @@ module Jekyll
 
         # Process html attributes
         html_attr = if markup[:html_attr]
-                      Hash[ *markup[:html_attr].scan(/(?<attr>[^\s="]+)(?:="(?<value>[^"]+)")?\s?/).flatten ]
+                      Hash[*markup[:html_attr].scan(/(?<attr>[^\s="]+)(?:="(?<value>[^"]+)")?\s?/).flatten]
                     else
                       {}
                     end
@@ -105,7 +115,7 @@ module Jekyll
           tail = " #{size}w"
           the_src << tail
           srcset << the_src
-          if ! smallest_src or smalles_src > size
+          if !smallest_src or smalles_src > size
             smalles_src = size
             src = the_src.split(tail)[0]
           end
@@ -118,13 +128,13 @@ module Jekyll
         html_attr_string << " src=\"#{src}\" srcset=\"#{srcset}\""
 
         # Add sizes if it doesn’t exist
-        if ! html_attr_string.include? 'sizes=' 
-          html_attr_string << " sizes=\"#{sizes}\"" 
+        if !html_attr_string.include? 'sizes='
+          html_attr_string << " sizes=\"#{sizes}\""
         end
 
         # Add alt if it doesn’t exist
-        if ! html_attr_string.include? 'alt=' 
-          html_attr_string << ' alt=""' 
+        if !html_attr_string.include? 'alt='
+          html_attr_string << ' alt=""'
         end
 
         "<img #{html_attr_string}>"

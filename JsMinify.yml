@@ -2,5 +2,6 @@ files: [
   { input: 'portfolio.js', output: 'portfolio.min.js', path: '_site/js/portfolio.js' },
   { input: 'scripts.js',   output: 'site.min.js',      path: '_site/js/scripts.js' },
   { input: 'blog.js',      output: 'blog.min.js',      path: '_site/js/blog.js' },
-  { input: 'job.js',       output: 'job.min.js',       path: '_site/js/job.js' }
+  { input: 'job.js',       output: 'job.min.js',       path: '_site/js/job.js' },
+  { input: 'post.js',      output: 'post.min.js',      path: '_site/js/post.js' }
 ]

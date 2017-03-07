@@ -11,5 +11,11 @@
   "PATH_TO_JSON_DATA": "_data/",
   "WP_IMAGES": "wp-data/img/",
   "IMAGES": "img/",
-  "WP": "wp-data/"
+  "WP": "wp-data/",
+  "PATH_BLOG_IMAGES": "img/blog-post/",
+  "PATH_TESTIMONIALS_IMAGES": "img/testimonials/",
+  "PATH_APPROACH_IMAGES": "img/our_approach/",
+  "PATH_PORTFOLIO_IMAGES": "img/portfolio/",
+  "PATH_JOB_IMAGES": "img/job/",
+  "PATH_BLOG": "img/blog/"
 }

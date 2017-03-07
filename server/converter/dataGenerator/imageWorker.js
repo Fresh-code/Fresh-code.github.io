@@ -12,10 +12,12 @@ function getImagePropertyById(id) {
             return allImagesInfo[x];
         }
     }
+    return null;
 }
 
 function getImageUrlById(id) {
-    return getImagePropertyById(id).source_url;
+    let imageInfo = getImagePropertyById(id);
+    return imageInfo === null ? null : imageInfo['source_url'];
 }
 
 let setImagesFromWp = function (images) {
@@ -23,19 +25,24 @@ let setImagesFromWp = function (images) {
 };
 
 let getImageAltById = function (id) {
-    return getImagePropertyById(id).alt_text;
+    let imageInfo = getImagePropertyById(id);
+    return imageInfo === null ? null : imageInfo['alt_text'];
 };
 
 let getImageFormatById = function (id) {
-    return getImagePropertyById(id).source_url.split('.').pop();
+    let imageInfo = getImagePropertyById(id);
+    return imageInfo === null ? null : imageInfo['source_url'].split('.').pop();
 };
 
 let loadImgById = function (imgId, imgPath, isTwoFolders) {
-    loadImage(getImageUrlById(imgId), imgPath + '.' + getImageFormatById(imgId), isTwoFolders === true);
+    let url = getImageUrlById(imgId);
+    if( url ){
+        loadImage(url, imgPath, isTwoFolders === true);
+    }
 };
 
 let loadImage = function (url, imageName, isTwoFolders) {
-    if (typeof url != 'undefined') {
+    if (typeof url != 'undefined' || url != null) {
         request(url).pipe(fs.createWriteStream('/src/' + imageName)).on('error', function (err) {
             console.log("Loading image error: ", err);
         });

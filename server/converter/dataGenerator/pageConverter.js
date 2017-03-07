@@ -106,16 +106,16 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
     function addRedirect(slug) {
         switch(slug) {
             case "fixed-price-model":
-                return 'redirect_from: "/blog/2016/10/05/fixed-price-model/"';
+                return '\nredirect_from: /blog/2016/10/05/fixed-price-model/' + '\n';
             break;
             case "software-testing":
-                return 'redirect_from: "/blog/2017/01/22/software/testing/"';
+                return '\nredirect_from: /blog/2017/01/22/software/testing/' + '\n';
                 break;
             case "how-to-ruin-first-impression":
-                return 'redirect_from: "/blog/2017/01/03/how/to/ruin/first/impression/"';
+                return '\nredirect_from: /blog/2017/01/03/how/to/ruin/first/impression/' + '\n';
                 break;
         }
-        return "some-data: hop hei, lalalei";
+        return '\n';
     }
 
     function onModified() {
@@ -229,8 +229,7 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             'position: ' + fixColon(customFields['position'][0]) + '\n' +
             'share-image: ' + pathToPostImages + mainImage + '\n' +
             'share-description: ' + fixColon(customFields['description'][0]) + '\n' +
-            'share-title: ' + fixColon(customFields['title_post'][0]) + '\n' +
-            '' + addRedirect(wpDocSlug) + '\n' +
+            'share-title: ' + fixColon(customFields['title_post'][0]) + addRedirect(wpDocSlug) +
             '---' + '\n' +
             createPostContent(wpDocSlug, wpDoc['content']);
 
@@ -313,7 +312,6 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
                     } else if (regex_text.test(key)) {
                         arr[index].text = customFields[key][0];
                     } else if (regex_image.test(key)) {
-                        //let iconImage = 'icon_' + customFields[key][0] + '.' + Images.getImageFormatById(customFields[key][0]);
                         let iconImage = 'icon_' + index + '.' + Images.getImageFormatById(customFields[key][0]);
                         Images.loadImgById(customFields[key][0], ConfigJson.PATH_APPROACH_IMAGES + iconImage, true);
                         arr[index].icon = "our_approach/" + iconImage;

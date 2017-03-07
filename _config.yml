@@ -7,7 +7,7 @@ baseurl: ""
 url: "https://freshcodeit.com"
 twitter_username: "@FreshCode1"
 github_username: "Fresh-code"
-
+future: true
 # Build settings
 gems:
   - jekyll-sitemap

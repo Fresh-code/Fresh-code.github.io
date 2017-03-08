@@ -13,17 +13,20 @@ const State = require('../stateController/stateController');
 
 let portfolioJson = Templates.PORTFOLIO_PAGE;
 let testimonialsJson = Templates.TESTIMONIAL_PAGE;
-let photosIds = [];
 
-function getAuthorImageName(newId) {
-    for (let i = 0; i < photosIds.length; i++) {
-        if (photosIds[i] === newId) {
-            return 'author_' + i;
+let getAuthorImageName = function () {
+    let photos = [];
+    return function (id) {
+        for (let i = 0; i < photos.length; i++) {
+            if (photos[i] === id) {
+                return 'author_' + i;
+            }
         }
+        photos.push(id);
+        return 'author_' + (photos.length - 1);
     }
-    photosIds.push(newId);
-    return 'author_' + (photosIds.length - 1);
-}
+}();
+
 function getCategory(tag) {
     switch (tag) {
         case 'business': {
@@ -480,7 +483,7 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
         }
             break;
     }
-    State.updateState(state);
+    State.updateState(pageId, state);
 };
 
 exports.formPage = formPage;

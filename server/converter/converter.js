@@ -15,14 +15,14 @@ let creatingSiteContent = function (response) {
         let modified = false;
         let wpDocSlug = Utils.getClearName(wpDoc['slug']);
         let wpDocName = Utils.getClearName(wpDoc['title']);
-        let state = State.getState(wpDoc.id);
+        let state = State.getState(wpDoc['id']);
 
         if (state) {
             if (state.modified != wpDoc.modified) modified = true;
         }
         else {
             modified = true;
-            state = State.createNewState(wpDoc.id, wpDoc['categories'][0]['slug'], wpDocName, wpDoc['date'], wpDoc['modified'], wpDoc['slug']);
+            state = State.createNewState(wpDoc['id'], wpDoc['categories'][0]['slug'], wpDocName, wpDoc['date'], wpDoc['modified'], wpDoc['slug']);
         }
 
         Creator.formPage(wpDoc, state, modified, wpDocSlug, wpDocName);

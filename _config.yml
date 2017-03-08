@@ -34,10 +34,11 @@ exclude:
   - CssMinify.yml
   - JsMinify.yml
   - Fresh-code.github.io.iml
+  - create_project.sh
   - server/
   - proj-data/
-  - wp-data/
-  #- _posts/
+  #- wp-data/
+  - _posts/
 
 markdown: kramdown
 permalink: pretty

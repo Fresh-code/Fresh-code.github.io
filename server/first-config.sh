@@ -18,6 +18,7 @@ git submodule update
 rm -rf ./img/*
 rm -rf ./_data
 rm -rf ./_pages
+rm -rf ./_posts
 
 mkdir -p img
 

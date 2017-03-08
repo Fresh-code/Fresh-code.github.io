@@ -155,6 +155,8 @@
                 return item.values().type == type;
             });
         }
+        hidePosts();
+        showPosts();
     });
 
     var clear = function (el) {
@@ -251,12 +253,19 @@
     });
 
 
+    function showPosts() {
+        $('.post-block').each(function(i,elem) {
+            if(i < 6){
+                $(elem).addClass('active');
+            }
+        });
+    }
 
-    $('.post-block').each(function(i,elem) {
-        if(i < 6){
-           $(elem).addClass('active');
-        }
-    });
+    function hidePosts() {
+        $('.post-block').each(function(i,elem) {
+            $(elem).removeClass('active');
+        });
+    }
 
     $("#load-more").click(function() {
         if ($(this).hasClass('disable')) return false;
@@ -267,5 +276,6 @@
         });
     });
 
+    showPosts();
 
 })(this);

@@ -4,15 +4,11 @@ var exports = module.exports = {};
 const request = require('request');
 const fs = require('fs');
 
-let allImagesInfo = [];
+let allImagesInfo = {};
 
 function getImagePropertyById(id) {
-    for (let x in allImagesInfo) {
-        if (allImagesInfo[x].id == id) {
-            return allImagesInfo[x];
-        }
-    }
-    return null;
+    let imgInfo = allImagesInfo[id];
+    return imgInfo ? imgInfo : null;
 }
 
 function getImageUrlById(id) {
@@ -21,7 +17,9 @@ function getImageUrlById(id) {
 }
 
 let setImagesFromWp = function (images) {
-    allImagesInfo = images;
+    images.forEach(function (image) {
+        allImagesInfo[image['id']] = {alt_text: image['alt_text'], source_url: image['source_url']}
+    });
 };
 
 let getImageAltById = function (id) {
@@ -36,7 +34,7 @@ let getImageFormatById = function (id) {
 
 let loadImgById = function (imgId, imgPath, isTwoFolders) {
     let url = getImageUrlById(imgId);
-    if( url ){
+    if (url) {
         loadImage(url, imgPath, isTwoFolders === true);
     }
 };

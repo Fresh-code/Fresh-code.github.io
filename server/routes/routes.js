@@ -7,7 +7,7 @@ function timeoutRedirect(res) {
     }, 5000);
 }
 function pushCurrentChanges() {
-    require('child_process').spawn('sh', ['server/git-push.sh'], {stdio: 'inherit'});
+    require('child_process').spawn('sh', ['server/sh-scripts/git-push.sh'], {stdio: 'inherit'});
 }
 
 module.exports = function (app) {

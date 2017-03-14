@@ -32,6 +32,11 @@ function createTestimonial(customFields, authorImage) {
     });
 }
 
+function clearData() {
+    testimonialsFile = {};
+    testimonialsArray = [];
+}
+
 const testimonialWorker = ((pageData) => {
     const authorImageName = createAuthorImageName(pageData.customFields['photo'][0], pageData.slug);
     createTestimonial(pageData.customFields, authorImageName);
@@ -43,6 +48,7 @@ const testimonialWorker = ((pageData) => {
 const saveTestimonialsFile = (() => {
     testimonialsFile.short = testimonialsArray;
     Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'testimonials.json', testimonialsFile, true);
+    clearData();
 });
 
 function createTestimonialsPage(customFields, mainImage) {

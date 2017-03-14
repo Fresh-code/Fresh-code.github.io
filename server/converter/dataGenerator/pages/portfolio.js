@@ -23,6 +23,10 @@ const addProductToPortfolio = ((customFields, cover, slug) => {
     });
 });
 
+function clearData() {
+    portfolioData = {};
+    portfolioWorks = [];
+}
 const portfolioWorker = ((pageData) => {
     const mainImage = createPortfolioImageName(pageData.customFields['photo'][0]);
     createPortfolioFile(pageData.customFields, mainImage);
@@ -48,12 +52,12 @@ function createPortfolioFile(customFields, mainImage) {
         alt: Images.getImageAltById(customFields['photo'][0]),
         works: []
     };
-    console.log(portfolioData);
 }
 
 const writePortfolioFile = (() => {
     portfolioData.works = portfolioWorks;
     Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'portfolio.json', portfolioData, true);
+    clearData();
 });
 
 exports.portfolioWorker = portfolioWorker;

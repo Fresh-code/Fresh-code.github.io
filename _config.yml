@@ -37,8 +37,12 @@ exclude:
   - create_project.sh
   - server/
   - proj-data/
-  #- wp-data/
-  - _posts/
+  - wp-data/img/
+  - wp-data/_data/
+  - wp-data/_pages/
+  - wp-data/.gitignore
+  - wp-data/README.md
+  - wp-data/
 
 markdown: kramdown
 permalink: pretty

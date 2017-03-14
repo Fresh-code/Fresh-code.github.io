@@ -1,10 +1,11 @@
+/*
 'use strict';
 var exports = module.exports = {};
 
 const path = require("path");
 const fs = require('fs');
 
-const ConfigJson = require('../dataModels/config.json');
+const ConfigJson = require('../../config.json');
 const Templates = require('../dataModels/templates.json');
 const Utils = require('../utils/utils');
 const Images = require('./imageWorker');
@@ -27,66 +28,8 @@ let getAuthorImageName = function () {
     }
 }();
 
-function getCategory(tag) {
-    switch (tag) {
-        case 'business': {
-            return 'Business';
-        }
-            break;
-        case 'conferences': {
-            return 'Conferences';
-        }
-            break;
-        case 'development': {
-            return 'Development';
-        }
-            break;
-        case 'front': {
-            return 'Front End';
-        }
-            break;
-        case 'management': {
-            return 'Management';
-        }
-            break;
-    }
-}
-function createPostContent(slug, content) {
-    let regex = /<img.*align([a-zA-z]+).*src="http(.*)\/(.*(\.[a-zA-z]+))".alt="(.*)".width.*>/;
-    let imagesNumber = (content.split(regex).length - 1);
-    for (let i = 0; i < imagesNumber; i++) {
-        content = content.replace(regex, '<div style="text-align:' + '$1' + ';">' +
-            '<img src="/img/blog-post/' + slug + '/included_' + i + '$4' + '" alt="' + '$5' + '" style="max-width:100%" />');
-    }
-    return '<div class="post-body p-t-6rem">' +
-        content.replace(/<p>&nbsp;<\/p>/g, '<br>') + '\n' +
-        '</div>';
-}
-function loadPostIncludedImages(content, slug) {
-    let regexp = /<img.*src="(.*)".alt="/g;
-    let matches, output = [];
-    while (matches = regexp.exec(content)) {
-        output.push(matches[1]);
-    }
-    output.forEach(function (url, index) {
-        Images.loadImage(url, 'img/blog-post/' + slug + '/' + 'included_' + index + url.replace(/.*(\.[a-zA-z]+)/g, '$1'), true);
-    });
-}
-function fixColon(str) {
-    return str.replace(/:/g, "&#58;");
-}
-function createHtmlTemplateIfNotExist(templateType, slug) {
-    fs.exists('/src/wp-data/_pages/' + slug + '.html', function (exists) {
-        if (exists != true) {
-            let htmlTemplate = fs.readFileSync(ConfigJson.PATH_TO_TEMPLATES + templateType + '.html', {
-                encoding: "UTF-8",
-                flag: "r"
-            });
-            htmlTemplate = htmlTemplate.replace(/template/g, slug);
-            Utils.writeFile(ConfigJson.PATH_TO_HTML_PROJECTS, slug + '.html', htmlTemplate, true);
-        }
-    });
-}
+
+
 
 let saveAllFiles = function () {
     Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'portfolio.json', portfolioJson, true);
@@ -97,42 +40,47 @@ let saveAllFiles = function () {
     testimonialsJson.icons = [];
 };
 
-let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
+let formPage = function (wpDoc, isModified) {
+    let wpDocSlug = Utils.getClearName(wpDoc['slug']);
+    let wpDocName = Utils.getClearName(wpDoc['title']);
+
     let customFields = wpDoc['custom_fields'];
     let pageId = wpDoc['id'];
     let pageDate = wpDoc['date'];
+    let state = State.getState(pageId);
+
 
     function setStateFilename(fileName) {
         state['modified'] = fileName;
     }
 
-    function addRedirect(slug) {
-        switch(slug) {
-            case "fixed-price-model":
-                return '\nredirect_from: /blog/2016/10/05/fixed-price-model/' + '\n';
-            break;
-            case "software-testing":
-                return '\nredirect_from: /blog/2017/01/22/software/testing/' + '\n';
-                break;
-            case "how-to-ruin-first-impression":
-                return '\nredirect_from: /blog/2017/01/03/how/to/ruin/first/impression/' + '\n';
-                break;
-        }
-        return '\n';
-    }
 
     function onModified() {
         state['modified'] = wpDoc['modified'];
     }
 
-    function createProduct() {
+    /!*function createProduct() {
+
+        /!*function createHtmlTemplateIfNotExist(templateType, slug) {
+            fs.exists('/src/wp-data/_pages/' + slug + '.html', function (exists) {
+                if (exists != true) {
+                    let htmlTemplate = fs.readFileSync(ConfigJson.PATH_TO_TEMPLATES + templateType + '.html', {
+                        encoding: "UTF-8",
+                        flag: "r"
+                    });
+                    htmlTemplate = htmlTemplate.replace(/template/g, slug);
+                    Utils.writeFile(ConfigJson.PATH_TO_HTML_PROJECTS, slug + '.html', htmlTemplate, true);
+                }
+            });
+        }
+
         let firstImage = 'work_first_p.' + Images.getImageFormatById(customFields['first'][0]);
         let secondImage = 'work_second_p.' + Images.getImageFormatById(customFields['second'][0]);
-        let thirdImage = 'work_third_p.' + Images.getImageFormatById(customFields['third'][0]);
+        let thirdImage = 'work_third_p.' + Images.getImageFormatById(customFields['third'][0]);*!/
         let cover = 'work_portfolio_cover_p';
-        let coverImage = cover + '.jpg';
+        //let coverImage = cover + '.jpg';
 
-        let product = Templates.PRODUCT;
+        /!*let product = Templates.PRODUCT;
         let links = LinksMap.getProjectLinks(pageId);
 
         product.name = wpDocName;
@@ -159,9 +107,9 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
         product.buisValue = customFields['buisvalue'][0];
         product.solutions = customFields['solutions'][0];
         product.prev = links.prev;
-        product.next = links.next;
+        product.next = links.next;*!/
 
-        Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_PROJECTS, product.name + '.json', product, true);
+        //Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_PROJECTS, product.name + '.json', product, true);
 
         portfolioJson.works[portfolioJson.works.length] = {
             "title": customFields['preview_title'][0],
@@ -175,7 +123,7 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             "mainColor": customFields['preview_maincolor'][0]
         };
 
-        if (isModified === true) {
+       /!* if (isModified === true) {
             console.log('MODIFIED TRUE' + wpDocName);
             let dir = 'img/' + wpDocSlug;
 
@@ -198,10 +146,77 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             }
             createHtmlTemplateIfNotExist(customFields['temlate_type'][0], wpDocName);
             onModified();
-        }
-    }
+        }*!/
+    }*!/
 
-    function createPost() {
+    /!*function createPost() {
+
+        function getCategory(tag) {
+            switch (tag) {
+                case 'business': {
+                    return 'Business';
+                }
+                    break;
+                case 'conferences': {
+                    return 'Conferences';
+                }
+                    break;
+                case 'development': {
+                    return 'Development';
+                }
+                    break;
+                case 'front': {
+                    return 'Front End';
+                }
+                    break;
+                case 'management': {
+                    return 'Management';
+                }
+                    break;
+            }
+        }
+        function createPostContent(slug, content) {
+            let regex = /<img.*align([a-zA-z]+).*src="http(.*)\/(.*(\.[a-zA-z]+))".alt="(.*)".width.*>/;
+            let imagesNumber = (content.split(regex).length - 1);
+            for (let i = 0; i < imagesNumber; i++) {
+                content = content.replace(regex, '<div style="text-align:' + '$1' + ';">' +
+                    '<img src="/img/blog-post/' + slug + '/included_' + i + '$4' + '" alt="' + '$5' + '" style="max-width:100%" />');
+            }
+            return '<div class="post-body p-t-6rem">' +
+                content.replace(/<p>&nbsp;<\/p>/g, '<br>') + '\n' +
+                '</div>';
+        }
+
+        function addRedirect(slug) {
+            switch(slug) {
+                case "fixed-price-model":
+                    return '\nredirect_from: /blog/2016/10/05/fixed-price-model/' + '\n';
+                    break;
+                case "software-testing":
+                    return '\nredirect_from: /blog/2017/01/22/software/testing/' + '\n';
+                    break;
+                case "how-to-ruin-first-impression":
+                    return '\nredirect_from: /blog/2017/01/03/how/to/ruin/first/impression/' + '\n';
+                    break;
+            }
+            return '\n';
+        }
+
+        function fixColon(str) {
+            return str.replace(/:/g, "&#58;");
+        }
+
+        function loadPostIncludedImages(content, slug) {
+            let regexp = /<img.*src="(.*)".alt="/g;
+            let matches, output = [];
+            while (matches = regexp.exec(content)) {
+                output.push(matches[1]);
+            }
+            output.forEach(function (url, index) {
+                Images.loadImage(url, 'img/blog-post/' + slug + '/' + 'included_' + index + url.replace(/.*(\.[a-zA-z]+)/g, '$1'), true);
+            });
+        }
+
         let postName = Utils.createPostName(pageDate, wpDocSlug);
         let mainImage = 'banner_post.' + Images.getImageFormatById(customFields['background'][0]);
         let recentImage = 'recent_post.' + Images.getImageFormatById(customFields['recent'][0]);
@@ -263,9 +278,9 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             loadPostIncludedImages(wpDoc['content'], wpDocSlug);
             onModified();
         }
-    }
+    }*!/
 
-    function createTestimonial() {
+   /!* function createTestimonial() {
         let link = customFields['link'][0].match(/:"(\d*)"/);
         let mainImage = 'author_' + wpDocSlug + '.' + Images.getImageFormatById(customFields['photo']);
 
@@ -282,9 +297,9 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             setStateFilename(wpDoc['fileName']);
             onModified();
         }
-    }
+    }*!/
 
-    function createOurApproach() {
+   /!* function createOurApproach() {
         let mainImage = 'banner_approach.' + Images.getImageFormatById(customFields['background'][0]);
 
         let ourApproach = {
@@ -302,14 +317,14 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
         for (let i = 0; i < customFields['approach'][0]; i++) {
             arr[i] = {};
         }
-        let regex = /approach_(\d)_.*/;
+        let regex = /approach_(\d)_.*!/;
         let regex_title = /approach_(\d)_title/;
         let regex_text = /approach_(\d)_text/;
         let regex_image = /approach_(\d)_image/;
         for (let key in customFields) {
             if (customFields.hasOwnProperty(key)) {
                 if (regex.test(key)) {
-                    let index = key.replace(/approach_(\d)_.*/, "$1");
+                    let index = key.replace(/approach_(\d)_.*!/, "$1");
                     if (regex_title.test(key)) {
                         arr[index].name = customFields[key][0];
                     } else if (regex_text.test(key)) {
@@ -330,9 +345,9 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             Images.loadImgById(customFields['background'][0], ConfigJson.PATH_APPROACH_IMAGES + mainImage, true);
             onModified();
         }
-    }
+    }*!/
 
-    function createPortfolio() {
+    /!*function createPortfolio() {
         let mainImage = 'banner_portfolio.' + Images.getImageFormatById(customFields['photo'][0]);
 
         portfolioJson.title = customFields['title'][0];
@@ -348,9 +363,9 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             Images.loadImgById(customFields['photo'][0], ConfigJson.PATH_PORTFOLIO_IMAGES + mainImage, true);
             onModified();
         }
-    }
+    }*!/
 
-    function createTestimonials() {
+    /!*function createTestimonials() {
         let mainImage = 'banner_testimonials.' + Images.getImageFormatById(customFields['photo'][0]);
 
         if (customFields['proj_images'][0] != undefined) {
@@ -378,7 +393,7 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
             Images.loadImgById(customFields['photo'][0], ConfigJson.PATH_TESTIMONIALS_IMAGES + mainImage, true);
             onModified();
         }
-    }
+    }*!/
 
     function createVacancies() {
         let mainImage = 'banner_job.' + Images.getImageFormatById(customFields['page_background'][0]);
@@ -398,13 +413,13 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
         for (let i = 0; i < customFields['vacansies'][0]; i++) {
             arr[i] = {};
         }
-        let regex = /vacansies_(\d)_.*/;
+        let regex = /vacansies_(\d)_.*!/;
         let regex_title = /vacansies_(\d)_title/;
         let regex_skills = /vacansies_(\d)_skills/;
         for (let key in customFields) {
             if (customFields.hasOwnProperty(key)) {
                 if (regex.test(key)) {
-                    let index = key.replace(/vacansies_(\d)_.*/, "$1");
+                    let index = key.replace(/vacansies_(\d)_.*!/, "$1");
                     if (regex_title.test(key)) {
                         arr[index].title = customFields[key][0];
                     } else if (regex_skills.test(key)) {
@@ -448,43 +463,43 @@ let formPage = function (wpDoc, state, isModified, wpDocSlug, wpDocName) {
     }
 
     switch (wpDoc['categories'][0]['slug']) {
-        case "product": {
+        /!*case "product": {
             createProduct();
         }
-            break;
-        case "post": {
+            break;*!/
+        /!*case "post": {
             createPost();
         }
-            break;
-        case "testimonial": {
+            break;*!/
+        /!*case "testimonial": {
             createTestimonial();
         }
-            break;
+            break;*!/
     }
     switch (pageId) {
-        case 733: {
+        /!*case 733: {
             createOurApproach();
         }
-            break;
-        case 78: {
+            break;*!/
+        /!*case 78: {
             createPortfolio();
         }
-            break;
-        case 121: {
+            break;*!/
+        /!*case 121: {
             createTestimonials();
         }
-            break;
-        case 763: {
+            break;*!/
+        /!*case 763: {
             createVacancies();
         }
-            break;
-        case 73: {
+            break;*!/
+        /!*case 73: {
             createBlog();
         }
-            break;
+            break;*!/
     }
     State.updateState(pageId, state);
 };
 
 exports.formPage = formPage;
-exports.saveAllFiles = saveAllFiles;
+exports.saveAllFiles = saveAllFiles;*/

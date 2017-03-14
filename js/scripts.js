@@ -154,6 +154,27 @@
         $form.submit(function (e) {
             e.preventDefault();
 
+            /*$.ajax({
+                method: "POST",
+                //url: "https://getform.org/f/07683c3f-c72c-47bc-98d7-2f0e866fab3f",
+                url: "https://freshcodeit.com",
+                data: {
+                    name: $name.val(),
+                    email: $email.val(),
+                    subject: $subject.val(),
+                    message: $message.val()
+                },
+                crossDomain: true,
+
+                success: function(){
+                    thx();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown);
+                }
+            });*/
+
+
             $.ajax({
                 method: "POST",
                 url: "https://getform.org/f/07683c3f-c72c-47bc-98d7-2f0e866fab3f",

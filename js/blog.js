@@ -6,7 +6,6 @@
  */
 (function(global) {
 
-
     var $conferences = $('.filter-conferences'),
         $development = $('.filter-development'),
         $management = $('.filter-management'),
@@ -146,7 +145,6 @@
         if($menu) $more.trigger('click');
 
         var type = (t.attr('class').split(' ')[1]).split('filter-')[1];
-
         clear(t);
         clearDD(type);
         if(type == 'all') hackerList.filter();
@@ -250,6 +248,8 @@
                 return item.values().type == type;
             });
         }
+        hidePosts();
+        showPosts();
     });
 
 

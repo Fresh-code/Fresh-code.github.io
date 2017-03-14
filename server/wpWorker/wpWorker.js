@@ -5,7 +5,7 @@ const http = require('http');
 
 const Converter = require('../converter/converter');
 const Images = require('../converter/dataGenerator/imageWorker');
-const ConfigJson = require('../converter/dataModels/config.json');
+const ConfigJson = require('../config.json');
 
 
 let page = 1;
@@ -34,7 +34,7 @@ function getPagesFromWP() {
     });
 }
 
-let getMediaFromWP = function () {
+const getMediaFromWP = function () {
     http.get(ConfigJson.URL_FOR_IMAGES + '&page=' + page, function (res) {
         if (page === 1) {
             getMediaPagesNumber();

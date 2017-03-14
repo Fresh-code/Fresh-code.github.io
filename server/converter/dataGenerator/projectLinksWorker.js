@@ -9,11 +9,11 @@ function getProjectLinksById(id) {
     return projectsLinksMap[id] ? projectsLinksMap[id] : {link: "/testimonials/"};
 }
 
-let createProjectsLinksMap = function (response) {
+let createProjectsLinksMap = function (posts) {
     projectsLinksMap = {};
     let links = [];
 
-    response['posts'].forEach(function (wpDoc) {
+    posts.forEach(function (wpDoc) {
         if (wpDoc['categories'][0]['slug'] == 'product') {
             links[links.length] = {
                 "id": wpDoc['id'],

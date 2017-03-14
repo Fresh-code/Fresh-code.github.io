@@ -29,4 +29,4 @@ http.get('http://192.168.1.151:8000/api/get_post/?post_id=148', function (res) {
     console.log(err);
 });
 
-require('child_process').spawn('sh', ['server/first-config.sh'], {stdio: 'inherit'});
+require('child_process').spawn('sh', ['server/sh-scripts/first-config.sh'], {stdio: 'inherit'});

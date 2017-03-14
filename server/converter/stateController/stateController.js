@@ -2,7 +2,7 @@
 var exports = module.exports = {};
 
 const jsonfile = require('jsonfile');
-const ConfigJson = require('../dataModels/config.json');
+const ConfigJson = require('../../config.json');
 const Utils = require('../utils/utils.js');
 
 let previousSiteState = jsonfile.readFileSync(ConfigJson.PATH_TO_PREV_STATE);
@@ -27,28 +27,28 @@ let getState = function (id) {
     }
     return previousSiteState[id] ? previousSiteState[id] : false;
 };
-let createNewState = function (id, type, name, date, modified, slug) {
-    previousSiteState[id] = {};
+let createNewState = function (id, type, slug, date, modified) {
     if (type == "product") {
         previousSiteState[id] = {
             type: type,
-            fileName: name + '.json',
-            htmlFileName: name + '.html',
+            fileName: Utils.createProductName(slug),
+            htmlFileName: Utils.createProductHtmlName(slug),
             modified: modified
         };
     } else if (type == "post") {
         previousSiteState[id] = {
             type: type,
-            fileName: Utils.createPostName(date, slug),
+            fileName: Utils.createPostFileName(date, slug),
             modified: modified
         };
     } else {
         previousSiteState[id] = {
             type: type,
-            fileName: name + '.json',
+            fileName: slug + '.json',
             modified: modified
         };
     }
+    console.log("state created: " + previousSiteState[id]);
     return previousSiteState[id];
 };
 let updateState = function (id, state) {
@@ -79,8 +79,41 @@ let deleteIds = function () {
     writeState();
 };
 
+const createNewStateIfPageModified = ((wpDoc) => {
+    let modified = false;
+    let state = getState(wpDoc['id']);
+    if (state) {
+        if (state['modified'] != wpDoc['modified']) {
+            modified = true;
+            state['modified'] = wpDoc['modified'];
+        }
+    }
+    else {
+        modified = true;
+        createNewState(wpDoc['id'], wpDoc['categories'][0]['slug'], wpDoc['slug'], wpDoc['date'], wpDoc['modified']);
+    }
+    return modified;
+});
+
+const updateStateFilename = ((pageId, fileName) => {
+    previousSiteState[pageId]['fileName'] = fileName;
+});
+
+const updateStateHtmlFilename = ((pageId, htmlFileName) => {
+    previousSiteState[pageId]['htmlFileName'] = htmlFileName;
+});
+
+const updateStateModifiedTime = ((pageId, modified) => {
+    previousSiteState[pageId]['modified'] = modified;
+});
+
 exports.stateInit = stateInit;
 exports.getState = getState;
 exports.createNewState = createNewState;
 exports.updateState = updateState;
 exports.deleteIds = deleteIds;
+exports.createNewStateIfPageModified = createNewStateIfPageModified;
+
+exports.updateStateFilename = updateStateFilename;
+exports.updateStateHtmlFilename = updateStateHtmlFilename;
+exports.updateStateModifiedTime = updateStateModifiedTime;

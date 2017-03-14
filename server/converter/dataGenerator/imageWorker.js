@@ -18,7 +18,7 @@ function getImageUrlById(id) {
 
 let setImagesFromWp = function (images) {
     images.forEach(function (image) {
-        allImagesInfo[image['id']] = {alt_text: image['alt_text'], source_url: image['source_url']}
+        allImagesInfo[image['id']] = {alt_text: image['alt_text'], source_url: image['source_url'], name_in_wp: image['title']['rendered']}
     });
 };
 
@@ -52,9 +52,14 @@ let loadImage = function (url, imageName, isTwoFolders) {
     }
 };
 
+const getAuthorImageNameById = ((imageId) => {
+    return getImagePropertyById(imageId)['name_in_wp'];
+});
+
 
 exports.setImagesFromWp = setImagesFromWp;
 exports.getImageAltById = getImageAltById;
 exports.getImageFormatById = getImageFormatById;
+exports.getAuthorImageNameById = getAuthorImageNameById;
 exports.loadImgById = loadImgById;
 exports.loadImage = loadImage;

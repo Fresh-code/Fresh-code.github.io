@@ -55,18 +55,24 @@ let getImageName = function (url) {
     return url.replace(/(.*)\/(.*)/g, '$2');
 };
 
-let createPostName = function (date, slug) {
-    return date.split(' ')[0] + '-' + getClearName(slug.toLowerCase().replace(/\W+/g, "-")) + '.md';
-};
+const createPostFileName = ((date, slug) => {
+    return date.split(' ')[0] + '-' + slug + '.md';
+});
 
-let createPostLink = function (date, slug) {
-    return '/blog/' + (date.split(' ')[0]).replace(/-/g, "/") + '/' + getClearName(slug.toLowerCase()) + '/';
-};
+const createProductName = ((slug) => {
+    return slug + '.json';
+});
+
+const createProductHtmlName = ((slug) => {
+    return slug + '.html';
+});
+
 
 exports.writeFile = writeFile;
 exports.writeJsonFile = writeJsonFile;
 exports.removeFile = removeFile;
 exports.getClearName = getClearName;
 exports.getImageName = getImageName;
-exports.createPostName = createPostName;
-exports.createPostLink = createPostLink;
+exports.createPostFileName = createPostFileName;
+exports.createProductName = createProductName;
+exports.createProductHtmlName = createProductHtmlName;

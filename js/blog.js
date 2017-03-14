@@ -3,7 +3,6 @@
  */
 (function(global) {
 
-
     var $conferences = $('.filter-conferences'),
         $development = $('.filter-development'),
         $management = $('.filter-management'),
@@ -15,6 +14,23 @@
         $dd = $('#filter-dropdown');
 
     var posts = [
+        
+        {
+            posttitle: 'From Idea to Success in Three Steps with Your Software Development Company',
+            platformtag: '',
+            avatar: '/img/blog-post/author_4.png',
+            catauthor: 'Business | Evgeniy Spaskiy',
+            position: 'Project Manager',
+            postcover: '/img/blog-post/from-idea-to-success/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/from-idea-to-success/post_c-700.jpg 700w, /img/blog-post/from-idea-to-success/post_c-450.jpg 450w, /img/blog-post/from-idea-to-success/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #266f93 !important',
+            postbckg: 'background-color: #266f93 !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/03/13/from-idea-to-success/'
+        },
         
         {
             posttitle: 'How Does Software Testing Ensure High-Quality Development?',
@@ -279,7 +295,6 @@
         if($menu) $more.trigger('click');
 
         var type = (t.attr('class').split(' ')[1]).split('filter-')[1];
-
         clear(t);
         clearDD(type);
         if(type == 'all') hackerList.filter();
@@ -383,6 +398,8 @@
                 return item.values().type == type;
             });
         }
+        hidePosts();
+        showPosts();
     });
 
 

@@ -45,7 +45,7 @@ function createApproachData(customFields) {
         const keyImage = "approach_" + i + "_image";
 
         if (customFields.hasOwnProperty(keyTitle)) {
-            arr[i].title = customFields[keyTitle][0];
+            arr[i].name = customFields[keyTitle][0];
         }
         if (customFields.hasOwnProperty(keyText)) {
             arr[i].text = customFields[keyText][0];

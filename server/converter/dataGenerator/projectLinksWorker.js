@@ -1,48 +1,47 @@
 'use strict';
 var exports = module.exports = {};
 
-const Utils = require('./../utils/utils');
-
-let projectsLinksMap = {};
+let productsLinksMap = {};
 
 function getProjectLinksById(id) {
-    return projectsLinksMap[id] ? projectsLinksMap[id] : {link: "/testimonials/"};
+    return productsLinksMap[id] ? productsLinksMap[id] : {link: "/testimonials/"};
 }
 
-let createProjectsLinksMap = function (posts) {
-    projectsLinksMap = {};
+const createProjectsLinksMap = (products) => {
+    productsLinksMap = {};
     let links = [];
 
-    posts.forEach(function (wpDoc) {
-        if (wpDoc['categories'][0]['slug'] == 'product') {
-            links[links.length] = {
-                "id": wpDoc['id'],
-                "link": '/' + Utils.getClearName(wpDoc['title']) + '/'
-            };
-        }
+    products.forEach((product) => {
+        links[links.length] = {
+            id: product['id'],
+            link: '/' + product['slug'] + '/'
+        };
     });
 
     for (let i = 0; i < links.length; i++) {
-        let projectId = links[i]['id'];
-        projectsLinksMap[projectId] = {};
-        projectsLinksMap[projectId]['link'] = links[i]['link'];
+        const productId = links[i]['id'];
+
+        productsLinksMap[productId] = {};
+        productsLinksMap[productId]['link'] = links[i]['link'];
 
         if (i == 0) {
-            projectsLinksMap[projectId]['prev'] = links[links.length - 1]['link'];
+            productsLinksMap[productId]['prev'] = links[links.length - 1]['link'];
         } else {
-            projectsLinksMap[projectId]['prev'] = links[i - 1]['link'];
+            productsLinksMap[productId]['prev'] = links[i - 1]['link'];
         }
         if (i == links.length - 1) {
-            projectsLinksMap[projectId]['next'] = links[0]['link'];
+            productsLinksMap[productId]['next'] = links[0]['link'];
         } else {
-            projectsLinksMap[projectId]['next']  = links[i + 1]['link'];
+            productsLinksMap[productId]['next'] = links[i + 1]['link'];
         }
     }
 };
-let getProjectLinkById = function (id) {
+
+const getProjectLinkById = (id) => {
     return getProjectLinksById(id)['link'];
 };
-let getProjectLinks = function (id) {
+
+const getProjectLinks = (id) => {
     return getProjectLinksById(id);
 };
 

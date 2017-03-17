@@ -2,71 +2,67 @@
 var exports = module.exports = {};
 
 const jsonfile = require('jsonfile');
-const ConfigJson = require('../../config.json');
+const Config = require('../../config.js');
 const Utils = require('../utils/utils.js');
 
-let previousSiteState = jsonfile.readFileSync(ConfigJson.PATH_TO_PREV_STATE);
+let previousSiteState = jsonfile.readFileSync(Config.PATH.STATE_DATA);
 let deletedIds = [];
 
 function writeState() {
-    Utils.writeJsonFile(ConfigJson.PATH_TO_DB, 'bd.json', previousSiteState);
+    Utils.writeJsonFile(Config.PATH.WP_JSON_DATA, 'bd.json', previousSiteState);
 }
 
-let stateInit = function () {
+const stateInit = () => {
     deletedIds = [];
-    for (let stateId in previousSiteState) {
-        if(previousSiteState.hasOwnProperty(stateId)) {
+    for (const stateId in previousSiteState) {
+        if (previousSiteState.hasOwnProperty(stateId)) {
             deletedIds.push(stateId);
         }
     }
 };
-let getState = function (id) {
-    let index = deletedIds.indexOf(id.toString());
-    if(index > -1) {
+
+const getState = (id) => {
+    const index = deletedIds.indexOf(id.toString());
+    if (index > -1) {
         deletedIds.splice(index, 1);
     }
     return previousSiteState[id] ? previousSiteState[id] : false;
 };
-let createNewState = function (id, type, slug, date, modified) {
+
+const createNewState = (id, type, slug, date, modified) => {
+    previousSiteState[id] = {
+        type: type,
+        modified: modified
+    };
+
     if (type == "product") {
-        previousSiteState[id] = {
-            type: type,
-            fileName: Utils.createProductName(slug),
-            htmlFileName: Utils.createProductHtmlName(slug),
-            modified: modified
-        };
+        previousSiteState[id].fileName = Utils.createProductName(slug);
+        previousSiteState[id].htmlFileName = Utils.createProductHtmlName(slug);
     } else if (type == "post") {
-        previousSiteState[id] = {
-            type: type,
-            fileName: Utils.createPostFileName(date, slug),
-            modified: modified
-        };
+        previousSiteState[id].fileName = Utils.createPostFileName(date, slug);
     } else {
-        previousSiteState[id] = {
-            type: type,
-            fileName: slug + '.json',
-            modified: modified
-        };
+        previousSiteState[id].fileName = slug + '.json';
     }
-    console.log("state created: " + previousSiteState[id]);
+
     return previousSiteState[id];
 };
-let updateState = function (id, state) {
+const updateState = (id, state) => {
     previousSiteState[id] = state;
 };
-let deleteIds = function () {
+
+const deleteIdsFromStae = () => {
     deletedIds.forEach(function (id) {
-        let state = previousSiteState[id];
+        const state = previousSiteState[id];
 
         switch (state['type']) {
             case "product": {
-                Utils.removeFile(ConfigJson.PATH_TO_HTML_PROJECTS, state['htmlFileName'], true);
-                Utils.removeFile(ConfigJson.PATH_TO_JSON_PROJECTS, state['fileName'], true);
+                Utils.removeFileFromSite(Config.PATH.HTML_PROJECTS, state['htmlFileName'], true);
+                Utils.removeFileFromSite(Config.PATH.JSON_PROJECTS, state['fileName'], true);
                 delete previousSiteState[id];
             }
                 break;
             case "post": {
-                Utils.removeFile(ConfigJson.PATH_TO_POSTS, state['fileName'], true);
+                Utils.removeFileFromSite(Config.PATH.POSTS, state['fileName'], true);
                 delete previousSiteState[id];
             }
                 break;
@@ -79,7 +75,7 @@ let deleteIds = function () {
     writeState();
 };
 
-const createNewStateIfPageModified = ((wpDoc) => {
+const createNewStateIfPageModified = (wpDoc) => {
     let modified = false;
     let state = getState(wpDoc['id']);
     if (state) {
@@ -93,27 +89,27 @@ const createNewStateIfPageModified = ((wpDoc) => {
         createNewState(wpDoc['id'], wpDoc['categories'][0]['slug'], wpDoc['slug'], wpDoc['date'], wpDoc['modified']);
     }
     return modified;
-});
+};
 
-const updateStateFilename = ((pageId, fileName) => {
+const updateStateFilename = (pageId, fileName) => {
     previousSiteState[pageId]['fileName'] = fileName;
-});
+};
 
-const updateStateHtmlFilename = ((pageId, htmlFileName) => {
+const updateStateHtmlFilename = (pageId, htmlFileName) => {
     previousSiteState[pageId]['htmlFileName'] = htmlFileName;
-});
+};
 
-const updateStateModifiedTime = ((pageId, modified) => {
+const updateStateModifiedTime = (pageId, modified) => {
     previousSiteState[pageId]['modified'] = modified;
-});
+};
+
 
 exports.stateInit = stateInit;
 exports.getState = getState;
 exports.createNewState = createNewState;
 exports.updateState = updateState;
-exports.deleteIds = deleteIds;
+exports.deleteIdsFromStae = deleteIdsFromStae;
 exports.createNewStateIfPageModified = createNewStateIfPageModified;
-
 exports.updateStateFilename = updateStateFilename;
 exports.updateStateHtmlFilename = updateStateHtmlFilename;
 exports.updateStateModifiedTime = updateStateModifiedTime;

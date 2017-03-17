@@ -1,7 +1,7 @@
 'use strict';
 var exports = module.exports = {};
 
-const ConfigJson = require('../../../config.json');
+const Config = require('../../../config.js');
 const Images = require('./../imageWorker');
 const Utils = require('../../utils/utils');
 const LinksMap = require('../projectLinksWorker');
@@ -19,7 +19,7 @@ function createAuthorImageName(imageId, slug) {
 }
 
 function createProductImageLink(imageName){
-    return '/' + ConfigJson.PATH_TESTIMONIALS_IMAGES + imageName;
+    return '/' + Config.PATH.TESTIMONIALS_IMAGES + imageName;
 }
 
 function createTestimonial(customFields, authorImage) {
@@ -37,19 +37,19 @@ function clearData() {
     testimonialsArray = [];
 }
 
-const testimonialWorker = ((pageData) => {
+const testimonialWorker = (pageData) => {
     const authorImageName = createAuthorImageName(pageData.customFields['photo'][0], pageData.slug);
     createTestimonial(pageData.customFields, authorImageName);
     if (pageData.modified) {
-        Images.loadImgById(pageData.customFields['photo'], ConfigJson.PATH_TESTIMONIALS_IMAGES + authorImageName, true);
+        Images.loadImgById(pageData.customFields['photo'], Config.PATH.TESTIMONIALS_IMAGES + authorImageName, true);
     }
-});
+};
 
-const saveTestimonialsFile = (() => {
+const saveTestimonialsFile = () => {
     testimonialsFile.short = testimonialsArray;
-    Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_DATA, 'testimonials.json', testimonialsFile, true);
+    Utils.writeJsonFile(Config.PATH.JSON_DATA, 'testimonials.json', testimonialsFile, true);
     clearData();
-});
+};
 
 function createTestimonialsPage(customFields, mainImage) {
     testimonialsFile.title = customFields['title'][0];
@@ -57,20 +57,20 @@ function createTestimonialsPage(customFields, mainImage) {
     testimonialsFile.description = customFields['description'][0];
     testimonialsFile.page_title = customFields['page_title'][0];
     testimonialsFile.page_text = "<span class='inline-text'>" + customFields['page_text'][0] + "</span>";
-    testimonialsFile.page_background = '/' + ConfigJson.PATH_TESTIMONIALS_IMAGES + mainImage;
+    testimonialsFile.page_background = '/' + Config.PATH.TESTIMONIALS_IMAGES + mainImage;
     testimonialsFile.alt = Images.getImageAltById(customFields['photo'][0]);
     testimonialsFile.icons = getAngSaveMainIcons(customFields['proj_images'][0]);
     testimonialsFile.short = [];
 }
 
-const testimonialsPageWorker = ((pageData) => {
+const testimonialsPageWorker = (pageData) => {
     const mainImage = createTestimonialsMainImageName(pageData.customFields['photo'][0]);
     createTestimonialsPage(pageData.customFields, mainImage);
 
     if (pageData.modified) {
-        Images.loadImgById(pageData.customFields['photo'][0], ConfigJson.PATH_TESTIMONIALS_IMAGES + mainImage, true);
+        Images.loadImgById(pageData.customFields['photo'][0], Config.PATH.TESTIMONIALS_IMAGES + mainImage, true);
     }
-});
+};
 
 function createTestimonialsMainImageName(imageId){
     return 'banner_testimonials.' + Images.getImageFormatById(imageId);
@@ -82,7 +82,7 @@ function getAngSaveMainIcons(iconsIdArray) {
         let iconsJson = [];
 
         projectIcons.map((iconId, index) => {
-            const iconName = ConfigJson.PATH_TESTIMONIALS_IMAGES + 'icon_' + index + '.' + Images.getImageFormatById(iconId);
+            const iconName = Config.PATH.TESTIMONIALS_IMAGES + 'icon_' + index + '.' + Images.getImageFormatById(iconId);
             iconsJson.push(
                 {
                     img: '/' + iconName,

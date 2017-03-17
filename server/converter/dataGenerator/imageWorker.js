@@ -3,6 +3,7 @@ var exports = module.exports = {};
 
 const request = require('request');
 const fs = require('fs');
+const Config = require('../../config');
 
 let allImagesInfo = {};
 
@@ -16,45 +17,49 @@ function getImageUrlById(id) {
     return imageInfo === null ? null : imageInfo['source_url'];
 }
 
-let setImagesFromWp = function (images) {
+const setImagesFromWp = (images) => {
     images.forEach(function (image) {
-        allImagesInfo[image['id']] = {alt_text: image['alt_text'], source_url: image['source_url'], name_in_wp: image['title']['rendered']}
+        allImagesInfo[image['id']] = {
+            alt_text: image['alt_text'],
+            source_url: image['source_url'],
+            name_in_wp: image['title']['rendered']
+        }
     });
 };
 
-let getImageAltById = function (id) {
+const getImageAltById = (id) => {
     let imageInfo = getImagePropertyById(id);
     return imageInfo === null ? null : imageInfo['alt_text'];
 };
 
-let getImageFormatById = function (id) {
+const getImageFormatById = (id) => {
     let imageInfo = getImagePropertyById(id);
     return imageInfo === null ? null : imageInfo['source_url'].split('.').pop();
 };
 
-let loadImgById = function (imgId, imgPath, isTwoFolders) {
+const loadImgById = (imgId, imgPath, isTwoFolders) => {
     let url = getImageUrlById(imgId);
     if (url) {
         loadImage(url, imgPath, isTwoFolders === true);
     }
 };
 
-let loadImage = function (url, imageName, isTwoFolders) {
+const loadImage = (url, imageName, isTwoFolders) => {
     if (typeof url != 'undefined' || url != null) {
-        request(url).pipe(fs.createWriteStream('/src/' + imageName)).on('error', function (err) {
+        request(url).pipe(fs.createWriteStream(Config.PATH.ROOT + imageName)).on('error', function (err) {
             console.log("Loading image error: ", err);
         });
     } else {
         console.log("Can't load image. Url is undefined.", imageName);
     }
     if (isTwoFolders === true) {
-        loadImage(url, 'wp-data/' + imageName);
+        loadImage(url, Config.PATH.WP_DATA_FOLDER + imageName);
     }
 };
 
-const getAuthorImageNameById = ((imageId) => {
+const getAuthorImageNameById = (imageId) => {
     return getImagePropertyById(imageId)['name_in_wp'];
-});
+};
 
 
 exports.setImagesFromWp = setImagesFromWp;

@@ -3,22 +3,44 @@ var exports = module.exports = {};
 
 const fs = require('fs');
 
-const ConfigJson = require('../../../config.json');
+const Config = require('../../../config.js');
 const Utils = require('../../utils/utils');
 const Images = require('./../imageWorker');
 const LinksMap = require('../projectLinksWorker');
 const State = require('../../stateController/stateController');
 const Portfolio = require('./portfolio');
 
+const productWorker = ((pageData) => {
+    const imagesData = getImagesData(pageData.customFields);
+    const productName = Utils.createProductName(pageData.slug);
+    const file = createProductFile(pageData.customFields, LinksMap.getProjectLinks(pageData.pageId),
+        pageData.slug, imagesData);
+    Utils.writeJsonFile(Config.PATH.JSON_PROJECTS, productName, file, true);
+    Portfolio.addProductToPortfolio(pageData.customFields, imagesData.cover.name, pageData.slug);
+
+    if (pageData.modified) {
+        const productHtmlName = Utils.createProductHtmlName(pageData.slug);
+        Utils.createFoldersIfNotExist(createImagesFolderName(pageData.slug));
+        loadImages(imagesData, pageData.slug);
+        removeOldFilesIfNameChanged(pageData.pageId, productName, productHtmlName);
+        createHtmlTemplateIfNotExist(pageData.customFields['temlate_type'][0], pageData.slug, productHtmlName);
+    }
+});
+
 function createHtmlTemplateIfNotExist(templateType, slug, productHtmlName) {
-    fs.exists('/src/wp-data/_pages/' + productHtmlName, function (exists) {
+
+    function ConvertTemplateToProduct(htmlTemplate, slug) {
+        return htmlTemplate.replace(/template/g, slug);
+    }
+
+    fs.exists(Config.PATH.ROOT + Config.PATH.WP_HTML_PROJECTS + productHtmlName, function (exists) {
         if (exists != true) {
-            let htmlTemplate = fs.readFileSync(ConfigJson.PATH_TO_TEMPLATES + templateType + '.html', {
+            let htmlTemplate = fs.readFileSync(Config.PATH.TEMPLATES + Utils.createProductHtmlName(templateType), {
                 encoding: "UTF-8",
                 flag: "r"
             });
-            htmlTemplate = htmlTemplate.replace(/template/g, slug);
-            Utils.writeFile(ConfigJson.PATH_TO_HTML_PROJECTS, productHtmlName, htmlTemplate, true);
+            htmlTemplate = ConvertTemplateToProduct(htmlTemplate, slug);
+            Utils.writeFile(Config.PATH.HTML_PROJECTS, productHtmlName, htmlTemplate, true);
         }
     });
 }
@@ -46,7 +68,7 @@ function createProductFile(customFields, links, slug, imagesData) {
     return {
         name: slug,
         client: customFields['client'][0],
-        title: customFields['title[0]'],
+        title: customFields['title'][0],
         description: customFields['description'][0],
         site: customFields['site'][0],
         link: customFields['link'][0],
@@ -84,58 +106,32 @@ function createImagesFolderName(slug) {
     return 'img/' + slug;
 }
 
+function createImgPath(slug, imageName) {
+    return "/img/" + slug + "/" + imageName;
+}
+
 function removeOldFilesIfNameChanged(pageId, productName, htmlProductName) {
     const oldFileName = State.getState(pageId)['fileName'];
     const oldHtmlFileName = State.getState(pageId)['htmlFileName'];
 
     if (oldFileName != productName) {
-        Utils.removeFile(ConfigJson.PATH_TO_JSON_PROJECTS, oldFileName, true);
+        Utils.removeFileFromSite(Config.PATH.JSON_PROJECTS, oldFileName, true);
         State.updateStateFilename(pageId, productName);
     }
     if (oldHtmlFileName != htmlProductName) {
-        Utils.removeFile(ConfigJson.PATH_TO_HTML_PROJECTS, oldHtmlFileName, true);
+        Utils.removeFileFromSite(Config.PATH.HTML_PROJECTS, oldHtmlFileName, true);
         State.updateStateHtmlFilename(pageId, htmlProductName);
-    }
-}
-
-function createFoldersIfNotExist(folder) {
-    if (!fs.existsSync(folder)) {
-        fs.mkdirSync(folder);
-    }
-    if (!fs.existsSync(ConfigJson.WP + folder)) {
-        fs.mkdirSync(ConfigJson.WP + folder);
     }
 }
 
 function loadImages(imagesData, slug) {
     const folder = createImagesFolderName(slug);
-    createFoldersIfNotExist(folder);
+    Utils.createFoldersIfNotExist(folder);
 
     Images.loadImgById(imagesData.firstImage.id, folder + '/' + imagesData.firstImage.name, true);
     Images.loadImgById(imagesData.secondImage.id, folder + '/' + imagesData.secondImage.name, true);
     Images.loadImgById(imagesData.thirdImage.id, folder + '/' + imagesData.thirdImage.name, true);
     Images.loadImgById(imagesData.coverImage.id, folder + '/' + imagesData.coverImage.name, true);
 }
-
-function createImgPath(slug, imageName) {
-    return "/img/" + slug + "/" + imageName;
-}
-
-const productWorker = ((pageData) => {
-    const imagesData = getImagesData(pageData.customFields);
-    const productName = Utils.createProductName(pageData.slug);
-    const file = createProductFile(pageData.customFields, LinksMap.getProjectLinks(pageData.pageId),
-        pageData.slug, imagesData);
-    Utils.writeJsonFile(ConfigJson.PATH_TO_JSON_PROJECTS, productName, file, true);
-    Portfolio.addProductToPortfolio(pageData.customFields, imagesData.cover.name, pageData.slug);
-
-    if (pageData.modified) {
-        const productHtmlName = Utils.createProductHtmlName(pageData.slug);
-        createFoldersIfNotExist(createImagesFolderName(pageData.slug));
-        loadImages(imagesData, pageData.slug);
-        removeOldFilesIfNameChanged(pageData.pageId, productName, productHtmlName);
-        createHtmlTemplateIfNotExist(pageData.customFields['temlate_type'][0], pageData.slug, productHtmlName);
-    }
-});
 
 exports.productWorker = productWorker;

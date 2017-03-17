@@ -1,13 +1,13 @@
 ---
-js/portfolio.js: 27bd1cd62fc0bef262df551d6b514671
-js/scripts.js: d74c8840feea33ea71d1960f3e007878
-js/blog.js: 7ad6ff92a65c9a39a116f3bd2022ece0
-js/job.js: 214a35a50b11f8fe2583346ee7662453
 css/bootstrap/bootstrap.min.css: 7027334fa6dd5f695f1b832cb3cd9319
 css/main.css: 923780b9f14589c51bf4ec51f33c38ca
 css/font-awesome-4.6.3/css/font-awesome.min.css: 4083f5d376eb849a458cc790b53ba080
 css/prism.css: fc8dca674b79b3997a46ddcd3877e2ad
-js/post.js: 933accb24c2210a77e6bed378af480f4
+js/portfolio.js: 27bd1cd62fc0bef262df551d6b514671
+js/scripts.js: f169f8a5d9f831c09ff8c3ce5ed2e27d
+js/blog.js: 7ad6ff92a65c9a39a116f3bd2022ece0
+js/job.js: 214a35a50b11f8fe2583346ee7662453
+js/post.js: 8cb7a6d922f213c9222cfad100efd015
 img/gommehd/work_portfolio_cover_p.jpg: a1ec78c0e1691a1dfeeca0d158b09372
 img/playattention/work_portfolio_cover_p.jpg: 1874452991e785698019d668d1393483
 img/educadio/work_portfolio_cover_p.jpg: 0e3eb9c09e47edd7a1504e07a006c085
@@ -19,6 +19,7 @@ img/tassta/work_portfolio_cover_p.jpg: 94414a56db5909c158cf327a2fde4bc4
 img/blog-post/do-you-really-need-mobile-app/post_c.jpg: e6f14f3bbbbe67692acc827009b03ba5
 img/blog-post/what-is-freshcode/post_c.jpg: b4e20b83ca08a825ebfc065e899a7309
 img/blog-post/fixed-price-model/post_c.jpg: bcc44aa4d7273cbcc4977a93bac70f2c
+img/blog-post/from-idea-to-success/post_c.jpg: 22b1515339191609763e37327904abfe
 img/blog-post/how-to-ruin-first-impression/post_c.jpg: b5153f540267f5eed33ee3e0c2a4985d
 img/blog-post/software-testing/post_c.jpg: b5ab8f25b2084ff6aa04efc8b330fd21
 img/blog-post/7-improvements-to-ux-design-that-ensure-brand-trust/post_c.jpg: 55d571790a1df9dc03944e390d8475fd
@@ -70,3 +71,4 @@ img/blog-post/is-dedicated-team-the-perfect-one-for-you/post_c.jpg: 57e872f6e780
 "/img/testimonials/author_ulrik-with-andersen.png": 0b8a39543c372ca4b2b77972e66ccea2
 "/img/wall-breaker/work_first_p.jpg": 09fdeeac5590b3d02a7218dbd253ae64
 "/img/wall-breaker/work_third_p.png": db7d32cb0a5cf4b33d8e301a34602333
+"/img/blog-post/from-idea-to-success/banner_post.jpg": 27f81d43fd988cdb936e35d03fe825ed

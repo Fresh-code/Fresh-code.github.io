@@ -5,57 +5,69 @@ const http = require('http');
 
 const Converter = require('../converter/converter');
 const Images = require('../converter/dataGenerator/imageWorker');
-const ConfigJson = require('../config.json');
+const Config = require('../config.js');
 
+const wpWorker = () => {
+    let allImagesInfo = [];
 
-let page = 1;
-let mediaPagesNumber;
-let allImagesInfo = [];
-
-function getMediaPagesNumber() {
-    http.get(ConfigJson.URL_FOR_IMAGES + '&page=1', function (res) {
-        mediaPagesNumber = JSON.stringify(res.headers).replace(/.*x-wp-totalpages":"(\d).*/g, '$1');
-    }).on('error', function (err) {
-        console.log(err);
-    });
-}
-
-function getPagesFromWP() {
-    http.get(ConfigJson.URL_FOR_PAGES, function (res) {
-        let body = "";
-        res.on('data', function (chunk) {
-            body += chunk;
+    function getPagesFromWP() {
+        http.get(Config.STAGING_URL + Config.POSTS_URL, (res) => {
+            let body = "";
+            res.on('data', (chunk) => {
+                body += chunk;
+            });
+            res.on('end', () => {
+                Converter.creatingSiteContent(JSON.parse(body)['posts']);
+            });
+        }).on('error', (err) => {
+            console.log(err);
         });
-        res.on('end', function () {
-            Converter.creatingSiteContent(JSON.parse(body));
-        });
-    }).on('error', function (err) {
-        console.log(err);
-    });
-}
+    }
 
-const getMediaFromWP = function () {
-    http.get(ConfigJson.URL_FOR_IMAGES + '&page=' + page, function (res) {
-        if (page === 1) {
-            getMediaPagesNumber();
+    function getMediaPagesNumber(callback) {
+        const regPagesNum = /.*x-wp-totalpages":"(\d).*/g;
+
+        http.get(Config.STAGING_URL + Config.MEDIA_PORTION_URL + '&page=1', (res) => {
+            return callback(JSON.stringify(res.headers).replace(regPagesNum, '$1'));
+        }).on('error', (err) => {
+            console.log(err);
+        });
+    }
+
+    const getMediaFromWP = (pagesNum, callback) => {
+        for(let i = 1; i <= pagesNum; i++) {
+            getMediaPortion(i, () => {
+               if( i == pagesNum ) return callback();
+            });
         }
-        let body = '';
-        res.on('data', function (chunk) {
-            body += chunk;
+    };
+
+    function getMediaPortion(page, callback) {
+        http.get(Config.STAGING_URL + Config.MEDIA_PORTION_URL + '&page=' + page, (res) => {
+            let body = '';
+            res.on('data', (chunk) => {
+                body += chunk;
+            });
+            res.on('end', () => {
+                allImagesInfo = allImagesInfo.concat(JSON.parse(body));
+                callback();
+            });
+        }).on('error', (err) => {
+            console.log(err);
         });
-        res.on('end', function () {
-            allImagesInfo = allImagesInfo.concat(JSON.parse(body));
-            if (page < mediaPagesNumber) {
-                getMediaFromWP(++page);
-            } else {
+    }
+
+    return () => {
+        getMediaPagesNumber((pagesNum) => {
+            getMediaFromWP(pagesNum, () => {
                 Images.setImagesFromWp(allImagesInfo);
                 getPagesFromWP();
-                page = 1;
-            }
+                allImagesInfo = [];
+            });
         });
-    }).on('error', function (err) {
-        console.log(err);
-    });
+    }
 };
 
-exports.getMediaFromWP = getMediaFromWP;
+const getAllDataFromWp = wpWorker();
+
+exports.getAllDataFromWp = getAllDataFromWp;

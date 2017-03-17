@@ -13,17 +13,17 @@ const Vacancies = require('./dataGenerator/pages/vacancies');
 const Blog = require('./dataGenerator/pages/blog');
 
 
-const creatingSiteContent = ((response) => {
+const creatingSiteContent = (pagesDataFromWp) => {
     State.stateInit();
-    LinksMap.createProjectsLinksMap(response['posts']);
-    response['posts'].map((wpDoc) => {
+    LinksMap.createProjectsLinksMap(getPostsFromAllData(pagesDataFromWp));
+    pagesDataFromWp.forEach((wpDoc) => {
         const isPostModified = State.createNewStateIfPageModified(wpDoc);
         createPage(wpDoc, isPostModified);
     });
     Testimonials.saveTestimonialsFile();
     Portfolio.writePortfolioFile();
-    State.deleteIds();
-});
+    State.deleteIdsFromStae();
+};
 
 function createPage(wpDoc, modified) {
     const pageData = createPageData(wpDoc, modified);
@@ -31,50 +31,32 @@ function createPage(wpDoc, modified) {
     switch (wpDoc['categories'][0]['slug']) {
         case "post": {
             Post.postWorker(pageData);
-        }
-            break;
+        } break;
         case "product": {
             Product.productWorker(pageData);
-        }
-            break;
+        } break;
         case "testimonial": {
             Testimonials.testimonialWorker(pageData);
-        }
-            break;
+        } break;
     }
 
-    switch (wpDoc['id']) {
-        case 121: {
+    switch (wpDoc['slug']) {
+        case "testimonials-page": {
             Testimonials.testimonialsPageWorker(pageData);
-        }
-            break;
-        case 733: {
+        } break;
+        case "our-approach": {
             Approach.ourApproachWorker(pageData);
-        }
-            break;
-        case 763: {
+        } break;
+        case "job": {
             Vacancies.vacanciesWorker(pageData);
-        }
-            break;
-        case 73: {
+        } break;
+        case "blog": {
             Blog.blogWorker(pageData);
-        }
-            break;
-        case 78: {
+        } break;
+        case "portfolio": {
             Portfolio.portfolioWorker(pageData);
-        }
-            break;
+        } break;
     }
-
-
-    /*let pages = {
-     post: (() => { return Post.postWorker(pageData) }),
-     product: (() => { return Product.productWorker(pageData) })
-     };
-
-     const type = wpDoc['categories'][0]['slug'];
-     if(type == 'post' || 'product')
-     pages[type].call();*/
 }
 
 function createPageData(wpDoc, modified) {
@@ -88,4 +70,11 @@ function createPageData(wpDoc, modified) {
         content: wpDoc['content']
     }
 }
+
+function getPostsFromAllData(data) {
+    return data.filter((page) => {
+        return page['categories'][0]['slug'] == "product";
+    });
+}
+
 exports.creatingSiteContent = creatingSiteContent;

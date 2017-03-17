@@ -3,24 +3,11 @@ var exports = module.exports = {};
 
 const fs = require('fs');
 
-const ConfigJson = require('../../../config.json');
+const Config = require('../../../config.js');
 const Utils = require('../../utils/utils');
 const Images = require('./../imageWorker');
 const State = require('../../stateController/stateController');
 
-
-/*const getAuthorImageName = function () {
-    let photos = [];
-    return function (id) {
-        for (let i = 0; i < photos.length; i++) {
-            if (photos[i] === id) {
-                return 'author_' + i;
-            }
-        }
-        photos.push(id);
-        return 'author_' + (photos.length - 1);
-    }
-}();*/
 
 function addRedirect(slug) {
     switch (slug) {
@@ -99,7 +86,7 @@ function getImagesData(customFields, slug) {
             name: 'post_c.jpg',
             id: customFields['cover'][0]
         },
-        pathToPostImages: '/img/blog-post/' + slug + '/'
+        pathToPostImages: '/' + createImagesFolderPath(slug) + '/'
     }
 }
 
@@ -132,54 +119,44 @@ function createPostFile(customFields, pageDate, slug, content, imagesData) {
 }
 
 function loadImages(imagesData, content, slug) {
-    const folder = createImagesFolderName(slug);
-    createFoldersIfNotExist(folder);
+    const folderPath = createImagesFolderPath(slug);
+    Utils.createFoldersIfNotExist(folderPath);
 
-    Images.loadImgById(imagesData.mainImage.id, folder + '/' + imagesData.mainImage.name, true);
-    Images.loadImgById(imagesData.authorImage.id, ConfigJson.PATH_BLOG_IMAGES + imagesData.authorImage.name, true);
-    Images.loadImgById(imagesData.recentImage.id, folder + '/' + imagesData.recentImage.name, true);
-    Images.loadImgById(imagesData.coverImage.id, folder + '/' + imagesData.coverImage.name, true);
+    Images.loadImgById(imagesData.mainImage.id, folderPath + '/' + imagesData.mainImage.name, true);
+    Images.loadImgById(imagesData.authorImage.id, Config.PATH.BLOG_IMAGES + imagesData.authorImage.name, true);
+    Images.loadImgById(imagesData.recentImage.id, folderPath + '/' + imagesData.recentImage.name, true);
+    Images.loadImgById(imagesData.coverImage.id, folderPath + '/' + imagesData.coverImage.name, true);
 
     loadPostIncludedImages(content, slug);
 }
 
 function removeOldFileIfNameChanged(pageId, postName) {
     const oldFileName = State.getState(pageId)['fileName'];
-    console.log('old: ' + oldFileName + ' new: ' + postName);
     if (oldFileName != postName) {
-        Utils.removeFile(ConfigJson.PATH_TO_POSTS, oldFileName, true);
+        Utils.removeFileFromSite(Config.PATH.POSTS, oldFileName, true);
         State.updateStateFilename(pageId, postName);
     }
 }
 
-function createFoldersIfNotExist(folder) {
-    if (!fs.existsSync(folder)) {
-        fs.mkdirSync(folder);
-    }
-    if (!fs.existsSync(ConfigJson.WP + folder)) {
-        fs.mkdirSync(ConfigJson.WP + folder);
-    }
-}
-
-function createImagesFolderName(slug) {
-    return 'img/blog-post/' + slug;
+function createImagesFolderPath(slug) {
+    return Config.PATH.BLOG_IMAGES + slug;
 }
 
 function createPostLink(date, slug) {
     return '/blog/' + (date.split(' ')[0]).replace(/-/g, "/") + '/' + slug + '/';
 }
 
-const postWorker = ((pageData) => {
+const postWorker = (pageData) => {
     const imagesData = getImagesData(pageData.customFields, pageData.slug);
     const postName = Utils.createPostFileName(pageData.pageDate, pageData.slug);
     const file = createPostFile(pageData.customFields, pageData.pageDate, pageData.slug, pageData.content, imagesData);
 
-    Utils.writeFile(ConfigJson.PATH_TO_POSTS, Utils.createPostFileName(pageData.pageDate, pageData.slug), file, true);
+    Utils.writeFile(Config.PATH.POSTS, Utils.createPostFileName(pageData.pageDate, pageData.slug), file, true);
 
     if (pageData.modified) {
         removeOldFileIfNameChanged(pageData.pageId, postName);
         loadImages(imagesData, pageData.content, pageData.slug);
     }
-});
+};
 
 exports.postWorker = postWorker;

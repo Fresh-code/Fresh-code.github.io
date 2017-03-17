@@ -7,6 +7,7 @@
 #git add .
 #git commit -m "`date +"%d/%m/%y %H:%M:%S "`"
 #git push origin dev
+########git push gitlab-dev dev
 
 #Generate site with last update
 jekyll build

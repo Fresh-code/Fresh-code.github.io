@@ -1,32 +1,24 @@
 (function (global) {
 
-    var hiddenProject = {
-        "general": 0,
-        "found": 0
-    };
-    $('.post-block').each(function (i, elem) {
-        if (i < 6 + hiddenProject.general) {
-            if ($(".post-name").text() != $(elem).find(".recent-post-name").text()) {
-                $(elem).addClass('active');
-            }
-            else {
-                hiddenProject.general = 1;
-            }
+    function recentPostsWorker() {
+        var postName = $(".post-name").text();
+        return function () {
+            var postsToShow = 0;
+            $('.post-block').each(function (i, elem) {
+                //if hidden, not current, index < 6
+                if ((!$(elem).hasClass('active')) &&  (postName != $(elem).find(".recent-post-name").text()) && postsToShow < 6) {
+                    $(elem).addClass('active');
+                    postsToShow++;
+                }
+            });
         }
-    });
+    }
 
     $("#load-more").click(function () {
-        if ($(this).hasClass('disable')) return false;
-        $('.post-block').filter(':hidden').each(function (i, elem) {
-            if (i < 6 + hiddenProject.found) {
-                if ($(".post-name").text() != $(elem).find(".recent-post-name").text()) {
-                    $(elem).addClass('active');
-                }
-                else {
-                    hiddenProject.found = 1;
-                }
-            }
-        });
+        showMorePosts();
     });
+
+    var showMorePosts = recentPostsWorker();
+    showMorePosts();
 
 })(this);

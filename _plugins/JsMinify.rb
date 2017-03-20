@@ -62,6 +62,7 @@ module Jekyll
 
     def minify_js(js_files, output_file, flag)
       if flag or (ENV['REBUILD_JS'] == "true")
+
         juice_cmd = "juicer merge -s -f #{js_files} -o #{output_file}"
         # puts juice_cmd
         system(juice_cmd)

@@ -163,9 +163,7 @@
                 },
                 crossDomain: true,
                 error: function (xhr){
-                    if(xhr.status==404 || xhr.status==500) {
-                        _gaq.push(['_trackEvent','button', 'getform', 'error'])
-                    }
+                    _gaq.push(['_trackEvent','button', 'getform', 'error'])
                 },
             });
 

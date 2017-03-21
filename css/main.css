@@ -2928,7 +2928,8 @@ header { color: #ffffff; }
 	transform: scaleX(1.0001);/* width and height properties ommitted due to transform */
 	text-transform: uppercase; }
 .post-header > p.meta {
-	color:  #94a7ae;
+	color:  #ffffff;
+	opacity: 0.5;
 	font-size: 22px;/* Approximation due to font substitution */
 	font-weight: 300;
 	line-height: 30px;/* Approximation due to font substitution */
@@ -3027,7 +3028,8 @@ span.path {
 	line-height: 45px;
 	text-transform: uppercase; }
 .post-titling .meta {
-	color:  #94a7ae;
+	color:  #ffffff;
+	opacity: 0.5;
 	font-size: 22px;/* Approximation due to font substitution */
 	font-weight: 400;
 	line-height: 30px;/* Approximation due to font substitution */ }
@@ -3505,6 +3507,8 @@ span.path {
 		line-height: 32px; }
 	.category-tag,
 	.post-titling .meta {
+		color:  #ffffff;
+		opacity: 0.5;
 		font-size: 17px;
 		line-height: 24px; }
 	.row.post-shorted.padding-bottom { padding-bottom: 0; }

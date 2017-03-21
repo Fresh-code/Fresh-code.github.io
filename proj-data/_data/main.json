@@ -118,8 +118,8 @@
     "cover": "main/people.jpg",
     "info": [
       { "desc": "Core <br> clients", "alt": "Handshake",         "val": 12, "ico": "/img/main/client_icon.png" },
-      { "desc": "In-house <br> developers", "alt": "html tag",  "val": 42, "ico": "/img/main/developer_icon.png" },
-      { "desc": "Programming <br> languages", "alt": "Head with a gear", "val": 7,  "ico": "/img/main/language_icon.png" },
+      { "desc": "In-house <br> developers", "alt": "html tag",  "val": 42, "ico": "/img/main/language_icon.png" },
+      { "desc": "Programming <br> languages", "alt": "Head with a gear", "val": 7,  "ico": "/img/main/developer_icon.png" },
       { "desc": "Completed <br> projects", "alt": "Laptop",   "val": 41, "ico": "/img/main/project_icon.png" }
     ]
   }

@@ -68,7 +68,7 @@ function createPostContent(slug, content) {
 }
 
 function getImagesData(customFields, slug) {
-    return {
+    let postImagesInfo = {
         mainImage: {
             name: 'banner_post.' + Images.getImageFormatById(customFields['background'][0]),
             id: customFields['background'][0]
@@ -87,11 +87,19 @@ function getImagesData(customFields, slug) {
             id: customFields['cover'][0]
         },
         pathToPostImages: '/' + createImagesFolderPath(slug) + '/'
+    };
+
+    if(!isKeyUndefined(customFields['mobile_background'])) {
+        postImagesInfo.mobileBackground = {
+            name: 'mobile_banner_post.' + Images.getImageFormatById(customFields['mobile_background'][0]),
+                id: customFields['mobile_background'][0]
+        };
     }
+    return postImagesInfo;
 }
 
 function createPostFile(customFields, pageDate, slug, content, imagesData) {
-    return '--- \n' +
+    let post = '--- \n' +
         'layout: post\n' +
         'title: ' + fixColon(customFields['title'][0]) + '\n' +
         'description: ' + fixColon(customFields['description'][0]) + '\n' +
@@ -113,9 +121,16 @@ function createPostFile(customFields, pageDate, slug, content, imagesData) {
         'position: ' + fixColon(customFields['position'][0]) + '\n' +
         'share-image: ' + imagesData.pathToPostImages + imagesData.mainImage.name + '\n' +
         'share-description: ' + fixColon(customFields['description'][0]) + '\n' +
-        'share-title: ' + fixColon(customFields['title_post'][0]) + addRedirect(slug) +
-        '---' + '\n' +
+        'share-title: ' + fixColon(customFields['title_post'][0]) + addRedirect(slug); //+
+
+    if (!isKeyUndefined(customFields['mobile_background'])) {
+        post += /*'img_type: twoimgs \n' +*/ 'mobile_background: ' + imagesData.pathToPostImages + imagesData.mobileBackground.name + '\n';
+    }
+
+    post += '---' + '\n' +
         createPostContent(slug, content);
+
+    return post;
 }
 
 function loadImages(imagesData, content, slug) {
@@ -126,6 +141,10 @@ function loadImages(imagesData, content, slug) {
     Images.loadImgById(imagesData.authorImage.id, Config.PATH.BLOG_IMAGES + imagesData.authorImage.name, true);
     Images.loadImgById(imagesData.recentImage.id, folderPath + '/' + imagesData.recentImage.name, true);
     Images.loadImgById(imagesData.coverImage.id, folderPath + '/' + imagesData.coverImage.name, true);
+
+    if (!isKeyUndefined(imagesData.mobileBackground.id)) {
+        Images.loadImgById(imagesData.mobileBackground.id, folderPath + '/' + imagesData.mobileBackground.name, true);
+    }
 
     loadPostIncludedImages(content, slug);
 }
@@ -144,6 +163,10 @@ function createImagesFolderPath(slug) {
 
 function createPostLink(date, slug) {
     return '/blog/' + (date.split(' ')[0]).replace(/-/g, "/") + '/' + slug + '/';
+}
+
+function isKeyUndefined(key) {
+    return (typeof key === 'undefined');
 }
 
 const postWorker = (pageData) => {

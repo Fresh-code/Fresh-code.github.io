@@ -123,8 +123,8 @@ function createPostFile(customFields, pageDate, slug, content, imagesData) {
         'share-description: ' + fixColon(customFields['description'][0]) + '\n' +
         'share-title: ' + fixColon(customFields['title_post'][0]) + addRedirect(slug); //+
 
-    if (!isKeyUndefined(customFields['mobile_background'])) {
-        post += /*'img_type: twoimgs \n' +*/ 'mobile_background: ' + imagesData.pathToPostImages + imagesData.mobileBackground.name + '\n';
+    if (!isKeyUndefined(customFields['mobile_background']) && customFields['mobile_background'][0] != '') {
+        post += 'mobile_background: ' + imagesData.pathToPostImages + imagesData.mobileBackground.name + '\n';
     }
 
     post += '---' + '\n' +

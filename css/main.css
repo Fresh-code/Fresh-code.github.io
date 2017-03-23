@@ -873,12 +873,12 @@ body.locked {
 .team-statistics .achiev-icon { margin-bottom: 4rem; }
 .count {
 	font-size: 72px;
-	min-width: 1em;
 	color: black;
 	margin-right: 1rem;
 	text-align: right;
 	line-height: 72px;
-	font-family: "Josefin", sans-serif; }
+	font-family: "Josefin", sans-serif;
+	min-width: 81px;}
 /*.team-statistics .count { font-family: "Josefin Thin", sans-serif; }*/
 .serv-row .count {
 	margin-right: 33px;

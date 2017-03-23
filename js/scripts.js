@@ -4,6 +4,8 @@
  * @depends libraries/lodash.js
  * @depends libraries/parsley.min.js
  * @depends libraries/prism.min.js
+ * @depends libraries/jquery.waypoints.min.js
+ * @depends libraries/jquery.counterup.min.js
  */
 (function (global) {
 
@@ -170,8 +172,6 @@
             thx();
             $form[0].reset();
         });
-
-
         menuOnScroll();
     }); //$(window).on("load", function()...
 
@@ -186,14 +186,13 @@
         var header = $('.fresh-header');
         var st = $(this).scrollTop();
 
-        if ($(window).width() > 1000) {
+        if ($(window).width() > 768) {
 
             $('.parallax-text-blog').css({
                 "transform": "translate3d(0px, " + st / 6 + "px, 0px)"
             });
             $('.paralax-text').css({
                 "transform": "translate3d(0px, " + st * -0.3 + "px, 0px)",
-              //  "opacity": 1 - st / 900
             });
             $('.parallax-text').css({
                 "transform": "translate3d(0px, " + st / 25 + "px, 0px)"
@@ -201,8 +200,19 @@
             $('.parallax-section').css({
                 "transform": "translate3d(0px, " + st / 6 + "px, 0px)"
             });
-        }
 
+            $('.parallax-section_0').css({
+                "transform": "translate3d(0px, " + st / 1.5 + "px, 0px)"
+            });
+
+            $('.parallax-section_1').css({
+                "transform": "translate3d(0px, " + st / 2 + "px, 0px)"
+            });
+
+            $('.parallax-section_2').css({
+                "transform": "translate3d(0px, " + st / 3 + "px, 0px)"
+            });
+        }
 
         if (st < 1) {
             header.removeClass('is-scrolled');
@@ -217,5 +227,12 @@
         }
         lastScrollTop = st;
     }
+
+    jQuery(document).ready(function( $ ) {
+        $('.count').counterUp({
+            delay: 10, // the delay time in ms
+            time: 1000 // the speed time in ms
+        });
+    });
 
 })(this);

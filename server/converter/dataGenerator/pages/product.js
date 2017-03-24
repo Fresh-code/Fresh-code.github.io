@@ -35,7 +35,7 @@ function createHtmlTemplateIfNotExist(templateType, slug, productHtmlName) {
 
     fs.exists(Config.PATH.ROOT + Config.PATH.WP_HTML_PROJECTS + productHtmlName, function (exists) {
         if (exists != true) {
-            let htmlTemplate = fs.readFileSync(Config.PATH.TEMPLATES + Utils.createProductHtmlName(templateType), {
+            let htmlTemplate = fs.readFileSync(Config.PATH.ROOT + Config.PATH.TEMPLATES + Utils.createProductHtmlName(templateType), {
                 encoding: "UTF-8",
                 flag: "r"
             });

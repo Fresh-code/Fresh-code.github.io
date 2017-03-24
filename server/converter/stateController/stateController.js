@@ -5,29 +5,37 @@ const jsonfile = require('jsonfile');
 const Config = require('../../config.js');
 const Utils = require('../utils/utils.js');
 
-let previousSiteState = jsonfile.readFileSync(Config.PATH.STATE_DATA);
-let deletedIds = [];
+let previousSiteState = jsonfile.readFileSync(Config.PATH.ROOT + Config.PATH.STATE_DATA);
+let idsForDeletion = [];
 
 function writeState() {
     Utils.writeJsonFile(Config.PATH.WP_JSON_DATA, 'bd.json', previousSiteState);
 }
 
 const stateInit = () => {
-    deletedIds = [];
+    idsForDeletion = [];
     for (const stateId in previousSiteState) {
         if (previousSiteState.hasOwnProperty(stateId)) {
-            deletedIds.push(stateId);
+            idsForDeletion.push(stateId);
         }
     }
 };
 
 const getState = (id) => {
-    const index = deletedIds.indexOf(id.toString());
-    if (index > -1) {
-        deletedIds.splice(index, 1);
+    if(previousSiteState[id]) {
+        excludeFromIdsForDeletion(id);
+        return previousSiteState[id];
+    } else {
+        return false;
     }
-    return previousSiteState[id] ? previousSiteState[id] : false;
 };
+
+function excludeFromIdsForDeletion (id) {
+    const index = idsForDeletion.indexOf(id.toString());
+    if (index > -1) {
+        idsForDeletion.splice(index, 1);
+    }
+}
 
 const createNewState = (id, type, slug, date, modified) => {
     previousSiteState[id] = {
@@ -43,15 +51,14 @@ const createNewState = (id, type, slug, date, modified) => {
     } else {
         previousSiteState[id].fileName = slug + '.json';
     }
-
-    return previousSiteState[id];
 };
+
 const updateState = (id, state) => {
     previousSiteState[id] = state;
 };
 
-const deleteIdsFromStae = () => {
-    deletedIds.forEach(function (id) {
+const deleteIdsForDeletionFromState = () => {
+    idsForDeletion.forEach(function (id) {
         const state = previousSiteState[id];
 
         switch (state['type']) {
@@ -108,7 +115,7 @@ exports.stateInit = stateInit;
 exports.getState = getState;
 exports.createNewState = createNewState;
 exports.updateState = updateState;
-exports.deleteIdsFromStae = deleteIdsFromStae;
+exports.deleteIdsForDeletionFromState = deleteIdsForDeletionFromState;
 exports.createNewStateIfPageModified = createNewStateIfPageModified;
 exports.updateStateFilename = updateStateFilename;
 exports.updateStateHtmlFilename = updateStateHtmlFilename;

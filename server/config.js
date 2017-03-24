@@ -1,13 +1,14 @@
 'use strict';
+const path = require('path');
 
 module.exports = Object.freeze({
     STAGING_URL: "http://192.168.1.151:8000",
     POSTS_URL: "/?json=get_posts",
     MEDIA_PORTION_URL: "/wp-json/wp/v2/media/?per_page=100",
     PATH: {
-        ROOT: "/src/",
-        TEMPLATES: "/src/server/converter/dataModels/html-templates/template",
-        STATE_DATA: "/src/wp-data/_data/bd.json",
+        ROOT: __dirname+ '/../',
+        TEMPLATES: "server/converter/dataModels/html-templates/template",
+        STATE_DATA: "wp-data/_data/bd.json",
         WP_DATA_FOLDER: "wp-data/",
 
 

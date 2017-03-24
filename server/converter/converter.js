@@ -22,7 +22,7 @@ const creatingSiteContent = (pagesDataFromWp) => {
     });
     Testimonials.saveTestimonialsFile();
     Portfolio.writePortfolioFile();
-    State.deleteIdsFromStae();
+    State.deleteIdsForDeletionFromState();
 };
 
 function createPage(wpDoc, modified) {

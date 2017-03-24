@@ -89,12 +89,28 @@ function getImagesData(customFields, slug) {
         pathToPostImages: '/' + createImagesFolderPath(slug) + '/'
     };
 
-    if(!isKeyUndefined(customFields['mobile_background'])) {
+    if (!isKeyUndefined(customFields['mobile_background'])) {
         postImagesInfo.mobileBackground = {
             name: 'mobile_banner_post.' + Images.getImageFormatById(customFields['mobile_background'][0]),
-                id: customFields['mobile_background'][0]
+            id: customFields['mobile_background'][0]
         };
     }
+
+    if (isParallaxUses(customFields['parallax'])) {
+        postImagesInfo.parallax_0 = {
+            name: 'parallax_image_0.' + Images.getImageFormatById(customFields['par_0_image'][0]),
+            id: customFields['par_0_image'][0]
+        };
+        postImagesInfo.parallax_1 = {
+            name: 'parallax_image_1.' + Images.getImageFormatById(customFields['par_1_image'][0]),
+            id: customFields['par_1_image'][0]
+        };
+        postImagesInfo.parallax_2 = {
+            name: 'parallax_image_2.' + Images.getImageFormatById(customFields['par_2_image'][0]),
+            id: customFields['par_2_image'][0]
+        };
+    }
+
     return postImagesInfo;
 }
 
@@ -127,8 +143,13 @@ function createPostFile(customFields, pageDate, slug, content, imagesData) {
         post += 'mobile_background: ' + imagesData.pathToPostImages + imagesData.mobileBackground.name + '\n';
     }
 
-    post += '---' + '\n' +
-        createPostContent(slug, content);
+    if (isParallaxUses(customFields['parallax'])) {
+        post += 'par_background_0: ' + imagesData.pathToPostImages + imagesData.parallax_0.name + '\n';
+        post += 'par_background_1: ' + imagesData.pathToPostImages + imagesData.parallax_1.name + '\n';
+        post += 'par_background_2: ' + imagesData.pathToPostImages + imagesData.parallax_2.name + '\n';
+    }
+
+    post += '---' + '\n' + createPostContent(slug, content);
 
     return post;
 }
@@ -144,6 +165,12 @@ function loadImages(imagesData, content, slug) {
 
     if (!isKeyUndefined(imagesData.mobileBackground.id)) {
         Images.loadImgById(imagesData.mobileBackground.id, folderPath + '/' + imagesData.mobileBackground.name, true);
+    }
+
+    if (!isKeyUndefined(imagesData.parallax_0)) {
+        Images.loadImgById(imagesData.parallax_0.id, folderPath + '/' + imagesData.parallax_0.name, true);
+        Images.loadImgById(imagesData.parallax_1.id, folderPath + '/' + imagesData.parallax_1.name, true);
+        Images.loadImgById(imagesData.parallax_2.id, folderPath + '/' + imagesData.parallax_2.name, true);
     }
 
     loadPostIncludedImages(content, slug);
@@ -167,6 +194,10 @@ function createPostLink(date, slug) {
 
 function isKeyUndefined(key) {
     return (typeof key === 'undefined');
+}
+
+function isParallaxUses(key) {
+    return (key == 'parallax');
 }
 
 const postWorker = (pageData) => {

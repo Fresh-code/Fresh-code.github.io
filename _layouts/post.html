@@ -8,18 +8,42 @@
 <main>
     <div id="main-section">
         <div class="section height-fixed height-100 padding-top padding-bottom blog-post">
-            {% if page.mobile_background %}
-            <div class="image-background bleed parallax-section hide-img-on-mobile">
-                {% adaptive_image {{ page.background }} size="1920 1024 768" sizes="min 1000 1920;min 600 1024;max 599 768" draggable="false" class="image" alt="{{ page.alt }}" title="Blog post background" %}
-            </div>
-            <div class="image-background bleed show-img-on-mobile parallax-section">
-                <img src="{{ page.mobile_background }}" alt="Blog post background" />
-            </div>
+            <!--parallax images-->
+            {% if page.par_background_0 %}
+
+                {% if page.mobile_background %}
+                    <div class="image-background bleed show-img-on-mobile">
+                        <img src="{{ page.mobile_background }}" alt="Blog post background" />
+                    </div>
+                {% else %}
+                    <div class="image-background bleed parallax-section">
+                        {% adaptive_image {{ page.background }} size="768" sizes="max 599 768" draggable="false" class="image" alt="{{ page.alt }}" title="Blog post background" %}
+                    </div>
+                {% endif %}
+
+                <div class="image-background bleed parallax-section_0 hide-img-on-mobile">
+                    {% adaptive_image {{ page.par_background_0 }} size="1920" sizes="min 1000 1920" draggable="false" class="image" alt="{{ page.alt }}" title="Blog post background" %}
+                </div>
+                <div class="image-background bleed parallax-section_1 hide-img-on-mobile">
+                    {% adaptive_image {{ page.par_background_1 }} size="1920" sizes="min 1000 1920" draggable="false" class="image" alt="{{ page.alt }}" title="Blog post background" %}
+                </div>
+                <div class="image-background bleed parallax-section_2 hide-img-on-mobile">
+                    {% adaptive_image {{ page.par_background_2 }} size="1920" sizes="min 1000 1920" draggable="false" class="image" alt="{{ page.alt }}" title="Blog post background" %}
+                </div>
+            <!--ordinary image-->
+            {% elsif page.mobile_background %}
+                <div class="image-background bleed parallax-section hide-img-on-mobile">
+                    {% adaptive_image {{ page.background }} size="1920 1024 768" sizes="min 1000 1920;min 600 1024;max 599 768" draggable="false" class="image" alt="{{ page.alt }}" title="Blog post background" %}
+                </div>
+                <div class="image-background bleed parallax-section show-img-on-mobile">
+                    <img src="{{ page.mobile_background }}" alt="Blog post background" />
+                </div>
             {% else %}
-            <div class="image-background bleed parallax-section">
-                {% adaptive_image {{ page.background }} size="1920 1024 768" sizes="min 1000 1920;min 600 1024;max 599 768" draggable="false" class="image" alt="Blog post background" title="Blog post background" %}
-            </div>
+                <div class="image-background bleed parallax-section">
+                    {% adaptive_image {{ page.background }} size="1920 1024 768" sizes="min 1000 1920;min 600 1024;max 599 768" draggable="false" class="image" alt="Blog post background" title="Blog post background" %}
+                </div>
             {% endif %}
+
             <div class="post-titling paralax-text">
                 <div class="fresh-sub-block">
                     <div class="row post-shorted padding-bottom width-fixed">

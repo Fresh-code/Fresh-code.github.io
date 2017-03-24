@@ -26,7 +26,6 @@ const wpWorker = () => {
 
     function getMediaPagesNumber(callback) {
         const regPagesNum = /.*x-wp-totalpages":"(\d).*/g;
-
         http.get(Config.STAGING_URL + Config.MEDIA_PORTION_URL + '&page=1', (res) => {
             return callback(JSON.stringify(res.headers).replace(regPagesNum, '$1'));
         }).on('error', (err) => {
@@ -35,14 +34,12 @@ const wpWorker = () => {
     }
 
     const getMediaFromWP = (pagesNum, callback) => {
-        for(let i = 1; i <= pagesNum; i++) {
-            getMediaPortion(i, () => {
-               if( i == pagesNum ) return callback();
-            });
-        }
+        getMediaPortion(1, pagesNum, () => {
+            return callback();
+        });
     };
 
-    function getMediaPortion(page, callback) {
+    function getMediaPortion(page, pagesNum, callback) {
         http.get(Config.STAGING_URL + Config.MEDIA_PORTION_URL + '&page=' + page, (res) => {
             let body = '';
             res.on('data', (chunk) => {
@@ -50,7 +47,12 @@ const wpWorker = () => {
             });
             res.on('end', () => {
                 allImagesInfo = allImagesInfo.concat(JSON.parse(body));
-                callback();
+
+                if (page < pagesNum) {
+                    getMediaPortion(++page, pagesNum, callback);
+                } else {
+                    callback();
+                }
             });
         }).on('error', (err) => {
             console.log(err);

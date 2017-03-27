@@ -155,7 +155,7 @@
             posttitle: '7 Improvements to UX Design That Ensure Brand Trust',
             platformtag: '',
             avatar: '/img/blog-post/author_3.png',
-            catauthor: 'Front End | Stanislav Tsalpinskiy',
+            catauthor: 'Front End | Stanislav Tsaplinskyi',
             position: 'UX/UI Designer',
             postcover: '/img/blog-post/7-improvements-to-ux-design-that-ensure-brand-trust/post_c-350.jpg',
             postalt: '',

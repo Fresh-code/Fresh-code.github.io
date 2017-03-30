@@ -3,7 +3,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% assign url = page.url | replace:'/','' %}
-    {% if page.layout == 'post' %}
     <meta property="og:url"           content="{{ site.url }}{{ page.url }}">
     <meta property="og:type"          content="article">
     <meta property="fb:app_id"        content="1077965352288016" />
@@ -17,6 +16,7 @@
     <meta name="twitter:creator"      content="{{ site.twitter_username }}">
     <meta name="twitter:title"        content="{{ page.share-title }}">
     <meta name="twitter:description"  content="{{ page.share-description }}">
+    {% if page.layout == 'post' %}
     <meta name="description" content="{{ page.description }}">
     <title>{{ page.title }}</title>
     {% else %}

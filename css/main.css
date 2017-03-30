@@ -1636,7 +1636,6 @@ textarea.material-input { resize: none; }
 	line-height: 24px;
 	color: red; }
 
-.submit-block { margin-top: 7%; }
 .hire-btn.button {
 	background: transparent;
 	outline: none;
@@ -2775,7 +2774,6 @@ header { color: #ffffff; }
 
 @media screen and (max-width: 767px) {
 	.submit-block { margin-top: 0; }
-	.submit-block .hire-btn { margin-top: 4rem; }
 }
 @media screen and (max-width: 450px) {
 
@@ -3479,8 +3477,7 @@ span.path {
 	.shorted-job .attach-link {
 		width: 150px;
 		font-size: 17px;
-		padding: 17px 0;
-		margin-left: 40px;
+		padding: 0;
 		line-height: 24px; }
 	.material-input,
 	.material-input:focus {
@@ -3732,7 +3729,7 @@ span.path {
 @media screen and (max-width: 568px) {
 	.serv-row .count {  bottom: 6px;  min-width: 0;  font-size: 71px;  text-align: center;
 		padding-left: 0;  margin-right: 15px;  line-height: 70px; }
-	.shorted-job .attach-link {  width: 110px;  margin-left: 20px; }
+	.shorted-job .attach-link {  width: 110px;  }
 	.proj-header-overflow .proj-screenshot img { margin-top: -3em; }
 }
 @media screen and (max-width: 520px) {

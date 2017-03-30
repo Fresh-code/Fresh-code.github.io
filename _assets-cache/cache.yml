@@ -1,12 +1,12 @@
 ---
 css/bootstrap/bootstrap.min.css: 7027334fa6dd5f695f1b832cb3cd9319
-css/main.css: 1bf5b0964b875a9ac7e0d21e48731ecd
+css/main.css: 11a4fe6039c1fece2d501ad53280de12
 css/font-awesome-4.6.3/css/font-awesome.min.css: 4083f5d376eb849a458cc790b53ba080
 css/prism.css: fc8dca674b79b3997a46ddcd3877e2ad
 js/portfolio.js: 27bd1cd62fc0bef262df551d6b514671
 js/scripts.js: d60fedf67ba61ef874c459cc2d56d320
 js/blog.js: 7ad6ff92a65c9a39a116f3bd2022ece0
-js/job.js: 214a35a50b11f8fe2583346ee7662453
+js/job.js: 6068c158d9d02e2bf102b42f2e012092
 js/post.js: 8cb7a6d922f213c9222cfad100efd015
 img/gommehd/work_portfolio_cover_p.jpg: a1ec78c0e1691a1dfeeca0d158b09372
 img/playattention/work_portfolio_cover_p.jpg: 1874452991e785698019d668d1393483
@@ -35,6 +35,7 @@ img/blog-post/is-dedicated-team-the-perfect-one-for-you/post_c.jpg: 57e872f6e780
 "/img/blog-post/what-is-mvp-and-why-every-startup-needs-it/banner_post.jpg": 8aacdde0a0ee1083436b154aab25916e
 "/img/blog-post/how-to-ruin-first-impression/banner_post.jpg": 5580aacbd821dc288468498a175f2b0a
 "/img/blog-post/software-testing/banner_post.jpg": 99c5ac12feff6c255116dab108ed8e51
+"/img/blog-post/from-idea-to-success/banner_post.jpg": 27f81d43fd988cdb936e35d03fe825ed
 "/img/blog/banner_blog.jpg": 7271216ca9683a1fb8814bf4c3db64f5
 "/img/main/work_3.jpg": 9e69af86965a2c0598f4c9f22002e64d
 "/img/main/work_10.jpg": 1b43a92e8a0e30b85b037aa6f9c0ae37
@@ -71,4 +72,3 @@ img/blog-post/is-dedicated-team-the-perfect-one-for-you/post_c.jpg: 57e872f6e780
 "/img/testimonials/author_ulrik-with-andersen.png": 0b8a39543c372ca4b2b77972e66ccea2
 "/img/wall-breaker/work_first_p.jpg": 09fdeeac5590b3d02a7218dbd253ae64
 "/img/wall-breaker/work_third_p.png": db7d32cb0a5cf4b33d8e301a34602333
-"/img/blog-post/from-idea-to-success/banner_post.jpg": 27f81d43fd988cdb936e35d03fe825ed

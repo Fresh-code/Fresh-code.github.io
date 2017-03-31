@@ -26,6 +26,31 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="{% minified_css_file %}">
     <meta name="google-site-verification" content="Bo50iSYxf-Z02y9uxdaBhCDCqZtqd-eTcf6ZcmaImxM" />
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "name": "Freshcode",
+      "url": "{{ site.url }}",
+      "logo": "{{ site.url }}/img/logo_dark.svg",
+      "image": "{{ site.url }}/img/logo_dark.svg",
+      "description": "{{ site.data['main'].description }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zaporizhzhya",
+        "addressCountry": "Ukraine"
+      },
+      "email" : "alex@freshcodeit.com",
+      "sameAs": [
+            "{{ site.data.main.social.linked }}",
+            "{{ site.data.main.social.facebook }}",
+            "{{ site.data.main.social.twitter }}",
+            "{{ site.data.main.social.google }}",
+            "{{ site.data.main.social.github }}",
+            "{{ site.data.main.social.bitbucket }}"
+      ]
+    }
+    </script>
 </head>
 
 

@@ -8,7 +8,20 @@
 @font-face {
 	font-family: 'Open Light Italic';
 	src: url('open-font/OpenSans-LightItalic.ttf'); }
-
+@font-face {
+	font-family: 'Open Extra Bold';
+	src: url('open-font/OpenSans-ExtraBold.ttf'); }
+@font-face {
+	font-family: 'Helvetica Regular';
+	src: url('helvetica/HelveticaRegular.ttf'); }
+@font-face {
+	font-family: 'KGSecondChancesSketch';
+	src: url('kg-second-chances/KGSecondChancesSketch.ttf');
+}
+@font-face {
+	font-family: 'KGTenThousandReasonsAlt';
+	src: url('kg-ten-thousand-reasons/KGTenThousandReasonsAlt.ttf');
+}
 /*Nums*/
 @font-face {
 	font-family: 'Josefin';
@@ -3804,3 +3817,144 @@ span.path {
 		display: none;
 	}
 }
+.micro-formats{
+	display: none;
+}
+/*------------------------Education page BEGIN----------------------*/
+.education-page{
+	background-color: #ffffff;
+	color: #333333;
+}
+.education-home{
+	color:white;
+	background: #02a7ca url("../img/education/home-background.png") no-repeat;
+	padding-top: 180px;
+	padding-bottom: 180px;
+}
+.education-home h3{
+	font-family: "KGSecondChancesSketch",sans-serif;
+	text-transform: uppercase;
+	font-size: 40px;
+	display: inline-block;
+	padding-bottom: 16px;
+	margin-top:0px;
+	margin-bottom: 40px;
+	border-image: url("../img/education/border.png") 100 round;
+	border-bottom: solid 6px;
+}
+.education-home ul{
+	list-style-image: url("../img/education/list-marker.png");
+	padding: 0 24px;
+	margin: 0;
+}
+.education-home li{
+	padding-bottom: 30px;
+}
+.education-home ul>li>h6{
+	font-family: "KGTenThousandReasonsAlt", sans-serif;
+	font-size: 22px;
+	margin:0 0 0 30px;
+}
+.education-home-content{
+}
+.center{
+	max-width:80%;
+	margin:0 auto;
+}
+.consult-box {
+	position: relative;
+	z-index: 2;
+	width: 480px;
+	height: auto;
+	margin: 10px auto 0 auto;
+	background: #fff;
+	border-radius: .7%;
+	color: white;
+	text-align: center;
+	text-indent: .1em;
+	padding: 40px 50px;
+}
+.consult-box:before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 0.4%;
+	bottom: 0.4%;
+	right: -1.4%;
+	left: -1.4%;
+	background: white;
+	border-radius: 3% / 100%;
+}
+.consult-box:after {
+	content: '';
+	position: absolute;
+	z-index: -3;
+	top: -1.4%;
+	bottom: -1.4%;
+	right: 0.4%;
+	left: 0.4%;
+	background: white;
+	border-radius: 100% / 3%;
+	box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.15);
+}
+.consult-box label{
+	font-family: 'Open Extra Bold', sans-serif;
+	color: #1a1a1a;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 25px;
+}
+.consult-box .hire-btn{
+	position: relative;
+	font-family: 'Open Extra Bold', sans-serif;
+	color: #000000;
+	margin: 40px auto 0px;
+	border-radius: 4px;
+	width: 100%
+}
+.consult-form input, .consult-form input:focus{
+	padding-left: 45px;
+}
+.consult-form-item{
+	position:relative;
+}
+.consult-form-icon{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	top: 14px;
+	left: 0;
+	bottom: 0;
+	position: absolute;
+}
+.name-icon{
+	background: url('../img/education/icon-name.png') no-repeat scroll 7px;
+}
+.email-icon{
+	background: url('../img/education/icon-email.png') no-repeat scroll 7px;
+}
+.message-icon{
+	background: url('../img/education/icon-message.png') no-repeat scroll 7px;
+}
+.send-icon{
+	display: inline-block;
+	position: relative;
+	margin: auto;
+	background: url('../img/education/icon-send.png') no-repeat scroll 7px;
+}
+.send-icon span{
+	padding-left:35px;
+}
+@media screen and (max-width: 1000px){
+	.consult-form-icon{
+		top:10px;
+	}
+}
+.education-industry{
+	background: url("../img/education/industry-background.png") no-repeat center;
+
+}
+.education-industry img{
+	margin: 0 auto;
+}
+/*------------------------Education page END------------------------*/

@@ -28,13 +28,11 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/201704041646.min.css">
     <meta name="google-site-verification" content="Bo50iSYxf-Z02y9uxdaBhCDCqZtqd-eTcf6ZcmaImxM" />
-
     <!--Скрипты Schema.org-->
-    
     <script type="application/ld+json">
     {
         "@context": "http://schema.org/",
-        "@type": "LocalBusiness",
+        "@type": "Organization",
         "@id": "https://freshcodeit.com/#organization",
         "name": "Freshcode",
         "url": "https://freshcodeit.com",
@@ -47,7 +45,6 @@
           "addressCountry": "Ukraine"
         },
         "email" : "alex@freshcodeit.com",
-        "openingHours": "Mo - Fr",
         "sameAs": [
           "https://www.linkedin.com/company/freshcode-it?trk=biz-companies-cym",
           "https://www.facebook.com/FreshCode-1569539716705171/",
@@ -87,15 +84,19 @@
       ]
     }
     </script>
+    
     <script type="application/ld+json">
     {
         "@context": "http://schema.org/",
         "@type": "WebPage",
-        "@id": "https://freshcodeit.com#home",
+        "@id": "https://freshcodeit.com/#home",
         "url": "https://freshcodeit.com",
         "breadcrumb": "Freshcode",
+        "mainEntityOfPage":{
+            "@id": "https://freshcodeit.com/#home"
+        },
         "isPartOf":{
-            "@id":"https://freshcodeit.com#site"
+            "@id":"https://freshcodeit.com/#site"
         }
     }
     </script>

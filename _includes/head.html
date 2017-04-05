@@ -35,21 +35,52 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="{% minified_css_file %}">
     <meta name="google-site-verification" content="Bo50iSYxf-Z02y9uxdaBhCDCqZtqd-eTcf6ZcmaImxM" />
+    <!--Скрипты Schema.org-->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Organization",
+        "@id": "{{site.url}}/#organization",
+        "name": "Freshcode",
+        "url": "{{ site.url }}",
+        "logo": "{{ site.url }}/img/fresh-logo.png",
+        "image": "{{ site.url }}/img/fresh-logo.png",
+        "description": "{{ site.data['main'].description }}",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Zaporizhzhya",
+          "addressCountry": "Ukraine"
+        },
+        "email" : "alex@freshcodeit.com",
+        "sameAs": [
+          "{{ site.data.main.social.linked }}",
+          "{{ site.data.main.social.facebook }}",
+          "{{ site.data.main.social.twitter }}",
+          "{{ site.data.main.social.google }}",
+          "{{ site.data.main.social.github }}",
+          "{{ site.data.main.social.bitbucket }}"
+        ]
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "http://schema.org/",
-      "@type": "Organization",
-      "name": "Freshcode",
-      "url": "{{ site.url }}",
-      "logo": "{{ site.url }}/img/logo_dark.svg",
-      "image": "{{ site.url }}/img/logo_dark.svg",
-      "description": "{{ site.data['main'].description }}",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Zaporizhzhya",
-        "addressCountry": "Ukraine"
+      "@type": "WebSite",
+      "@id": "{{site.url}}/#site",
+      "url": "{{site.url}}",
+      "copyrightHolder": {
+        "@id": "{{site.url}}/#organization"
       },
-      "email" : "alex@freshcodeit.com",
+      "creator":{
+        "@id": "{{site.url}}/#organization"
+      },
+      "sourceOrganization" : {
+        "@id": "{{site.url}}/#organization"
+      },
+      "thumbnailUrl" : "{{ site.url }}/img/fresh-logo.png",
+      "image" : "{{ site.url }}/img/fresh-logo.png",
+      "inLanguage" : "en",
+      "keywords" : "FreshCode, web development, software development, mobile app, IT, Zaporizhzhya, Ukraine",
       "sameAs": [
             "{{ site.data.main.social.linked }}",
             "{{ site.data.main.social.facebook }}",
@@ -60,4 +91,95 @@
       ]
     }
     </script>
+    {% if page.permalink == '/' %}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "WebPage",
+        "@id": "{{site.url}}/#home",
+        "url": "{{site.url}}",
+        "breadcrumb": "Freshcode",
+        "mainEntityOfPage":{
+            "@id": "{{ site.url }}/#home"
+        },
+        "isPartOf":{
+            "@id":"{{site.url}}/#site"
+        }
+    }
+    </script>
+    {% endif %}
+    {% if page.permalink == '/job/' %}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "WebPage",
+        "@id": "{{site.url}}{{page.url}}#job",
+        "url": "{{site.url}}{{page.url}}",
+        "keywords" : "{{site.data[url].keywords}}",
+        "breadcrumb": "Freshcode > Job",
+        "mainEntityOfPage":{
+            "@id": "{{ site.url }}{{ page.url }}#job"
+        },
+        "isPartOf":{
+            "@id":"{{site.url}}/#site"
+        }
+    }
+    </script>
+    {% endif %}
+    {% if page.permalink == '/blog/' %}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "WebPage",
+        "@id": "{{site.url}}{{page.url}}#blog",
+        "url": "{{site.url}}{{page.url}}",
+        "keywords" : "{{site.data[url].keywords}}",
+        "breadcrumb": "Freshcode > Blog",
+        "mainEntityOfPage":{
+            "@id": "{{ site.url }}{{ page.url }}#blog"
+        },
+        "isPartOf":{
+            "@id":"{{site.url}}/#site"
+        }
+    }
+    </script>
+    {% endif %}
+    {% if page.layout == 'post' %}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}#postpage",
+        "url": "{{ site.url }}{{ page.url }}",
+        "breadcrumb": "Freshcode > Blog > {{page.title}}",
+        "isPartOf":{
+            "@id": "{{site.url}}/#site"
+        },
+        "mainEntity":{
+            "@id": "{{ site.url }}{{ page.url }}#postpage"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "BlogPosting",
+        "@id": "{{ site.url }}{{ page.url }}#post",
+        "url": "{{ site.url }}{{ page.url }}",
+        "headline": "{{page.title}}",
+        "image":"{{page.share-image}}",
+        "publisher":{
+            "@id":"{{site.url}}/#organization"
+        },
+        "isPartOf":{
+            "@id": "{{ site.url }}{{ page.url }}#postpage"
+        },
+        "author":"{{page.author}}",
+        "datePublished":"{{page.date}}",
+        "mainEntityOfPage":{
+            "@id": "{{ site.url }}{{ page.url }}#post"
+        }
+    }
+    </script>
+    {% endif %}
 </head>

@@ -1,4 +1,5 @@
 <div class="site-header-slice__fixer">
+    <h1 class="display-none">{% if site.data[url].page_title%}{{ site.data[url].page_title }}{% elsif site.data[url].page-title%}{{ site.data[url].page-title }}{% elsif site.data[url].name%}{{ site.data[url].name }}{% elsif site.data.center-layout[url].client%}{{ site.data.center-layout[url].client }}{% elsif site.data.right-side-layout[url].name%}{{ site.data.right-side-layout[url].name }}{% elsif page.layout == 'post' %}{{ page.post-title }}{% else %}{{ site.data['main'].name }}{% endif %}</h1>
     <div class="site-header-slice__background-2"></div>
     <div class="main-nav-block">
         <nav>

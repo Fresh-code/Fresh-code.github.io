@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Web Design Trends That No Longer Apply in 2017. The Way Your Site Works',
+            platformtag: '',
+            avatar: '/img/blog-post/author_3.png',
+            catauthor: 'Front End | Stanislav Tsaplinskyi',
+            position: 'UX/UI Designer',
+            postcover: '/img/blog-post/web-design-trends/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/web-design-trends/post_c-700.jpg 700w, /img/blog-post/web-design-trends/post_c-450.jpg 450w, /img/blog-post/web-design-trends/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #0e7178 !important',
+            postbckg: 'background-color: #0e7178 !important',
+            type: 'front',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/04/06/web-design-trends/'
+        },
+        
+        {
             posttitle: 'From Idea to Success in Three Steps with Your Software Development Company',
             platformtag: '',
             avatar: '/img/blog-post/author_4.png',

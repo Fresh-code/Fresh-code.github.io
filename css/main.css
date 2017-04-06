@@ -2299,6 +2299,7 @@ textarea.material-input { resize: none; }
 	font-size: 22px;
 	text-align: center; }
 .serv-h1 {
+	display: block;
 	font-family: 'Open Middle', sans-serif;
 	text-align: center; }
 .serv-container .serv-h1 { margin: 1em 0 50px; }

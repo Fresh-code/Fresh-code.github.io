@@ -4283,3 +4283,40 @@ span.path {
 	background: url('../img/education/icon-email-white.png') no-repeat scroll;
 }
 /*------------------------Education page END------------------------*/
+/*----------------404 BEGIN----------------*/
+.error-content {
+    padding: 180px 0 120px;
+}
+
+.error-content .hire-btn {
+    width: 180px;
+    padding: 15px 20px;
+    margin: 0 auto;
+}
+
+.error-content img {
+    display: block;
+    margin: 0 auto 60px;
+    width: 100%;
+    max-width: 725px;
+}
+
+.error-content h2 {
+    font-family: "Open Middle", sans-serif;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.error-content p {
+    font-family: "Open Light", sans-serif;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+.fresh-header.scrolled-by.no-shadow{
+    box-shadow: none;
+    background: none;
+}
+/*-----------------404 END-----------------*/

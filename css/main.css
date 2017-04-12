@@ -3831,7 +3831,7 @@ span.path {
 
 .education-home {
 	color: white;
-	background: #02a7ca url("../img/education/home-background.png") no-repeat;
+	background: #02a7ca url("../img/education/home-background.png") no-repeat center 0;
 	padding-top: 18rem;
 	padding-bottom: 18rem;
 }

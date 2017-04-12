@@ -222,7 +222,6 @@
             else{
                 header.removeClass('scrolled-by');
             }
-            console.log('scroll');
         }
         else if (st >= lastScrollTop) {
             header.addClass('is-scrolled');

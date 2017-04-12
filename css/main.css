@@ -3979,7 +3979,7 @@ span.path {
 }
 .industry-article h2{
 	font-family: 'Open Extra Bold', sans-serif;
-	font-size: 40px;/* Приближение из-за подстановки шрифтов */
+	font-size: 40px;
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 30px;
@@ -3998,7 +3998,7 @@ span.path {
 }
 .center-headline h2{
 	font-family: 'Open Extra Bold', sans-serif;
-	font-size: 40px;/* Приближение из-за подстановки шрифтов */
+	font-size: 40px;
 	font-weight: 700;
 	text-transform: uppercase;
 	margin:0;

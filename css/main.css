@@ -318,6 +318,7 @@ body.locked {
 
 /*Services*/
 .fresh-sub-block { padding: 0 8%; }
+.fresh-sub-block-services{ padding: 0 8%; }
 .filter .fresh-sub-block { margin-bottom: 3em; }
 .spacer { visibility: hidden; }
 .fresh-container {
@@ -521,7 +522,7 @@ body.locked {
 /*Consulting*/
 
 .consulting-service {
-	width:19.8%;
+	width:19.7%;
 	height: 230px;
 	text-align: center;
 	display: inline-table;
@@ -1526,7 +1527,7 @@ h1.fresh-h1.h1  { margin-top: -25px;}
 .proj-d-thin  { font-size: 22px; }
 .proj-d-bold { font-family: "Open Middle", sans-serif; }
 .proj-d-sub-block { margin: 9% 0; }
-.img-container img { margin: 0 auto 15% auto }
+.img-container img { margin: 0 auto 17% auto }
 .proj-details-body.wallbreaker .scroll-activate { color: #000; }
 
 /*------------------------Thx page Styles------------------------------------*/
@@ -2333,6 +2334,10 @@ textarea.material-input { resize: none; }
 
 @media screen and (max-width: 450px) {
 	.media-left.preview-block { padding: 0; }
+}
+
+@media screen and (min-width: 1266px) {
+	.fresh-sub-block-services{ padding: 0 }
 }
 /* ------------------------------- end SERVICES ----------------------------------------  */
 
@@ -3608,7 +3613,7 @@ span.path {
 	.rsl-vis .col-md-6, .rsl-b .col-md-3,
 	.col-md-6.rsl-b-r, .col-md-6.rsl-b-l,
 	.col-md-6.mac, .col-md-6.sample-container { width: 100%; }
-
+	.mac { margin-top: 10px;}
 	.mob-f-col {
 		display: inline-flex;
 		flex-direction: column-reverse;

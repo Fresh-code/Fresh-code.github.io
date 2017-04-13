@@ -17,17 +17,16 @@
     $form.parsley();
     $form.submit(function (e) {
         e.preventDefault();
-
-        var data = new FormData();
-        data.append('text', $form.find("textarea").val());
-        data.append('file', $('#file')[0].files[0]);
-
         $.ajax({
             method: "POST",
-            url: "https://getform.org/u/470a1fb1-94b3-4094-a7d7-565f28f0c877",
-            data: data,
-            processData: false,
-            contentType: false,
+            url: "https://docs.google.com/a/freshcodeit.com/forms/d/e/1FAIpQLSdrwGQAfwfugg3PYPOb3VWtfajm7vCsvZazaCT0m7cL-vwcmQ/formResponse",
+            data: {
+                "entry.1392950239": $form.find('[name="name"]').val(),
+                "entry.2131570541": $form.find('[name="email"]').val(),
+                "entry.421225390": "'"+$form.find('[name="phone"]').val(),
+                "entry.657556966": $form.find('[name="about"]').val()
+            },
+            dataType: "jsonp",
             crossDomain: true
         }).done(function(res) {
             console.log(res);

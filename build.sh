@@ -9,8 +9,8 @@ git commit -m "`date +"%d/%m/%y %H:%M:%S "`"
 git push origin dev
 
 #Generate site with last update
-jekyll build
-cd _site/
+#jekyll build
+#cd _site/
 
 # Commit and push last update to master branch
 #git add .

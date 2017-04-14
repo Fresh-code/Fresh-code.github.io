@@ -36,4 +36,5 @@
 
 //        setTimeout(window.location = '/', 5000);
     });
+
 })(this);

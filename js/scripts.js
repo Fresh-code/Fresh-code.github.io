@@ -181,7 +181,6 @@
         menuOnScroll();
     });
 
-
     function menuOnScroll() {
         var header = $('.fresh-header');
         var st = $(this).scrollTop();

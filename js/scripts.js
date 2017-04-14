@@ -213,13 +213,20 @@
                 "transform": "translate3d(0px, " + st / 3 + "px, 0px)"
             });
         }
-
         if (st < 1) {
             header.removeClass('is-scrolled');
-            header.removeClass('scrolled-by');
+            if($('#main-section').find('div.error-content').length != 0){
+                header.addClass('scrolled-by');
+                header.addClass('no-shadow');
+            }
+            else{
+                header.removeClass('scrolled-by');
+            }
+            console.log('scroll');
         }
         else if (st >= lastScrollTop) {
             header.addClass('is-scrolled');
+            header.removeClass('no-shadow')
         }
         else {
             header.addClass('scrolled-by');

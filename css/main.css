@@ -4398,11 +4398,11 @@ span.path {
 
 @media screen and (max-width: 1000px) {
 	.error-content {
-		padding: 80px 10px 50px;
+		padding: 100px 10px;
 	}
 
 	.error-content img, .error-content h2, .error-content p {
-		margin: 0 auto 20px;
+		margin: 0 auto 30px;
 	}
 
 	.error-content h2 {

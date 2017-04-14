@@ -4367,3 +4367,9 @@ span.path {
 .fresh-select-input{
 	cursor: pointer;
 }
+.fresh-select-icon{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background-image: url('../img/education/icon-email.png');
+}

@@ -461,5 +461,4 @@
     });
 
     showPosts();
-
 })(this);

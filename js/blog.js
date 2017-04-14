@@ -16,7 +16,7 @@
     var posts = [
         
         {
-            posttitle: 'Web Design Trends That No Longer Apply in 2017. The Way Your Site Looks',
+            posttitle: 'Web Design Trends That Will and Will Not Work in 2017. Part 2',
             platformtag: '',
             avatar: '/img/blog-post/author_3.png',
             catauthor: 'Front End | Stanislav Tsaplinskyi',

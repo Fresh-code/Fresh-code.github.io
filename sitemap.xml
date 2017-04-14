@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://freshcodeit.com/blog/2017/04/13/web-design-trends-2/</loc>
+<lastmod>2017-04-13T13:54:09+03:00</lastmod>
+</url>
+<url>
 <loc>https://freshcodeit.com/blog/2017/04/06/web-design-trends/</loc>
 <lastmod>2017-04-06T13:28:29+03:00</lastmod>
 </url>
@@ -96,6 +100,9 @@
 <loc>https://freshcodeit.com/services/</loc>
 </url>
 <url>
+<loc>https://freshcodeit.com/spiral/</loc>
+</url>
+<url>
 <loc>https://freshcodeit.com/tassta/</loc>
 </url>
 <url>
@@ -130,6 +137,10 @@
 <url>
 <loc>https://freshcodeit.com/pdf/freshcode_case_studies_play_attention.pdf</loc>
 <lastmod>2017-03-23T18:39:26+02:00</lastmod>
+</url>
+<url>
+<loc>https://freshcodeit.com/pdf/freshcode_case_studies_spiral.pdf</loc>
+<lastmod>2017-04-13T11:30:31+03:00</lastmod>
 </url>
 <url>
 <loc>https://freshcodeit.com/pdf/freshcode_case_studies_tassta.pdf</loc>

@@ -19,6 +19,19 @@
     var works = [
         
         {
+            title: 'Spiral',
+            description: 'Spiral is an easy-to-use tool set for Dutch teachers to allow real-time collaboration for study materials’ development.',
+            workcover: '/img/spiral/work_portfolio_cover_p-350.jpg',
+            workalt: 'Spiral Projects Page',
+            worksrcset: '/img/spiral/work_portfolio_cover_p-700.jpg 700w, /img/spiral/work_portfolio_cover_p-450.jpg 450w, /img/spiral/work_portfolio_cover_p-350.jpg 350w',
+            worksizes: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            workcoverbckg: 'background-color: #485663 !important',
+            workbckg: 'background-color: #485663 !important',
+            type: 'education',
+            workurl: '/spiral'
+        },
+        
+        {
             title: 'Play Attention',
             description: 'Play Attention is indisputably the best cognitive training system created to improve attention, behavior and cognitive function for children and adults suffering from ADHD.',
             workcover: '/img/playattention/work_portfolio_cover_p-350.jpg',

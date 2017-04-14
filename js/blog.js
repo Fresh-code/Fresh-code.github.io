@@ -277,5 +277,4 @@
     });
 
     showPosts();
-
 })(this);

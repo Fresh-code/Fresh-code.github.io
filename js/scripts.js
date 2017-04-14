@@ -221,7 +221,6 @@
             else{
                 header.removeClass('scrolled-by');
             }
-            console.log('scroll');
         }
         else if (st >= lastScrollTop) {
             header.addClass('is-scrolled');
@@ -233,7 +232,6 @@
         }
         lastScrollTop = st;
     }
-
     jQuery(document).ready(function( $ ) {
         $('.count').counterUp({
             delay: 10, // the delay time in ms

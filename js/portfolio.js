@@ -258,7 +258,6 @@
         });
 
     });
-
     $dd.change(function (e) {
         var t = $(e.target);
         type = t.val();

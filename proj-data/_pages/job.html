@@ -78,6 +78,23 @@ share-title: Freshcode Vacancies
                                    data-parsley-trigger="keyup"
                                    data-parsley-error-message="This value should be a valid phone number."
                                    required>
+                            <div class="fresh-select">
+                                <input class="material-input fresh-select-input no-select"
+                                       readonly="readonly"
+                                       name="position"
+                                       placeholder="Select Position"
+                                       data-parsley-trigger="blur"
+                                       required>
+                                <ul class="fresh-select-list">
+                                    <!--To add new variants you must also edit a regex pattern of a field "Position" in Google Forms-->
+                                    <li><span>Developer</span></li>
+                                    <li><span>Sales Manager</span></li>
+                                    <li><span>Designer</span></li>
+                                    <li><span>Project Manager</span></li>
+                                    <li><span>DevOps Engineer</span></li>
+                                    <li><span>QA Engineer</span></li>
+                                </ul>
+                            </div>
                             <textarea class="material-input"
                                       rows="1"
                                       name="about"

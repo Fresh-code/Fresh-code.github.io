@@ -129,6 +129,9 @@
         function thx() {
             byThx = true;
             $('body').addClass('thx-opened');
+            $('body').addClass('form-opened');
+            $('body').addClass('locked');
+
             $('body').removeClass('menu-opened');
 
             $('#one').css('display', 'none');
@@ -136,13 +139,38 @@
 
             $('.hamburger').removeClass('close-nav');
             byMailBtn = false;
-
             resetForm();
         }
 
         function resetForm() {
             $form[0].reset();
         }
+
+        var $form_job = $('form.job-form');
+
+        $form_job.parsley();
+        $form_job.submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                method: "POST",
+                url: "https://docs.google.com/a/freshcodeit.com/forms/d/e/1FAIpQLSdrwGQAfwfugg3PYPOb3VWtfajm7vCsvZazaCT0m7cL-vwcmQ/formResponse",
+                data: {
+                    "entry.1392950239": $form_job.find('[name="name"]').val(),
+                    "entry.2131570541": $form_job.find('[name="email"]').val(),
+                    "entry.421225390": "'"+$form_job.find('[name="phone"]').val(),
+                    "entry.657556966": $form_job.find('[name="about"]').val(),
+                    "entry.1399868155": $form_job.find('[name="position"]').val()
+                },
+                dataType: "jsonp",
+                crossDomain: true
+            }).done(function(res) {
+                console.log(res);
+            });
+            $form_job[0].reset();
+            thx();
+
+//        setTimeout(window.location = '/', 5000);
+        });
 
         var $form = $('form.hire-us-form'),
             $name = $form.find("input[name='name']"),
@@ -168,7 +196,6 @@
                     _gaq.push(['_trackEvent','button', 'getform', 'error'])
                 },
             });
-
             thx();
             $form[0].reset();
         });

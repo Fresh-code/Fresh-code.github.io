@@ -18,12 +18,12 @@ git submodule init
 git submodule update
 
 # copying data
-rm -rf ./img/*
+#rm -rf ./img/*
 rm -rf ./_data
 rm -rf ./_pages
 rm -rf ./_posts
 
-mkdir -p img
+#mkdir -p img
 
 cp -rf ./proj-data/cache.yml ./_assets-cache
 cp -rf ./proj-data/_data .

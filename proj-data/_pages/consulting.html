@@ -31,7 +31,8 @@ share-title: Freshcode Consulting
         </div>
     </div>
 
-    <div class="fresh-sub-block ">
+    <div class="services-width-fixed">
+    <div class="fresh-sub-block-services">
         <div class="post-body">
             <div class="row consulting-items-group">
                 <h2>We provide a wide range of services</h2>
@@ -76,16 +77,12 @@ share-title: Freshcode Consulting
     </div>
 
 
-    <div class="fresh-sub-block">
+    <div class="fresh-sub-block-services">
         <div class="post-body">
             <div class="row consulting-items-group">
                     {% for service in site.data.consulting.services %}
                     <div class="consulting-service consulting-left-lines">
-<!--
-                        <div style="position: absolute; height: 80px; width: 1px;    margin-left: -1px; background-color: #761c19;"></div>
--->
                         <div class="cons-vert-lines"></div>
-
                         <div style="display: inline-table">
                             <img class="hide-on-pc-service " src="{{ service.img }}" alt="{{ service.text }}">
                             <img class="service-mobile-img hide-on-mobile-service" src="{{ service.img_mobile }}" alt="{{ service.text }}">
@@ -97,7 +94,7 @@ share-title: Freshcode Consulting
         </div>
     </div>
 
-    <div class="fresh-sub-block">
+    <div class="fresh-sub-block-services">
         <div class="post-body">
             <h2>We cater to a number of industries:</h2>
         </div>
@@ -109,6 +106,7 @@ share-title: Freshcode Consulting
             <div class="cons-item-text">{{ industry.text }}</div>
         </div>
         {% endfor %}
+    </div>
     </div>
 
     <div class="post-body">

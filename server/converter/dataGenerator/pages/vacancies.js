@@ -4,6 +4,7 @@ var exports = module.exports = {};
 const Config = require('../../../config.js');
 const Utils = require('../../utils/utils');
 const Images = require('./../imageWorker');
+const jsonfile = require('jsonfile');
 
 const vacanciesWorker = (pageData) => {
     const  mainImage = createVacanciesImageName(pageData.customFields['page_background'][0]);
@@ -35,19 +36,53 @@ function createVacanciesFile(customFields, mainImage) {
 }
 
 function getApproachData(customFields) {
+
+    function unicArray(arr) {
+        let unicArr = arr.filter(function(item, pos) {
+            return arr.indexOf(item) == pos;
+        });
+        return unicArr;
+    }
     let arr = [];
+    let iFrameVacancies = [];
     for (let i = 0; i < customFields['vacansies'][0]; i++) {
-        arr[i] = {};
-        const keyTitle = "vacansies_" + i + "_title";
-        const keySkills = "vacansies_" + i + "_skills";
-        if (customFields.hasOwnProperty(keyTitle)) {
-            arr[i].title = customFields[keyTitle][0];
-        }
-        if (customFields.hasOwnProperty(keySkills)) {
-            arr[i].skills = customFields[keySkills][0].split('\r\n');
+        const keyAvailable = "vacansies_" + i + "_is_available";
+
+        if (customFields.hasOwnProperty(keyAvailable)) {
+            if(customFields[keyAvailable][0] == "1") {
+
+                arr[i] = {};
+                const keyJiraName = "vacansies_" + i + "_jira_name";
+                const keyTitle = "vacansies_" + i + "_title";
+                const keySkills = "vacansies_" + i + "_skills";
+
+                if (customFields.hasOwnProperty(keyTitle)) {
+                    arr[i].title = customFields[keyTitle][0];
+                }
+                if (customFields.hasOwnProperty(keySkills)) {
+                    arr[i].skills = customFields[keySkills][0].split('\r\n');
+                }
+
+                if (customFields.hasOwnProperty(keyJiraName)) {
+                    iFrameVacancies.push(customFields[keyJiraName][0]);
+                }
+            }
         }
     }
+    createIFrameData(customFields['token'][0], unicArray(iFrameVacancies));
     return arr;
+}
+
+function createIFrameData(token, vacancies){
+    const data = {
+        token: token,
+        positions: vacancies.join()
+    };
+    jsonfile.writeFile(Config.PATH.WP_DATA_FOLDER +'iFramePositions.json', data, {spaces: 2}, function (err) {
+        if (err) {
+            console.error("ERROR WHILE WRITING JSON FILE: " + err);
+        }
+    });
 }
 
 exports.vacanciesWorker = vacanciesWorker;

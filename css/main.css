@@ -318,6 +318,7 @@ body.locked {
 
 /*Services*/
 .fresh-sub-block { padding: 0 8%; }
+.fresh-sub-block-services{ padding: 0 8%; }
 .filter .fresh-sub-block { margin-bottom: 3em; }
 .spacer { visibility: hidden; }
 .fresh-container {
@@ -521,7 +522,7 @@ body.locked {
 /*Consulting*/
 
 .consulting-service {
-	width:19.8%;
+	width:19.7%;
 	height: 230px;
 	text-align: center;
 	display: inline-table;
@@ -548,7 +549,6 @@ body.locked {
 
 .consulting-items-group {
 	text-align: center;
-	margin-bottom: 80px;
 }
 
 .consulting-vert-line{
@@ -2335,6 +2335,10 @@ textarea.material-input { resize: none; }
 @media screen and (max-width: 450px) {
 	.media-left.preview-block { padding: 0; }
 }
+
+@media screen and (min-width: 1266px) {
+	.fresh-sub-block-services{ padding: 0 }
+}
 /* ------------------------------- end SERVICES ----------------------------------------  */
 
 
@@ -3609,7 +3613,7 @@ span.path {
 	.rsl-vis .col-md-6, .rsl-b .col-md-3,
 	.col-md-6.rsl-b-r, .col-md-6.rsl-b-l,
 	.col-md-6.mac, .col-md-6.sample-container { width: 100%; }
-
+	.mac { margin-top: 10px;}
 	.mob-f-col {
 		display: inline-flex;
 		flex-direction: column-reverse;
@@ -3877,7 +3881,7 @@ span.path {
 
 .iframe-wrapper iframe{
 	width: 100%;
-	height: 825px;
+	height: 960px;
 }
 
 .warning-remover {

@@ -6,11 +6,14 @@ Install:
 - imagemagick
 
 Required ruby-gems:
-- bundler
-After installation run `bundle install`
+- jekyll (3.2.1)
+- juicer (1.2.0)
+- uglifier (3.0.1)
+- cmdparse (2.0.6)
+- jekyll-sitemap (0.12.0)
 
-For css/js minification **install by juicer (`juicer install [name]`):**
-- yui_compressor
+For css/js minification **install by juicer:**
+- yui-compressor
 - jslint
 
 ## Usage

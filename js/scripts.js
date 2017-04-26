@@ -129,9 +129,6 @@
         function thx() {
             byThx = true;
             $('body').addClass('thx-opened');
-            $('body').addClass('form-opened');
-            $('body').addClass('locked');
-
             $('body').removeClass('menu-opened');
 
             $('#one').css('display', 'none');
@@ -139,6 +136,12 @@
 
             $('.hamburger').removeClass('close-nav');
             byMailBtn = false;
+
+            resetForm();
+        }
+
+        function resetForm() {
+            $form[0].reset();
         }
 
         var $form = $('form.hire-us-form'),
@@ -165,6 +168,7 @@
                     _gaq.push(['_trackEvent','button', 'getform', 'error'])
                 },
             });
+
             thx();
             $form[0].reset();
         });

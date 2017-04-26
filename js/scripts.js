@@ -177,7 +177,6 @@
         menuOnScroll();
     });
 
-
     function menuOnScroll() {
         var header = $('.fresh-header');
         var st = $(this).scrollTop();
@@ -229,7 +228,6 @@
         }
         lastScrollTop = st;
     }
-
     jQuery(document).ready(function( $ ) {
         $('.count').counterUp({
             delay: 10, // the delay time in ms

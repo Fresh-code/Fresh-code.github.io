@@ -4,18 +4,18 @@
 jekyll build
 
 # Commit and push to dev branch
-#git add .
-#git commit -m "`date +"%d/%m/%y %H:%M:%S "`"
-#git push origin dev
+git add .
+git commit -m "`date +"%d/%m/%y %H:%M:%S "`"
+git push origin dev
 
 #Generate site with last update
-#jekyll build
-#cd _site/
+jekyll build
+cd _site/
 
 # Commit and push last update to master branch
-#git add .
-#git commit -m "update site `date +"%d/%m/%y %H:%M:%S "`"
-#git push origin master
+git add .
+git commit -m "update site `date +"%d/%m/%y %H:%M:%S "`"
+git push origin master
 
 # Set vacancies position in iframe
 curl -X POST -H "Content-Type:application/json" -d @./wp-data/iFramePositions.json https://script.google.com/macros/s/AKfycbyhbQjfhhooKVoDL9ftzK3PAcGZ0mLnAlhpa2m-W8t3nazT3qHs/exec

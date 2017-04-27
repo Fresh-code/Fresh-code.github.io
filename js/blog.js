@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: '7 Questions to Determine Whether You Need Custom or Off-the-Shelf Software',
+            platformtag: '',
+            avatar: '/img/blog-post/author_2.png',
+            catauthor: 'Business | Marina Danilova',
+            position: 'Sales manager',
+            postcover: '/img/blog-post/custom-or-off-the-shelf-software/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/custom-or-off-the-shelf-software/post_c-700.jpg 700w, /img/blog-post/custom-or-off-the-shelf-software/post_c-450.jpg 450w, /img/blog-post/custom-or-off-the-shelf-software/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #547489 !important',
+            postbckg: 'background-color: #547489 !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/04/27/custom-or-off-the-shelf-software/'
+        },
+        
+        {
             posttitle: 'Web Design Trends That Will and Will Not Work in 2017. Part 2',
             platformtag: '',
             avatar: '/img/blog-post/author_3.png',
@@ -435,7 +452,6 @@
         hidePosts();
         showPosts();
     });
-
 
     function showPosts() {
         $('.post-block').each(function(i,elem) {

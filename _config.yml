@@ -34,7 +34,11 @@ exclude:
   - server/
   - proj-data/
   - wp-data/img/
-  - wp-data/
+  - wp-data/_data
+  - wp-data/README.md
 
 markdown: kramdown
 permalink: pretty
+
+add_data_src:
+  data: wp-data/_data

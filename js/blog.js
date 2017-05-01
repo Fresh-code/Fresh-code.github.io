@@ -252,7 +252,6 @@
         showPosts();
     });
 
-
     function showPosts() {
         $('.post-block').each(function(i,elem) {
             if(i < 6){

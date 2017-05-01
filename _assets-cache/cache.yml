@@ -5,7 +5,7 @@ css/font-awesome-4.6.3/css/font-awesome.min.css: 4083f5d376eb849a458cc790b53ba08
 css/prism.css: fc8dca674b79b3997a46ddcd3877e2ad
 js/portfolio.js: 56da6abd5d3d2f5d602c187ce7647891
 js/scripts.js: 911d726edb71bec2225178c8e7cdb092
-js/blog.js: 8c8ad449423b1221553493452c61f7b7
+js/blog.js: 42ddf189a93a7d378a317d134bc05f34
 js/job.js: 8d36b5d1c945f01bc9504210f5e1b59c
 js/post.js: 8cb7a6d922f213c9222cfad100efd015
 img/gommehd/work_portfolio_cover_p.jpg: a1ec78c0e1691a1dfeeca0d158b09372
@@ -83,3 +83,5 @@ img/blog-post/web-design-trends-2/post_c.jpg: 06535ddcbb6a3fd658398ccf8d68bb77
 "/img/spiral/work_second_p.png": d8f03c16c319d3db96d749ada7749474
 "/img/spiral/work_third_p.png": 99b98a959879a64be168e6338e1f9269
 "/img/404/main-404.png": d9ff6c263ef68f170ccac042a9fea99d
+img/blog-post/custom-or-off-the-shelf-software/post_c.jpg: 5ac1db0fb757a9efe28485ca4373ad8d
+"/img/blog-post/custom-or-off-the-shelf-software/banner_post.jpg": 30c62b47111767b00bedba07013612c8

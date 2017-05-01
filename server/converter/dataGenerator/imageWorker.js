@@ -46,15 +46,15 @@ const loadImgById = (imgId, imgPath, isTwoFolders) => {
 
 const loadImage = (url, imageName, isTwoFolders) => {
     if (typeof url != 'undefined' || url != null) {
-        request(url).pipe(fs.createWriteStream(Config.PATH.ROOT + imageName)).on('error', function (err) {
+        request(url).pipe(fs.createWriteStream(Config.PATH.ROOT + Config.PATH.WP_DATA_FOLDER + imageName)).on('error', function (err) {
             console.log("Loading image error: ", err);
         });
     } else {
         console.log("Can't load image. Url is undefined.", imageName);
     }
-    if (isTwoFolders === true) {
+    /*if (isTwoFolders === true) {
         loadImage(url, Config.PATH.WP_DATA_FOLDER + imageName);
-    }
+    }*/
 };
 
 const getAuthorImageNameById = (imageId) => {

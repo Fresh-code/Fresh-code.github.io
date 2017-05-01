@@ -2,4 +2,4 @@
 node server/configureServer.js
 
 jekyll build
-jekyll serve -H 0.0.0.0 & node server/app.js
+node server/app.js & jekyll serve -H 0.0.0.0

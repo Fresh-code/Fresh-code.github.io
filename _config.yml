@@ -33,12 +33,21 @@ exclude:
   - Fresh-code.github.io.iml
   - server/
   - proj-data/
+
   - wp-data/img/
   - wp-data/_data
   - wp-data/README.md
+  - wp-data/cache.yml
+  - wp-data/iFramePositions.json
 
 markdown: kramdown
 permalink: pretty
 
 add_data_src:
   data: wp-data/_data
+
+merge_images:
+  dest: img
+  sources:
+    - proj-data/images
+    - wp-data/img

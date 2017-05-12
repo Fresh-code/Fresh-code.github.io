@@ -120,19 +120,6 @@
             workbckg: 'background-color: #65753b !important',
             type: 'navigation',
             workurl: '/outdoor'
-        },
-        
-        {
-            title: 'Data Parser',
-            description: 'Data Parser is a cloud-based ETL application for unstructured data from any number of sources, including JSON files, with advanced search and data aggregation possibilities.',
-            workcover: '/img/data-parser/work_portfolio_cover_p-350.jpg',
-            workalt: 'Data Parser app preview',
-            worksrcset: '/img/data-parser/work_portfolio_cover_p-700.jpg 700w, /img/data-parser/work_portfolio_cover_p-450.jpg 450w, /img/data-parser/work_portfolio_cover_p-350.jpg 350w',
-            worksizes: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
-            workcoverbckg: 'background-color: #8e9bbb !important',
-            workbckg: 'background-color: #8e9bbb !important',
-            type: 'data',
-            workurl: '/data-parser'
         }
         
     ];

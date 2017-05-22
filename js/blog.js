@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Busting Five of the Most Popular Software Development Myths',
+            platformtag: '',
+            avatar: '/img/blog-post/author_1.png',
+            catauthor: 'Business | Alex Slobozhan',
+            position: 'Sales manager',
+            postcover: '/img/blog-post/software-development-myths/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/software-development-myths/post_c-700.jpg 700w, /img/blog-post/software-development-myths/post_c-450.jpg 450w, /img/blog-post/software-development-myths/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #265370 !important',
+            postbckg: 'background-color: #265370 !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/05/22/software-development-myths/'
+        },
+        
+        {
             posttitle: '7 Questions to Determine Whether You Need Custom or Off-the-Shelf Software',
             platformtag: '',
             avatar: '/img/blog-post/author_2.png',

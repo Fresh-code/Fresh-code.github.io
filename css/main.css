@@ -1755,6 +1755,7 @@ textarea.material-input { resize: none; }
 .hide-on-pc-service { display: block; }
 
 @media screen and (max-width: 991px) {
+	.list-footer div.footer-social-icons { width: 14.28%;  float: left; }
 	.mobile-service-main-img{ max-width: 270px; width: 100%;}
 	.hide-on-mobile-service { display: block; }
 	.hide-on-pc-service { display: none; }

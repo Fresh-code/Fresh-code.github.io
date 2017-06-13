@@ -2553,7 +2553,7 @@ header { color: #ffffff; }
 	/*background-color: #00e1a4; }*/
 
 
-.nav-link span { position: relative; }
+.nav-link span { position: relative; white-space: nowrap;}
 .nav-link span::after {
 	position: absolute;
 	left: 0;

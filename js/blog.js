@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'How to Create a Perfect System Requirements Specification?',
+            platformtag: '',
+            avatar: '/img/blog-post/author_0.png',
+            catauthor: 'Business | Elizabeth Troyanova',
+            position: 'Project manager',
+            postcover: '/img/blog-post/perfect-system-requirements-specification/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/perfect-system-requirements-specification/post_c-700.jpg 700w, /img/blog-post/perfect-system-requirements-specification/post_c-450.jpg 450w, /img/blog-post/perfect-system-requirements-specification/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #537690 !important',
+            postbckg: 'background-color: #537690 !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/06/13/perfect-system-requirements-specification/'
+        },
+        
+        {
             posttitle: 'Busting Five of the Most Popular Software Development Myths',
             platformtag: '',
             avatar: '/img/blog-post/author_1.png',

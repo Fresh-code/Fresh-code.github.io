@@ -165,10 +165,12 @@ share-title: Software development company | Freshcode
                             </div>
                             <p class="testimonial-text">{{ testimonial.text }}</p>
                             <div class="description">
+                                {% unless testimonial.link contains 'wall-breaker' %}
                                 <a class="link" href="{{ testimonial.link }}">
                                     <div class="color-fill"></div>
                                     <span>View Case Study</span>
                                 </a>
+                                {% endunless %}
                             </div>
                         </div>
                     </div>

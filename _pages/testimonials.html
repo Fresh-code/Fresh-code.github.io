@@ -49,12 +49,14 @@ share-title: Freshcode Testimonials
                         </div>
                         <div class="col-xs-12 col-md-6 col-lg-6 flex-item testimonial-texts">
                             <p class="testimonial-text">{{ testimonial.text }}</p>
+                            {% unless testimonial.link contains 'wall-breaker' %}
                             <div class="description right">
                                 <a class="link" href="{{testimonial.link}}">
                                     <div class="color-fill"></div>
                                     <span>Case study</span>
                                 </a>
                             </div>
+                            {% endunless %}
                         </div>
                     </div>
                 </div>

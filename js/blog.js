@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Choose a Perfect Outsourcing Software Development Company in Six Steps',
+            platformtag: '',
+            avatar: '/img/blog-post/author_4.png',
+            catauthor: 'Business | Evgeniy Spaskiy',
+            position: 'Project Manager',
+            postcover: '/img/blog-post/perfect-outsourcing-software-development-company/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/perfect-outsourcing-software-development-company/post_c-700.jpg 700w, /img/blog-post/perfect-outsourcing-software-development-company/post_c-450.jpg 450w, /img/blog-post/perfect-outsourcing-software-development-company/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #5e8097 !important',
+            postbckg: 'background-color: #5e8097 !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/07/03/perfect-outsourcing-software-development-company/'
+        },
+        
+        {
             posttitle: 'How to Create a Perfect System Requirements Specification?',
             platformtag: '',
             avatar: '/img/blog-post/author_0.png',

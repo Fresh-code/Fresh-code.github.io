@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'The Hidden Power of Mobile Application Lifecycle Management',
+            platformtag: '',
+            avatar: '/img/blog-post/author_1.png',
+            catauthor: 'Business | Alex Slobozhan',
+            position: 'Sales manager',
+            postcover: '/img/blog-post/mobile-application-lifecycle-management/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/mobile-application-lifecycle-management/post_c-700.jpg 700w, /img/blog-post/mobile-application-lifecycle-management/post_c-450.jpg 450w, /img/blog-post/mobile-application-lifecycle-management/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #8d8475 !important',
+            postbckg: 'background-color: #8d8475 !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/07/17/mobile-application-lifecycle-management/'
+        },
+        
+        {
             posttitle: 'Choose a Perfect Outsourcing Software Development Company in Six Steps',
             platformtag: '',
             avatar: '/img/blog-post/author_4.png',

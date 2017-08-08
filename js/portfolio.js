@@ -113,7 +113,7 @@
             title: 'Outdoor.rocks',
             description: 'Outdoor.rocks is a young, but rapidly developing project, designed for outdoor activity lovers around the world.',
             workcover: '/img/outdoor/work_portfolio_cover_p-350.jpg',
-            workalt: 'Outdoor.rocks preview',
+            workalt: 'Outdoor.rocks',
             worksrcset: '/img/outdoor/work_portfolio_cover_p-700.jpg 700w, /img/outdoor/work_portfolio_cover_p-450.jpg 450w, /img/outdoor/work_portfolio_cover_p-350.jpg 350w',
             worksizes: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
             workcoverbckg: 'background-color: #65753b !important',

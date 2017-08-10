@@ -58,19 +58,6 @@
         },
         
         {
-            title: 'Wallbreaker Dynamics',
-            description: 'Wallbreaker is a start-up that provides unique services for mass-media including instant content creation and visualization of analytic results in real time.',
-            workcover: '/img/wall-breaker/work_portfolio_cover_p-350.jpg',
-            workalt: 'Wallbreaker Dynamics platform preview',
-            worksrcset: '/img/wall-breaker/work_portfolio_cover_p-700.jpg 700w, /img/wall-breaker/work_portfolio_cover_p-450.jpg 450w, /img/wall-breaker/work_portfolio_cover_p-350.jpg 350w',
-            worksizes: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
-            workcoverbckg: 'background-color: #747474 !important',
-            workbckg: 'background-color: #747474 !important',
-            type: 'media',
-            workurl: '/wall-breaker'
-        },
-        
-        {
             title: 'Nova Fabrica Ltd.',
             description: 'FloTron is a multichannel control and monitoring system for manufacturing processes that uses a hardware device connected to a series of peripheral units.',
             workcover: '/img/flotron/work_portfolio_cover_p-350.jpg',

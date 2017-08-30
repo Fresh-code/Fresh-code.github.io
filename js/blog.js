@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'The Geography of Software Development Outsourcing',
+            platformtag: '',
+            avatar: '/img/blog-post/author_0.png',
+            catauthor: 'Business | ELIZABETH TROYANOVA',
+            position: 'Project manager',
+            postcover: '/img/blog-post/the-geography-of-software-development-outsourcing/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/the-geography-of-software-development-outsourcing/post_c-700.jpg 700w, /img/blog-post/the-geography-of-software-development-outsourcing/post_c-450.jpg 450w, /img/blog-post/the-geography-of-software-development-outsourcing/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #316a9f !important',
+            postbckg: 'background-color: #316a9f !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/08/30/the-geography-of-software-development-outsourcing/'
+        },
+        
+        {
             posttitle: 'Quality or Speed? Setting Software Development Priorities Straight',
             platformtag: '',
             avatar: '/img/blog-post/author_2.png',

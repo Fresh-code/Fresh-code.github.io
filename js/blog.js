@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'The Power Of Three In Software Rebuilding',
+            platformtag: '',
+            avatar: '/img/blog-post/author_4.png',
+            catauthor: 'Development | EVGENIY SPASKIY',
+            position: 'Project Manager',
+            postcover: '/img/blog-post/the-power-of-three-in-software-rebuilding/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/the-power-of-three-in-software-rebuilding/post_c-700.jpg 700w, /img/blog-post/the-power-of-three-in-software-rebuilding/post_c-450.jpg 450w, /img/blog-post/the-power-of-three-in-software-rebuilding/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #65825b !important',
+            postbckg: 'background-color: #65825b !important',
+            type: 'development',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/09/29/the-power-of-three-in-software-rebuilding/'
+        },
+        
+        {
             posttitle: 'The Geography of Software Development Outsourcing',
             platformtag: '',
             avatar: '/img/blog-post/author_0.png',

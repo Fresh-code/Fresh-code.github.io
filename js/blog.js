@@ -16,7 +16,7 @@
     var posts = [
         
         {
-            posttitle: 'Mobile App Failure&#58; TOP 5 Reasons Why It Happens',
+            posttitle: 'Mobile App Failure&#58; TOP 6 Reasons Why It Happens',
             platformtag: '',
             avatar: '/img/blog-post/author_1.png',
             catauthor: 'Development | ALEX SLOBOZHAN',

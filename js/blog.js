@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Mobile App Failure&#58; TOP 5 Reasons Why It Happens',
+            platformtag: '',
+            avatar: '/img/blog-post/author_1.png',
+            catauthor: 'Development | ALEX SLOBOZHAN',
+            position: 'Sales manager',
+            postcover: '/img/blog-post/mobile-app-failure-top-6-reasons-why-it-happens/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/mobile-app-failure-top-6-reasons-why-it-happens/post_c-700.jpg 700w, /img/blog-post/mobile-app-failure-top-6-reasons-why-it-happens/post_c-450.jpg 450w, /img/blog-post/mobile-app-failure-top-6-reasons-why-it-happens/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #56acef !important',
+            postbckg: 'background-color: #56acef !important',
+            type: 'development',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/10/30/mobile-app-failure-top-6-reasons-why-it-happens/'
+        },
+        
+        {
             posttitle: 'The Power Of Three In Software Rebuilding',
             platformtag: '',
             avatar: '/img/blog-post/author_4.png',

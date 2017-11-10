@@ -62,19 +62,19 @@
       "mainColor": "#253a57"
     },
     {
-      "title": "Tassta",
-      "description": "Tassta is a hardware-software solutions platform providing more effective communication for a number of industries, including Public Transportation, Construction, Courier and Emergency Services, etc.",
-      "cover": "/img/main/work_4.jpg",
-      "alt": "Tassta platform preview",
-      "link": "/tassta",
-      "mainColor": "#6e8a6d"
+      "title": "Spiral",
+      "description": "Spiral is an easy-to-use tool set for Dutch teachers to allow real-time collaboration for study materials’ development.",
+      "cover": "/img/main/work_7.jpg",
+      "alt": "Spiral platform preview",
+      "link": "/spiral",
+      "mainColor": "#3a444e"
     },
     {
-      "title": "Data Parser",
-      "description": "Data Parser is a cloud-based ETL application for unstructured data from any number of sources, including JSON files, with advanced search and data aggregation possibilities.",
+      "title": "Nova Fabrica LTD.",
+      "description": "Flotron is a multi-channel Process Control and Plasma Monitoring System built to allow users remote real-time access to the data via Internet connection.",
       "cover": "/img/main/work_5.jpg",
-      "alt": "Data Parser app preview",
-      "link": "/data-parser",
+      "alt": "Flotron app preview",
+      "link": "/flotron",
       "mainColor": "#8594b9"
     },
     {

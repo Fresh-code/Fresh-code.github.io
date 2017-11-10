@@ -84,19 +84,6 @@
         },
         
         {
-            title: 'Tassta',
-            description: 'Tassta is a hardware-software solutions platform providing more effective communication for a number of industries, including Public Transportation, Construction, Courier and Emergency Services, etc.',
-            workcover: '/img/tassta/work_portfolio_cover_p-350.jpg',
-            workalt: 'Tassta platform preview',
-            worksrcset: '/img/tassta/work_portfolio_cover_p-700.jpg 700w, /img/tassta/work_portfolio_cover_p-450.jpg 450w, /img/tassta/work_portfolio_cover_p-350.jpg 350w',
-            worksizes: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
-            workcoverbckg: 'background-color: #6e8a6d !important',
-            workbckg: 'background-color: #6e8a6d !important',
-            type: 'navigation',
-            workurl: '/tassta'
-        },
-        
-        {
             title: 'Outdoor.rocks',
             description: 'Outdoor.rocks is a young, but rapidly developing project, designed for outdoor activity lovers around the world.',
             workcover: '/img/outdoor/work_portfolio_cover_p-350.jpg',

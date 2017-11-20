@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Project Estimation&#58; How Do You Know That It’s Correct',
+            platformtag: '',
+            avatar: '/img/blog-post/author_2.png',
+            catauthor: 'Management | MARINA DANILOVA',
+            position: 'Sales manager',
+            postcover: '/img/blog-post/project-estimation-how-do-you-know-that-its-correct/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/project-estimation-how-do-you-know-that-its-correct/post_c-700.jpg 700w, /img/blog-post/project-estimation-how-do-you-know-that-its-correct/post_c-450.jpg 450w, /img/blog-post/project-estimation-how-do-you-know-that-its-correct/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #47352e !important',
+            postbckg: 'background-color: #47352e !important',
+            type: 'management',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/11/20/project-estimation-how-do-you-know-that-its-correct/'
+        },
+        
+        {
             posttitle: 'Mobile App Failure&#58; TOP 6 Reasons Why It Happens',
             platformtag: '',
             avatar: '/img/blog-post/author_1.png',

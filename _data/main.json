@@ -1,7 +1,7 @@
 {
   "title": "Software development company | Agile Development",
   "name": "Welcome to freshcode company",
-  "text": "<span class='inline-text'>Need a superb online and mobile presence to succeed? </span><span class='inline-text'> We take on any project with infinite passion and devotion, creating efficient and elegant solutions. </span><span class='inline-text'> Consulting, engineering, UI/UX design, maintenance – there’s nothing beyond our power. </span>",
+  "text": "<span class='inline-text'>Need a successful online and mobile presence? </span><span class='inline-text'> We take on project with infinite passion and devotion, creating efficient and elegant solutions. </span><span class='inline-text'> Consulting, engineering, UI/UX design, maintenance – this is what we do best. </span>",
   "background": "/img/main/banner_main.jpg",
   "alt": "Software and application development process",
   "keywords": "FreshCode, web development company, software development, mobile app",
@@ -9,14 +9,14 @@
   "services": [
     {
       "name": "Development",
-      "text": "We live and breath development, either mobile, web or desktop. We build stable architectures, create responsive interfaces and craft streamlined designs for your projects to get ahead and succeed.",
+      "text": "We live and breathe development, either mobile, web or desktop. We build stable architectures, create responsive interfaces and craft streamlined designs for your projects to get ahead and succeed.",
       "btntext": "more Development",
       "icon": "main/dev_icon.svg",
       "link": "/desktop-development"
     },
     {
       "name": "Maintenance",
-      "text": "We perform regular maintenance to prevent system's instability. Our fool-proof backup and recovery options minimize risks of unexpected failures and maximize project's uptime.",
+      "text": "We perform regular maintenance to prevent system's instability. Our infallible backup and recovery options minimize risks of unexpected failures and maximize project's uptime.",
       "btntext": "more Maintenance",
       "icon": "main/maintance_icon.svg",
       "link": "/maintenance"
@@ -30,7 +30,7 @@
     },
     {
       "name": "Dedicated team",
-      "text": "We create a dedicated team for your high priority projects. Each team member boasts specialization and skill set best fitted for your needs to ensure successful and timely development.",
+      "text": "We create a dedicated team for your project, each resource being highly qualified, in order to ensure successful and timely development.",
       "btntext": "more Dedicated team",
       "icon": "main/dedicated_icon.svg",
       "link": "/dedicated-team"

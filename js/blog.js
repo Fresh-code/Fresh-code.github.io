@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Graphcool framework analysis and its use case',
+            platformtag: '',
+            avatar: '/img/blog-post/artuh_160x160.png',
+            catauthor: 'Development | Vlad Artyukh',
+            position: 'Full-stack developer',
+            postcover: '/img/blog-post/graphcool-framework-analysis-and-practical-cases/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/graphcool-framework-analysis-and-practical-cases/post_c-700.jpg 700w, /img/blog-post/graphcool-framework-analysis-and-practical-cases/post_c-450.jpg 450w, /img/blog-post/graphcool-framework-analysis-and-practical-cases/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #6f6c72 !important',
+            postbckg: 'background-color: #6f6c72 !important',
+            type: 'development',
+            nondisplay: 'display: none',
+            posturl: '/blog/2017/12/26/graphcool-framework-analysis-and-practical-cases/'
+        },
+        
+        {
             posttitle: 'Project Estimation&#58; How Do You Know That It’s Correct',
             platformtag: '',
             avatar: '/img/blog-post/author_2.png',

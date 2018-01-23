@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Experience your UX – How to Conduct a UX Review by Yourself',
+            platformtag: '',
+            avatar: '/img/blog-post/Image+Pasted+at+2018-1-23+13-39.png',
+            catauthor: 'Front End | Mariia Zakharova',
+            position: 'UI/UX designer',
+            postcover: '/img/blog-post/experience-your-ux-how-to-conduct-a-ux-review-by-yourself/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/experience-your-ux-how-to-conduct-a-ux-review-by-yourself/post_c-700.jpg 700w, /img/blog-post/experience-your-ux-how-to-conduct-a-ux-review-by-yourself/post_c-450.jpg 450w, /img/blog-post/experience-your-ux-how-to-conduct-a-ux-review-by-yourself/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #544945 !important',
+            postbckg: 'background-color: #544945 !important',
+            type: 'front',
+            nondisplay: 'display: none',
+            posturl: '/blog/2018/01/23/experience-your-ux-how-to-conduct-a-ux-review-by-yourself/'
+        },
+        
+        {
             posttitle: 'Graphcool framework analysis and its use case',
             platformtag: '',
             avatar: '/img/blog-post/artuh_160x160.png',

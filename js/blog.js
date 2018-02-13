@@ -16,6 +16,23 @@
     var posts = [
         
         {
+            posttitle: 'Is EdTech The Next Big Thing In IT?',
+            platformtag: '',
+            avatar: '/img/blog-post/sstukan.png',
+            catauthor: 'Business | Sergey Stukan',
+            position: 'CMO',
+            postcover: '/img/blog-post/is-edtech-the-next-big-thing-in-it/post_c-350.jpg',
+            postalt: '',
+            postsrcset: '/img/blog-post/is-edtech-the-next-big-thing-in-it/post_c-700.jpg 700w, /img/blog-post/is-edtech-the-next-big-thing-in-it/post_c-450.jpg 450w, /img/blog-post/is-edtech-the-next-big-thing-in-it/post_c-350.jpg 350w',
+            postsize: '(min-width: 1500px) 700px, (max-width: 1499px) 450px, (max-width: 1000px) 350px, 700px',
+            postcoverbckg: 'background-color: #204959 !important',
+            postbckg: 'background-color: #204959 !important',
+            type: 'business',
+            nondisplay: 'display: none',
+            posturl: '/blog/2018/02/13/is-edtech-the-next-big-thing-in-it/'
+        },
+        
+        {
             posttitle: 'Experience your UX – How to Conduct a UX Review by Yourself',
             platformtag: '',
             avatar: '/img/blog-post/Image+Pasted+at+2018-1-23+13-39.png',
